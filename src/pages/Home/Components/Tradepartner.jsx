@@ -1,11 +1,12 @@
 import React, { useState } from "react";
-
+import home1 from "../../../assets/images/home1.jpeg";
+import conferenceImg from "../../../assets/images/home4.jpeg";
 const services = [
   {
     id: "01",
     title: "Corporate Events",
     desc: "At SSL Events and Productions, we specialize in designing and delivering corporate events that leave a lasting impression.",
-    img: "https://images.unsplash.com/photo-1511578314322-379afb476865?w=800&q=80",
+    img: home1,
     popupDetail:
       "We plan and execute impactful corporate events including meetings, award ceremonies, and company celebrations with complete logistics management, branding, and professional coordination.",
     tag: "Most Popular",
@@ -14,7 +15,7 @@ const services = [
     id: "02",
     title: "Conferences",
     desc: "At SSL Events and Productions, we specialize in organizing professional conferences that inspire, inform, and connect.",
-    img: "https://images.unsplash.com/photo-1519167758481-83f550bb49b3?w=800&q=80",
+    img: "https://i.pinimg.com/736x/58/cd/c0/58cdc0f47523bdbf78768f8fa019377a.jpg",
     popupDetail:
       "Our conference solutions include venue selection, speaker coordination, stage setup, delegate management, and seamless technical support to ensure engaging and successful professional gatherings.",
     tag: "Premium",
@@ -23,7 +24,7 @@ const services = [
     id: "03",
     title: "Product Launches",
     desc: "At SSL Events and Productions, we know that a successful product launch is more than just an event—it’s a pivotal moment.",
-    img: "https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=800&q=80",
+    img: "https://sslevents.ae/wp-content/uploads/2025/01/sd.png",
     popupDetail:
       "We create high-impact product launches with creative staging, media integration, branding experiences, audience engagement strategies, and flawless execution that maximizes brand visibility.",
     tag: "Business",
@@ -32,7 +33,7 @@ const services = [
     id: "04",
     title: "Wedding Events",
     desc: "At SSL Events and Productions, we understand that your wedding day is one of the most cherished moments of your life.",
-    img: "https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?w=800&q=80",
+    img: conferenceImg,
     popupDetail:
       "Our wedding planning services include theme design, décor, catering coordination, entertainment, photography management, and complete day-of execution for a stress-free celebration.",
     tag: "Signature",
@@ -41,7 +42,7 @@ const services = [
     id: "05",
     title: "Exhibition AV Equipment",
     desc: "At SSL Events and Productions, we provide state-of-the-art AV equipment to enhance your exhibition experience.",
-    img: "https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?w=800&q=80",
+    img: "https://sslevents.ae/wp-content/uploads/2025/01/werf.png",
     popupDetail:
       "We supply advanced sound systems, LED displays, lighting setups, and technical support to ensure your exhibition booths and presentations deliver maximum impact and clarity.",
     tag: "Exclusive",
@@ -50,7 +51,7 @@ const services = [
     id: "06",
     title: "AV Equipment Rentals",
     desc: "At SSL Events and Productions, we understand the importance of high-quality audio-visual (AV) equipment in.",
-    img: "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=800&q=80",
+    img: "https://sslevents.ae/wp-content/uploads/2025/01/df.png",
     popupDetail:
       "Our AV rental services provide reliable audio, video, and lighting equipment along with setup, testing, and on-site technical assistance for smooth and professional event execution.",
     tag: "Always On",

@@ -13,15 +13,11 @@ const Page = () => {
   return (
     <div>
        <Header/>
-       
        <Tradepartner/>
-    
        <Ourservices/>
         <Keyfeatures/>
        <Ourworks/>
-      
        <Register/>
-  
     </div>
   )
 }
