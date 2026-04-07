@@ -1,0 +1,75 @@
+import React from "react";
+
+export default function ContactHeader() {
+  return (
+    <div className="w-full bg-white">
+      {/* Header Image Section */}
+      <div className="relative w-full h-[380px] md:h-[420px] lg:h-[460px]">
+        {/* Background Image */}
+       <img
+  src="https://images.openai.com/static-rsc-4/aonlTImHCctwQGvLTQkulY5BKvbHY8AGWx9EZ7lr3tXMMRp7Ue_tCFze20chPXPh7yNPIu27iamQQYLv6wZFO3KNMo44GDMjXPU3erNcHg-5475lpxHpvz94PEfJA0cTCVK14L3NpxJp4QSIE2DSdlMBZ5M3wB2iHmlRDUafCKtuPk44PJ9D3bxuW49wVzw0?purpose=fullsize"
+  alt="night party"
+  className="w-full h-full object-cover"
+/>
+  <div className="absolute inset-0 bg-black/30"></div>
+
+        {/* Center Content */}
+        <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-4">
+          <h1 className="text-white text-3xl md:text-4xl font-bold mb-3">
+            Contact Informations
+          </h1>
+          <p className="text-white/90 max-w-xl text-sm md:text-base mb-5">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+            Suspendisse varius enim in eros elementum tristique.
+          </p>
+
+          <button className="bg-orange-500 hover:bg-orange-600 text-white px-6 py-2 rounded-md text-sm font-semibold tracking-wider uppercase">
+            Contact Us
+          </button>
+        </div>
+
+        {/* Bottom Tabs */}
+        <div className="absolute left-1/2 -bottom-12 transform -translate-x-1/2 w-full px-4">
+          <div className="max-w-5xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-4">
+            
+            {/* Tab 1 */}
+            <div className="bg-white border border-orange-400 rounded-lg p-4 text-center">
+              <p className="text-orange-500 text-xs uppercase mb-1">Call Us</p>
+              <p className="text-gray-800 font-semibold text-sm">
+                (+876) 765 665
+              </p>
+            </div>
+
+            {/* Tab 2 */}
+            <div className="bg-white border border-orange-400 rounded-lg p-4 text-center">
+              <p className="text-orange-500 text-xs uppercase mb-1">Email</p>
+              <p className="text-gray-800 font-semibold text-sm">
+                mail@company.com
+              </p>
+            </div>
+
+            {/* Tab 3 */}
+            <div className="bg-white border border-orange-400 rounded-lg p-4 text-center">
+              <p className="text-orange-500 text-xs uppercase mb-1">Location</p>
+              <p className="text-gray-800 font-semibold text-sm">
+                London Eye, London
+              </p>
+            </div>
+
+            {/* Tab 4 */}
+            <div className="bg-white border border-orange-400 rounded-lg p-4 text-center">
+              <p className="text-orange-500 text-xs uppercase mb-1">Working</p>
+              <p className="text-gray-800 font-semibold text-sm">
+                Mon - Fri : 9AM - 6PM
+              </p>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      {/* Space below for overlap */}
+      <div className="h-20"></div>
+    </div>
+  );
+}
