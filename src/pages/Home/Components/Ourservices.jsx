@@ -25,9 +25,9 @@ const CSS = `
   to   { opacity: 1; transform: translateY(0); }
 }
 
-.svc-visible .svc-title-wrap { animation: fadeDown 0.6s ease forwards; }
-.svc-visible .svc-card-left { animation: fadeSlideLeft 0.6s ease forwards; }
-.svc-visible .svc-card-right { animation: fadeSlideRight 0.6s ease forwards; }
+.svc-visible .svc-title-wrap { animation: fadeDown .6s ease forwards; }
+.svc-visible .svc-card-left { animation: fadeSlideLeft .6s ease forwards; }
+.svc-visible .svc-card-right { animation: fadeSlideRight .6s ease forwards; }
 `;
 
 /* ─── Icons ─── */
@@ -44,7 +44,7 @@ const leftServices = [
     title: "Corporate Events",
     icon: CorporateIcon,
     desc:
-      "Professional planning and execution of corporate meetings, seminars, and business gatherings with premium AV support."
+      "Professional planning and execution of corporate meetings, seminars, and business gatherings with AV support."
   },
   {
     title: "Product Launches",
@@ -81,34 +81,40 @@ const rightServices = [
   }
 ];
 
-/* ─── CARD ─── */
 function Card({ title, icon, desc, side, index }) {
   const delay = `${0.2 + index * 0.15}s`;
 
   return (
     <div className={`svc-card-${side}`} style={{ animationDelay: delay }}>
+      
       {/* LEFT SIDE */}
       {side === "left" && (
-        <div className=" h-[130px] w-[330px] p-2">
-          {/* PERFECT ROUND ICON */}
-          <div
-            className="absolute -left-[111px] top-1/2 -translate-y-1/2
-                          w-[120px] h-[120px] rounded-full
-                          flex items-center justify-center
-                          bg-gradient-to-br from-[#f7c25a] to-[#e08a0a]
-                          shadow-xl flex-shrink-0"
-          >
+        <div className="relative h-[130px] w-full max-w-[330px] p-2 mx-auto lg:mx-0">
 
-    
-            {/* FIX: force icon size */}
+          {/* ICON */}
+<div
+  className="
+    hidden xl:flex
+    absolute top-1/2 -translate-y-1/2
+    -left-[111px]
+    w-[120px] h-[120px] rounded-full
+    items-center justify-center
+    bg-gradient-to-br from-[#f7c25a] to-[#e08a0a]
+    shadow-xl
+  "
+>
             {React.cloneElement(icon, { size: 56 })}
           </div>
 
           {/* TEXT */}
-          <div className="max-w-[260px] text-left ml-[25px]">
+          <div className="
+            max-w-[260px]
+            text-center lg:text-left
+            mx-auto lg:ml-[25px]
+          ">
             <h3 className="text-white font-bold text-[18px]">{title}</h3>
 
-            <p className="text-[#c9b8e8] text-[13.5px] mt-1 leading-[1.7]">
+            <p className="text-[#c9b8e8] text-[13.5px] mt-1 leading-[1.7] line-clamp-3">
               {desc}
             </p>
           </div>
@@ -117,23 +123,32 @@ function Card({ title, icon, desc, side, index }) {
 
       {/* RIGHT SIDE */}
       {side === "right" && (
-        <div className="  h-[130px] w-[330px] p-2">
-          {/* PERFECT ROUND ICON */}
-          <div
-            className="absolute -right-[107px] top-1/2 -translate-y-1/2
-                          w-[120px] h-[120px] rounded-full
-                          flex items-center justify-center
-                          bg-gradient-to-br from-[#f7c25a] to-[#e08a0a]
-                          shadow-xl flex-shrink-0"
-          >
+        <div className="relative h-[130px] w-full max-w-[330px] p-2 mx-auto lg:mx-0">
+
+          {/* ICON */}
+<div
+  className="
+    hidden xl:flex
+    absolute top-1/2 -translate-y-1/2
+    -right-[107px]
+    w-[120px] h-[120px] rounded-full
+    items-center justify-center
+    bg-gradient-to-br from-[#f7c25a] to-[#e08a0a]
+    shadow-xl
+  "
+>
             {React.cloneElement(icon, { size: 56 })}
           </div>
 
           {/* TEXT */}
-          <div className="max-w-[260px] text-left ">
+          <div className="
+            max-w-[260px]
+            text-center lg:text-left
+            mx-auto
+          ">
             <h3 className="text-white font-bold text-[18px]">{title}</h3>
 
-        <p className="text-[#c9b8e8] text-[13.5px] mt-1 leading-[1.7]">
+            <p className="text-[#c9b8e8] text-[13.5px] mt-1 leading-[1.7] line-clamp-3">
               {desc}
             </p>
           </div>
@@ -155,6 +170,7 @@ export default function ServicesSection() {
         obs.disconnect();
       }
     });
+
     if (ref.current) obs.observe(ref.current);
   }, []);
 
@@ -164,32 +180,37 @@ export default function ServicesSection() {
 
       <section
         ref={ref}
-        className="w-full h-[650px] flex overflow-hidden font-[Nunito]"
+        className="w-full min-h-[650px] lg:h-[650px]
+        flex flex-col lg:flex-row overflow-hidden font-[Nunito]"
       >
         {/* LEFT IMAGE */}
         <div
-          className="w-[26%] bg-cover bg-center"
+          className="w-full h-[220px] lg:w-[26%] lg:h-auto bg-cover bg-center"
           style={{
             backgroundImage:
-              "url('https://i.pinimg.com/736x/a4/7f/2c/a47f2c90522da986832261b61966be71.jpg')",
+              "url('https://i.pinimg.com/736x/a4/7f/2c/a47f2c90522da986832261b61966be71.jpg')"
           }}
         />
 
         {/* CENTER */}
         <div
-          className={`${visible ? "svc-visible" : ""} flex-1 flex flex-col items-center px-12 py-12 bg-gradient-to-br from-[#6a1fa8] via-[#551A8B] to-[#3d1266]`}
+          className={`${visible ? "svc-visible" : ""}
+          flex-1 flex flex-col items-center
+          px-6 sm:px-10 lg:px-12
+          py-10 lg:py-12
+          bg-gradient-to-br from-[#6a1fa8] via-[#551A8B] to-[#3d1266]`}
         >
           {/* TITLE */}
           <div className="svc-title-wrap flex items-center gap-5 mb-10">
-            <span className="h-[2px] w-[44px] bg-[#e89010]"></span>
+            <span className="h-[2px] w-[44px] bg-[#e89010]" />
             <h2 className="text-white text-[32px] tracking-[0.22em]">
               Services
             </h2>
-            <span className="h-[2px] w-[44px] bg-[#e89010]"></span>
+            <span className="h-[2px] w-[44px] bg-[#e89010]" />
           </div>
 
           {/* GRID */}
-          <div className="grid grid-cols-2 gap-x-12 gap-y-10 w-full">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-y-10 md:gap-x-12 w-full">
             <div className="flex flex-col gap-10">
               {leftServices.map((s, i) => (
                 <Card key={i} {...s} side="left" index={i} />
@@ -206,10 +227,10 @@ export default function ServicesSection() {
 
         {/* RIGHT IMAGE */}
         <div
-          className="w-[26%] bg-cover bg-center"
+          className="w-full h-[220px] lg:w-[26%] lg:h-auto bg-cover bg-center"
           style={{
             backgroundImage:
-              "url('https://i.pinimg.com/736x/f1/03/76/f103769dd804f6475d19dc2ed2f4ca0d.jpg')",
+              "url('https://i.pinimg.com/736x/f1/03/76/f103769dd804f6475d19dc2ed2f4ca0d.jpg')"
           }}
         />
       </section>
