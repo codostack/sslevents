@@ -224,7 +224,7 @@ export default function EventFooter() {
                 {socials.map((s) => (
                   <a
                     key={s.name}
-                    href="#"
+                    href="/"
                     aria-label={s.name}
                     className={`w-9 h-9 bg-zinc-900 border border-zinc-700 ${s.hoverClass} text-zinc-400 hover:text-white rounded-xl flex items-center justify-center transition-all duration-200 hover:scale-110`}
                   >
@@ -244,7 +244,7 @@ export default function EventFooter() {
             <ul className="space-y-2">
               {quickLinks.map((link, i) => (
                 <li key={i}>
-                  <a href="#" className="flex items-center justify-between text-zinc-400 hover:text-white text-sm py-0.5 group transition-colors">
+                  <a href="/" className="flex items-center justify-between text-zinc-400 hover:text-white text-sm py-0.5 group transition-colors">
                     <span className="flex items-center gap-2.5">
                       <span className="text-sm opacity-60 group-hover:opacity-100 transition-opacity">{link.icon}</span>
                       {link.label}
@@ -269,7 +269,7 @@ export default function EventFooter() {
             <ul className="space-y-1.5">
               {categories.map((cat, i) => (
                 <li key={i}>
-                  <a href="#" className="flex items-center justify-between text-zinc-400 hover:text-white text-sm py-0.5 group transition-colors">
+                  <a href="/" className="flex items-center justify-between text-zinc-400 hover:text-white text-sm py-0.5 group transition-colors">
                     <span className="flex items-center gap-2.5">
                       <span className="text-sm opacity-60 group-hover:opacity-100 transition-opacity">{cat.icon}</span>
                       {cat.label}
@@ -295,7 +295,7 @@ export default function EventFooter() {
               <ul className="space-y-2">
                 {support.map((link, i) => (
                   <li key={i}>
-                    <a href="#" className="flex items-center justify-between text-zinc-400 hover:text-white text-sm py-0.5 group transition-colors">
+                    <a href="/" className="flex items-center justify-between text-zinc-400 hover:text-white text-sm py-0.5 group transition-colors">
                       <span className="flex items-center gap-2.5">
                         <span className="text-sm opacity-60 group-hover:opacity-100 transition-opacity">{link.icon}</span>
                         {link.label}
@@ -319,7 +319,7 @@ export default function EventFooter() {
                   { icon: "🍎", store: "App Store", sub: "Download on the" },
                   { icon: "▶️", store: "Google Play", sub: "Get it on" },
                 ].map((a, i) => (
-                  <a key={i} href="#" className="flex items-center gap-3 bg-zinc-900 border border-zinc-800 hover:border-orange-400/50 hover:bg-zinc-800 rounded-xl px-4 py-2.5 group transition-all">
+                  <a key={i} href="/" className="flex items-center gap-3 bg-zinc-900 border border-zinc-800 hover:border-orange-400/50 hover:bg-zinc-800 rounded-xl px-4 py-2.5 group transition-all">
                     <span className="text-xl">{a.icon}</span>
                     <div>
                       <div className="text-zinc-500 text-[9px] uppercase font-bold">{a.sub}</div>
@@ -340,7 +340,7 @@ export default function EventFooter() {
           </h5>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
             {upcomingEvents.map((ev) => (
-              <a key={ev.id} href="#" className="group flex gap-4 bg-zinc-900 border border-zinc-800 hover:border-zinc-600 rounded-2xl p-3 transition-all hover:-translate-y-0.5">
+              <a key={ev.id} href="/" className="group flex gap-4 bg-zinc-900 border border-zinc-800 hover:border-zinc-600 rounded-2xl p-3 transition-all hover:-translate-y-0.5">
                 <div className="relative flex-shrink-0 w-20 h-14 rounded-xl overflow-hidden">
                   <img src={ev.img} alt={ev.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
                   <span className={`absolute top-1 left-1 text-[8px] font-black px-1.5 py-0.5 rounded-full ${ev.tagColor}`}>
@@ -370,7 +370,7 @@ export default function EventFooter() {
             {["Privacy Policy", "Terms of Use", "Cookie Settings", "Accessibility"].map((item, i) => (
               <span key={item} className="flex items-center">
                 {i > 0 && <span className="text-zinc-700 mx-1">·</span>}
-                <a href="#" className="text-zinc-500 hover:text-orange-400 transition-colors text-xs">{item}</a>
+                <a href="/" className="text-zinc-500 hover:text-orange-400 transition-colors text-xs">{item}</a>
               </span>
             ))}
           </div>
