@@ -18,16 +18,6 @@ import {
 } from "lucide-react";
 
 export default function EventFooter() {
-  const [email, setEmail] = useState("");
-  const [subscribed, setSubscribed] = useState(false);
-
-  const handleSubscribe = () => {
-    if (!email.trim()) return;
-    setSubscribed(true);
-    setEmail("");
-    setTimeout(() => setSubscribed(false), 3000);
-  };
-
   /* LINKS */
   const links = {
     Company: ["Home", "About Us", "Services", "Our Work", "Contact"],
@@ -178,10 +168,11 @@ export default function EventFooter() {
             <div className="bg-[#0f0f11] border border-zinc-800 rounded-2xl overflow-hidden hover:border-orange-500/40 transition">
 
               <div className="relative group">
-                <img
-                  src="https://images.unsplash.com/photo-1505236858219-8359eb29e329?q=80&w=1200&auto=format&fit=crop"
-                  className="w-full h-[190px] object-cover group-hover:scale-105 transition duration-500"
-                />
+<img
+  src="https://images.unsplash.com/photo-1505236858219-8359eb29e329?q=80&w=1200&auto=format&fit=crop"
+  alt="Event venue overview" // meaningful description
+  className="w-full h-[190px] object-cover group-hover:scale-105 transition duration-500"
+/>
 
                 <a
                   href="https://www.youtube.com/watch?v=3fumBcKC6RE"
