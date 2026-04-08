@@ -15,7 +15,7 @@ const SERVICES_DATA = [
     image: "https://images.unsplash.com/photo-1511578314322-379afb476865?q=80&w=2069",
     shortDesc: "End-to-end management for high-level corporate gatherings, ensuring professionalism and memorable experiences.",
     fullDesc: "We transform standard meetings into immersive brand experiences. Our team handles everything from venue sourcing to agenda planning, AV setup, catering, and guest engagement to ensure flawless corporate events.",
-    works: ["Annual Meetings", "Leadership Retreats", "Workshops"]
+    works: ["Expertise in delivering professional and memorable events.", "Tailored solutions to align with your business objectives.", "Flawless execution, ensuring every detail is covered."]
   },
   {
     id: 2,
@@ -24,8 +24,8 @@ const SERVICES_DATA = [
     icon: <Presentation size={18}/>,
     image: "https://i.pinimg.com/1200x/f0/7d/06/f07d065c71e5e8a587ab762f681f4241.jpg",
     shortDesc: "Professional planning for industry summits, seminars, and educational conferences.",
-    fullDesc: "We manage conferences from start to finish — including speaker coordination, registration, and on-site logistics — ensuring seamless and engaging knowledge-sharing events.",
-    works: ["Tech Summits", "Medical Conventions", "Trade Forums"]
+    fullDesc: "The ability of all the various components to work for the organization of successful conferences and corporate events. We serve as a communication link between all conference components, giving your speakers, technical personnel, and event management team the tools they need to offer the ideal conference experience.",
+    works: ["Proven expertise in managing conferences of all sizes and scopes.", "Cutting-edge technology for a professional and memorable experience.", "A dedicated team committed to excellence and precision."]
   },
   {
     id: 3,
@@ -35,7 +35,7 @@ const SERVICES_DATA = [
     image: "https://i.pinimg.com/1200x/9a/e0/c2/9ae0c24b9faec31ab808a33ac604a58b.jpg",
     shortDesc: "Creating high-impact product reveals that captivate audiences and generate buzz.",
     fullDesc: "From stage design to lighting, AV production, and brand storytelling, we ensure every product launch makes a strong, memorable impression.",
-    works: ["Auto Reveals", "Tech Unboxings", "Fashion Premieres"]
+    works: ["Venue selection and design", "Innovative stage setups and branding", "Interactive product presentations"]
   },
   {
     id: 4,
@@ -44,8 +44,8 @@ const SERVICES_DATA = [
     icon: <Layout size={18}/>,
     image: "https://images.unsplash.com/photo-1551818255-e6e10975bc17?q=80&w=2036",
     shortDesc: "Cutting-edge audio-visual solutions for trade shows and exhibitions.",
-    fullDesc: "We provide P2.5 LED walls, touch-screen displays, and immersive AV technology to help your exhibition stand out in a crowded hall.",
-    works: ["Custom LED Booths", "Interactive Kiosks", "Video Walls"]
+    fullDesc: "We provide you with all of the resources, experience, and knowledge you need to put on a creative and strategic exhibition that meets our clients’ expectations. We are here to take your vision to the next level and make it easy for you to stand out for the right reasons by incorporating skilled consultants and managers in various platforms.",
+    works: ["Cutting-edge equipment that delivers reliability and impact.", "Customized solutions to match your exhibition goals.", "Expert team committed to flawless execution."]
   },
   {
     id: 5,
@@ -54,7 +54,7 @@ const SERVICES_DATA = [
     icon: <Star size={18}/>,
     image: "https://i.pinimg.com/736x/b5/ca/c7/b5cac76469cf0cf0307e6a54102e95fa.jpg",
     shortDesc: "Luxury wedding planning and bespoke celebrations for your most memorable day.",
-    fullDesc: "From intimate engagements to extravagant destination weddings, we curate every detail, including floral design, lighting, and on-site coordination to make your dream wedding a reality.",
+    fullDesc: "On your big day, unwind and let us handle the rest; we’ll make sure the entire ceremony meets your standards. Our vivacious wedding event planners offer you services that are current with the newest trends in Dubai’s lovely metropolis We are specialized in: Arabic, Indian and Western Weddings ,Trending Themes , Eye-Catching Decorations , Stunning Centerpieces , World-Class Cuisine , Gorgeous Flower arrangements , Bridal/Groom Shower Parties, Multi-lingual Hostesses, Entertainment by world-class artists.",
     works: ["Destination Weddings", "Engagements", "Receptions"]
   },
   {
@@ -64,8 +64,8 @@ const SERVICES_DATA = [
     icon: <Mic2 size={18}/>,
     image: "https://images.unsplash.com/photo-1470225620780-dba8ba36b745?q=80&w=2070",
     shortDesc: "Professional-grade sound, lighting, and visual gear for flawless event execution.",
-    fullDesc: "We offer top-tier AV equipment from leading brands, ensuring reliable performance for corporate, social, and entertainment events of any scale.",
-    works: ["Sound Systems", "Lighting Rigs", "Wireless Mics"]
+    fullDesc: "Enhance your events with premium audiovisual equipment from SSL Events & Production. Whether it’s a corporate gathering, a wedding, or a live performance, our state-of-the-art rentals ensure your event is seamless, impactful, and unforgettable.",
+    works: ["Cutting-edge equipment that delivers reliability and impact.", "Customized solutions to match your exhibition goals.", "Expert team committed to flawless execution."]
   },
   {
     id: 7,
@@ -74,8 +74,8 @@ const SERVICES_DATA = [
     icon: <Utensils size={18}/>,
     image: "https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?q=80&w=2069",
     shortDesc: "Elegant gala dinners with premium catering, decor, and event styling.",
-    fullDesc: "We create unforgettable evenings for charity balls, award nights, and exclusive banquets with meticulous attention to luxury, ambiance, and fine dining.",
-    works: ["Charity Balls", "Award Nights", "Banquets"]
+    fullDesc: "We provide you with all of the resources, experience, and knowledge you need to put on a creative and strategic exhibition that meets our clients’ expectations. We are here to take your vision to the next level and make it easy for you to stand out for the right reasons by incorporating skilled consultants and managers in various platforms.",
+    works: ["Cutting-edge equipment that delivers reliability and impact.", "Customized solutions to match your exhibition goals.", "Expert team committed to flawless execution."]
   },
   {
     id: 8,
@@ -84,7 +84,7 @@ const SERVICES_DATA = [
     icon: <Disc size={18}/>,
     image: "https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?q=80&w=2070",
     shortDesc: "Stage management and production for concerts, plays, and live entertainment.",
-    fullDesc: "Our team coordinates live performances with full technical production, stage management, and artist logistics to create seamless and engaging shows.",
+    fullDesc: "Bring your event to life with exceptional live performances and professionally produced stage shows. From renowned artists and musicians to immersive cultural acts, we curate entertainment that captivates audiences and creates unforgettable moments. Every performance is seamlessly integrated with advanced lighting, sound, and stage design to deliver a truly spectacular experience.",
     works: ["Theatrical Plays", "Comedy Specials", "Dance Performances"]
   },
   {
@@ -94,8 +94,8 @@ const SERVICES_DATA = [
     icon: <Music size={18}/>,
     image: "https://images.unsplash.com/photo-1501281668745-f7f57925c3b4?q=80&w=2070",
     shortDesc: "Massive-scale concerts with full production management and audience engagement.",
-    fullDesc: "We specialize in music festivals, touring productions, and EDM events, handling rigging, sound engineering, lighting, and logistics for unforgettable experiences.",
-    works: ["Music Festivals", "World Tours", "EDM Events"]
+    fullDesc: "We deliver high-energy concert experiences with seamless planning and world-class production. From artist coordination to stage design, sound, and lighting, every element is crafted to create an electrifying atmosphere and an unforgettable audience experience.",
+    works: ["Large-Scale Music Festivals with immersive stage production", "International World Tours with seamless artist and logistics management", "High-Energy EDM Events featuring cutting-edge sound, lighting, and visuals"]
   }
 ];
 
@@ -153,10 +153,10 @@ const FloatingTabPopup = ({ service, isOpen, onClose }) => (
           </div>
 
           <div className="p-8 pt-12 overflow-y-auto flex-grow">
-            <h2 className="text-2xl font-black text-gray-900 mb-4">{service.title}</h2>
+            <h4 className="text-lg  text-gray-900 mb-4">{service.title}</h4>
             <p className="text-gray-500 text-sm leading-relaxed mb-8">{service.fullDesc}</p>
 
-            <h4 className="text-[10px] font-black text-gray-400 uppercase tracking-widest mb-4">Past Works & Focus</h4>
+            <h4 className="text-[10px] font-black text-gray-400 uppercase tracking-widest mb-4">Our Work & Expertise</h4>
             <div className="space-y-2">
               {service.works.map((item, idx) => (
                 <div key={idx} className="flex items-center gap-3 p-4 bg-gray-50 rounded-2xl border border-gray-100 text-xs font-bold text-gray-700">
