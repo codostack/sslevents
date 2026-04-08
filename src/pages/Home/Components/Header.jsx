@@ -21,7 +21,7 @@ export default function EventHero() {
 
       {/* SEARCH BAR CONTAINER */}
       <div className="absolute bottom-10 left-1/2 -translate-x-1/2 w-[90%] max-w-[1100px] z-10">
-        <div className="relative flex flex-col md:flex-row items-center bg-white/90 backdrop-blur-md p-3 shadow-2xl overflow-hidden border-b-4 border-[#4dcad1]">
+        <div className="relative flex flex-col md:flex-row items-center rounded-lg bg-white/90 backdrop-blur-md p-3 shadow-2xl overflow-hidden border-b-4 border-[#4dcad1]">
           
           {/* Event Type - Now using Search Icon */}
           <div className="flex-1 flex items-center px-5 h-10 w-full md:border-r border-gray-200">

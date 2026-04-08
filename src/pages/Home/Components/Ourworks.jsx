@@ -1,26 +1,43 @@
-import React from "react";
+import React, { useState, useRef } from "react";
 import {
-  Play,
   Clapperboard,
   Instagram,
   Facebook,
   Twitter,
   Youtube,
+  ChevronUp,
+  ChevronDown,
 } from "lucide-react";
-import bannerVideo from "../../assets/images/banner video.mp4";
 
 const EventVideoWatchPage = () => {
 
-  const mainVideo = bannerVideo;
+  /* ✅ MAIN DEFAULT VIDEO (NO CONTROLS) */
+  const defaultVideo =
+    "https://www.youtube.com/embed/GOi4jFy-01o?autoplay=1&mute=1&loop=1&playlist=GOi4jFy-01o&controls=0&modestbranding=1&rel=0&playsinline=1&disablekb=1";
 
-const sidebarVideos = [
-  "https://www.youtube.com/embed/RHz1HQSAMvg?autoplay=1&mute=1&loop=1&playlist=RHz1HQSAMvg&controls=0&modestbranding=1&rel=0&disablekb=1",
-  "https://www.youtube.com/embed/KGEc2A5yDTU?autoplay=1&mute=1&loop=1&playlist=KGEc2A5yDTU&controls=0&modestbranding=1&rel=0&disablekb=1",
-  "https://www.youtube.com/embed/bEycJ5r0W0g?autoplay=1&mute=1&loop=1&playlist=bEycJ5r0W0g&controls=0&modestbranding=1&rel=0&disablekb=1",
-];
+  /* ✅ SIDEBAR VIDEOS */
+  const sidebarVideos = [
+    "https://www.youtube.com/embed/RHz1HQSAMvg?autoplay=1&mute=1&loop=1&playlist=RHz1HQSAMvg&controls=0&rel=0&modestbranding=1&playsinline=1",
+    "https://www.youtube.com/embed/KGEc2A5yDTU?autoplay=1&mute=1&loop=1&playlist=KGEc2A5yDTU&controls=0&rel=0&modestbranding=1&playsinline=1",
+    "https://www.youtube.com/embed/bEycJ5r0W0g?autoplay=1&mute=1&loop=1&playlist=bEycJ5r0W0g&controls=0&rel=0&modestbranding=1&playsinline=1",
+  ];
+
+  const [activeVideo, setActiveVideo] = useState(defaultVideo);
+  const scrollRef = useRef(null);
+
+  /* ✅ MANUAL SCROLL CONTROLS */
+  const scrollUp = () => {
+    scrollRef.current?.scrollBy({ top: -250, behavior: "smooth" });
+  };
+
+  const scrollDown = () => {
+    scrollRef.current?.scrollBy({ top: 250, behavior: "smooth" });
+  };
+
   return (
-    <div className="min-h-[92vh] bg-zinc-950 text-zinc-100 px-4 sm:px-6 lg:px-8 py-6 lg:py-10">
+    <div className="min-h-[92vh] bg-zinc-950 text-white px-4 sm:px-6 lg:px-8 py-10">
 
+      {/* AUTO SCROLL ANIMATION */}
       <style>{`
         @keyframes subtleGlide {
           0% { transform: translateY(0); }
@@ -38,91 +55,95 @@ const sidebarVideos = [
 
       <div className="max-w-[1400px] mx-auto flex flex-col xl:flex-row gap-8">
 
-        {/* LEFT SIDE */}
-        <div className="flex-[3] flex flex-col gap-6">
+        {/* ================= LEFT VIDEO ================= */}
+        <div className="flex-[3]">
 
-          <div className="relative h-[55vh] sm:h-[65vh] lg:h-[58vh] min-h-[420px] bg-zinc-900 rounded-2xl overflow-hidden border border-zinc-800 shadow-2xl">
+          {/* PERFECT HD PLAYER */}
+          <div className="relative w-full aspect-video bg-black rounded-2xl overflow-hidden border border-zinc-800 shadow-2xl">
 
-            <video
-              autoPlay
-              muted
-              loop
-              playsInline
-              className="w-full h-full object-cover"
-            >
-              <source src={mainVideo} type="video/mp4" />
-            </video>
+            <iframe
+              key={activeVideo}
+              src={activeVideo}
+              title="Main Video"
+              allow="autoplay; fullscreen"
+              allowFullScreen
+              className="absolute inset-0 w-full h-full"
+            />
 
-            <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-              <button className="bg-white/10 backdrop-blur-xl p-6 sm:p-8 rounded-full">
-                <Play size={48} fill="white" />
-              </button>
-            </div>
-          </div>
-
-          <div className="p-5 sm:p-6 border border-zinc-800 bg-zinc-900 rounded-2xl">
-            <h1 className="text-2xl sm:text-3xl font-extrabold mb-3">
-              Global Tech Summit 2024
-            </h1>
-            <p className="text-zinc-400 text-sm sm:text-base">
-              Experience the atmosphere and highlights of the event.
-            </p>
           </div>
         </div>
 
-        {/* RIGHT SIDEBAR */}
+        {/* ================= RIGHT SIDEBAR ================= */}
         <div className="flex-1 xl:max-w-sm flex flex-col">
 
-          <div className="flex items-center gap-2.5 mb-5 p-3 bg-zinc-900 rounded-lg border border-zinc-800">
+          {/* HEADER */}
+          <div className="flex items-center gap-2 mb-5 p-3 bg-zinc-900 rounded-lg border border-zinc-800">
             <Clapperboard className="text-red-500" size={20} />
             <h3 className="font-bold text-sm tracking-wide">
               Live Stream Highlights
             </h3>
           </div>
 
-          <div className="relative flex flex-col rounded-3xl border border-zinc-800 bg-black overflow-hidden shadow-inner h-[500px]">
+          <div className="relative flex flex-col rounded-3xl border border-zinc-800 bg-black overflow-hidden h-[500px]">
 
-            <div className="flex-1 overflow-hidden pause-scroll">
+            {/* 🔼 TOP ARROW */}
+            <div className="absolute top-0 left-0 w-full flex justify-center pt-3 pb-3 z-20 bg-gradient-to-b from-black/70 to-transparent">
+              <button
+                onClick={scrollUp}
+                className="bg-white/10 hover:bg-white/20 backdrop-blur-lg p-2 rounded-full transition"
+              >
+                <ChevronUp size={22} />
+              </button>
+            </div>
+
+            {/* VIDEO SCROLLER */}
+            <div
+              ref={scrollRef}
+              className="flex-1 overflow-hidden pause-scroll"
+            >
               <div className="animate-glide p-4 flex flex-col gap-6">
 
                 {[...sidebarVideos, ...sidebarVideos].map((video, i) => (
                   <div
                     key={i}
-                    className="relative aspect-video rounded-xl overflow-hidden border border-zinc-800/50 group"
+                    onClick={() => setActiveVideo(video)}
+                    className="relative aspect-video rounded-xl overflow-hidden border border-zinc-800 cursor-pointer hover:scale-[1.03] transition"
                   >
-                    {/* ✅ YOUTUBE PLAYER */}
-<div className="relative w-full h-full pointer-events-none">
-  <iframe
-    src={video}
-    title={`sidebar-video-${i}`}
-    allow="autoplay"
-    allowFullScreen
-    className="absolute top-0 left-0 w-full h-full object-cover"
-  />
-</div>
+                    <iframe
+                      src={video}
+                      title={`sidebar-${i}`}
+                      allow="autoplay"
+                      className="absolute inset-0 w-full h-full pointer-events-none"
+                    />
                   </div>
                 ))}
 
               </div>
             </div>
 
-            {/* SOCIAL */}
-            <div className="flex-none w-full p-6 sm:p-8 bg-white/10 backdrop-blur-2xl border-t border-white/20 flex flex-col items-center justify-center">
-              <div className="text-center space-y-6">
-                <p className="text-[10px] font-black uppercase tracking-[0.5em] text-zinc-400">
-                  Join the Community
-                </p>
+            {/* 🔽 DOWN ARROW (YOUR SPACING APPLIED) */}
+            <div className="absolute bottom-0 left-0 w-full flex justify-center pt-3 pb-[11.75rem] z-20 bg-gradient-to-t from-black/70 to-transparent">
+              <button
+                onClick={scrollDown}
+                className="bg-white/10 hover:bg-white/20 backdrop-blur-lg p-2 rounded-full transition"
+              >
+                <ChevronDown size={22} />
+              </button>
+            </div>
 
-                <h4 className="text-lg font-bold text-white">
-                  SSL Events
-                </h4>
+            {/* SOCIAL SECTION */}
+            <div className="p-8 bg-white/10 backdrop-blur-xl border-t border-white/20 text-center space-y-5">
+              <p className="text-[10px] tracking-[0.5em] text-zinc-400 uppercase font-bold">
+                Join the Community
+              </p>
 
-                <div className="flex justify-center gap-6 flex-wrap">
-                  <Instagram size={26} className="text-[#E4405F]" />
-                  <Facebook size={26} className="text-[#1877F2]" />
-                  <Twitter size={26} className="text-[#1DA1F2]" />
-                  <Youtube size={26} className="text-[#FF0000]" />
-                </div>
+              <h4 className="text-lg font-bold">SSL Events</h4>
+
+              <div className="flex justify-center gap-6">
+                <Instagram size={26} className="text-[#E4405F]" />
+                <Facebook size={26} className="text-[#1877F2]" />
+                <Twitter size={26} className="text-[#1DA1F2]" />
+                <Youtube size={26} className="text-[#FF0000]" />
               </div>
             </div>
 

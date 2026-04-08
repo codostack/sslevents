@@ -2,21 +2,41 @@ import React from 'react';
 import {  MapPin, Calendar, Users, Star, ArrowRight } from 'lucide-react';
 
 const FeatureCard = ({ image, title, price, rating }) => (
-  <div className="bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-xl transition-shadow duration-300">
+  <div
+    className="
+      bg-white
+      overflow-hidden
+      border-white
+      shadow-sm
+      hover:shadow-xl
+      hover:-translate-y-1
+      transition-all duration-300
+    "
+    style={{ borderWidth: "6px", borderStyle: "solid" }}
+  >
     <div className="h-48 overflow-hidden">
-      <img src={image} alt={title} className="w-full h-full object-cover hover:scale-110 transition-transform duration-500" />
+      <img
+        src={image}
+        alt={title}
+        className="w-full h-full object-cover hover:scale-110 transition-transform duration-500"
+      />
     </div>
+
     <div className="p-4 border-t border-gray-100">
-      <h4 className="text-gray-800 font-semibold text-sm mb-2">{title}</h4>
+      <h4 className="text-gray-800 font-semibold text-sm mb-2">
+        {title}
+      </h4>
+
       <div className="flex justify-between items-center">
         <div className="flex text-yellow-400">
-          {[...Array(rating)].map((_, i) => <Star key={i} size={10} fill="currentColor" />)}
+          {[...Array(rating)].map((_, i) => (
+            <Star key={i} size={10} fill="currentColor" />
+          ))}
         </div>
       </div>
     </div>
   </div>
 );
-
 const EventHero = () => {
   return (
     <div className="relative w-full bg-white font-sans overflow-x-hidden">
