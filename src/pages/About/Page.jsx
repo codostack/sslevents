@@ -14,7 +14,6 @@ const Page = () => {
       <Aboutimage/>
       <Whoweare/>
       <Whychooseus/>
-    
       <Ourvisonmission/>
       <Ourprogress/>
       <Whatwedo/>

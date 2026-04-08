@@ -12,7 +12,6 @@ const FeatureCard = ({ image, title, price, rating }) => (
         <div className="flex text-yellow-400">
           {[...Array(rating)].map((_, i) => <Star key={i} size={10} fill="currentColor" />)}
         </div>
-        <p className="text-[#39CABB] font-bold text-sm">${price}.00</p>
       </div>
     </div>
   </div>
@@ -68,43 +67,40 @@ const EventHero = () => {
         </div>
       </div>
 
-      {/* 2. FEATURE TRIP SECTION (Overlapping Part) */}
-      <div className="relative z-20 -mt-20 max-w-7xl mx-auto px-6 pb-20">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-6 items-center">
-          
-          {/* Text Content Column */}
-          <div className="pt-24 space-y-4">
-            <h5 className="text-[#39CABB] italic font-medium">Our Agency</h5>
-            <h2 className="text-3xl font-bold text-gray-800 border-l-4 border-[#39CABB] pl-4">Feature Event</h2>
-            <p className="text-gray-400 text-xs leading-relaxed">
-              We curate extraordinary experiences tailored to your vision. From corporate galas to intimate weddings, our attention to detail ensures your event is legendary.
-            </p>
-            <button className="bg-[#39CABB] text-white px-6 py-2 rounded text-xs font-bold uppercase shadow-lg shadow-[#39CABB]/30 hover:scale-105 transition-transform">
-              View All
-            </button>
-          </div>
+{/* 2. FEATURE TRIP SECTION (Overlapping Part) */}
+<div className="relative z-20 -mt-20 max-w-7xl mx-auto px-6 pb-20">
+  <div className="grid grid-cols-1 md:grid-cols-4 gap-6 items-center">
+    
+    {/* Text Content Column */}
+    <div className="pt-24 space-y-4">
+      <h5 className="text-[#39CABB] italic font-medium">Our Agency</h5>
+      <h2 className="text-3xl font-bold text-gray-800 border-l-4 border-[#39CABB] pl-4">Feature Event</h2>
+      <p className="text-gray-400 text-xs leading-relaxed">
+        Delivering exceptional events, SSL Events & Productions creates unforgettable experiences through innovative planning, creative design, and flawless execution.
+      </p>
+      <button className="bg-[#39CABB] text-white px-6 py-2 rounded text-xs font-bold uppercase shadow-lg shadow-[#39CABB]/30 hover:scale-105 transition-transform">
+        View All
+      </button>
+    </div>
 
-          {/* Cards Columns */}
-          <FeatureCard 
-            image="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?q=80&w=2069"
-            title="Luxury Wedding Planning"
-            price="3600"
-            rating={4}
-          />
-          <FeatureCard 
-            image="https://img.freepik.com/free-vector/silhouettes-people-dancing-background-with-lights_1048-3314.jpg"
-            title="Corporate Tech Summit"
-            price="5200"
-            rating={5}
-          />
-          <FeatureCard 
-            image="https://img.freepik.com/free-vector/silhouettes-people-dancing-background-with-lights_1048-3314.jpg"
-            title="Gala Night Celebration"
-            price="2800"
-            rating={4}
-          />
-        </div>
-      </div>
+    {/* Cards Columns */}
+    <FeatureCard 
+      image="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?q=80&w=2069"
+      title="Luxury Wedding Planning"
+      rating={4}
+    />
+    <FeatureCard 
+      image="https://i.pinimg.com/1200x/68/6d/d3/686dd3962532a6e0185f6bab99d9dc2d.jpg"
+      title="Corporate Events"
+      rating={5}
+    />
+    <FeatureCard 
+      image="https://i.pinimg.com/1200x/db/3c/d6/db3cd61994f42191c310691b84959057.jpg"
+      title="AV Rentals"
+      rating={5}
+    />
+  </div>
+</div>
 
       {/* Navigation Arrows (Floaters) */}
       <div className="absolute right-10 bottom-40 flex flex-col gap-2">
