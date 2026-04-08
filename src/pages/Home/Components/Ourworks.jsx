@@ -6,75 +6,73 @@ import {
   Facebook,
   Twitter,
   Youtube,
-  Globe,
 } from "lucide-react";
+import bannerVideo from "../../assets/images/banner video.mp4";
 
 const EventVideoWatchPage = () => {
-  const sidebarImages = [
-    "https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=400&h=225&q=80",
-    "https://images.unsplash.com/photo-1506157786151-b8491531f063?w=400&h=225&q=80",
-    "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=400&h=225&q=80",
-    "https://images.unsplash.com/photo-1527529482837-4698179dc6ce?w=400&h=225&q=80",
-    "https://images.unsplash.com/photo-1496307653780-42ee777d4833?w=400&h=225&q=80",
-    "https://images.unsplash.com/photo-1511578314322-379afb476865?w=400&h=225&q=80",
-  ];
 
+  const mainVideo = bannerVideo;
+
+const sidebarVideos = [
+  "https://www.youtube.com/embed/RHz1HQSAMvg?autoplay=1&mute=1&loop=1&playlist=RHz1HQSAMvg&controls=0&modestbranding=1&rel=0&disablekb=1",
+  "https://www.youtube.com/embed/KGEc2A5yDTU?autoplay=1&mute=1&loop=1&playlist=KGEc2A5yDTU&controls=0&modestbranding=1&rel=0&disablekb=1",
+  "https://www.youtube.com/embed/bEycJ5r0W0g?autoplay=1&mute=1&loop=1&playlist=bEycJ5r0W0g&controls=0&modestbranding=1&rel=0&disablekb=1",
+];
   return (
     <div className="min-h-[92vh] bg-zinc-950 text-zinc-100 px-4 sm:px-6 lg:px-8 py-6 lg:py-10">
-      {/* Animation */}
+
       <style>{`
         @keyframes subtleGlide {
           0% { transform: translateY(0); }
           100% { transform: translateY(-50%); }
         }
+
         .animate-glide {
-          animation: subtleGlide 40s linear infinite;
+          animation: subtleGlide 80s linear infinite;
         }
+
         .pause-scroll:hover .animate-glide {
           animation-play-state: paused;
         }
       `}</style>
 
-      {/* MAIN WRAPPER */}
       <div className="max-w-[1400px] mx-auto flex flex-col xl:flex-row gap-8">
 
-        {/* ================= LEFT SIDE ================= */}
+        {/* LEFT SIDE */}
         <div className="flex-[3] flex flex-col gap-6">
 
-          {/* VIDEO */}
-<div className="relative h-[55vh] sm:h-[65vh] lg:h-[58vh] min-h-[420px] bg-zinc-900 rounded-2xl overflow-hidden border border-zinc-800 shadow-2xl">            <img
-              src="https://images.unsplash.com/photo-1501281668745-f7f57925c3b4?w=1600&q=80"
-              className="w-full h-full object-cover"
-              alt="Main Event"
-            />
+          <div className="relative h-[55vh] sm:h-[65vh] lg:h-[58vh] min-h-[420px] bg-zinc-900 rounded-2xl overflow-hidden border border-zinc-800 shadow-2xl">
 
-            <div className="absolute inset-0 flex items-center justify-center">
-              <button className="bg-white/10 hover:bg-white/20 backdrop-blur-xl p-6 sm:p-8 rounded-full transition-all group">
-                <Play
-                  size={48}
-                  fill="white"
-                  className="group-hover:scale-110 transition-transform"
-                />
+            <video
+              autoPlay
+              muted
+              loop
+              playsInline
+              className="w-full h-full object-cover"
+            >
+              <source src={mainVideo} type="video/mp4" />
+            </video>
+
+            <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+              <button className="bg-white/10 backdrop-blur-xl p-6 sm:p-8 rounded-full">
+                <Play size={48} fill="white" />
               </button>
             </div>
           </div>
 
-          {/* TITLE */}
           <div className="p-5 sm:p-6 border border-zinc-800 bg-zinc-900 rounded-2xl">
             <h1 className="text-2xl sm:text-3xl font-extrabold mb-3">
               Global Tech Summit 2024
             </h1>
             <p className="text-zinc-400 text-sm sm:text-base">
-              Experience the atmosphere, the insights, and the connections made
-              on the floor.
+              Experience the atmosphere and highlights of the event.
             </p>
           </div>
         </div>
 
-        {/* ================= RIGHT SIDEBAR ================= */}
+        {/* RIGHT SIDEBAR */}
         <div className="flex-1 xl:max-w-sm flex flex-col">
 
-          {/* HEADER */}
           <div className="flex items-center gap-2.5 mb-5 p-3 bg-zinc-900 rounded-lg border border-zinc-800">
             <Clapperboard className="text-red-500" size={20} />
             <h3 className="font-bold text-sm tracking-wide">
@@ -82,73 +80,55 @@ const EventVideoWatchPage = () => {
             </h3>
           </div>
 
-          {/* SIDEBAR BOX */}
-          <div className="relative flex flex-col rounded-3xl border border-zinc-800 bg-black overflow-hidden shadow-inner h-[500px] sm:h-[550px] xl:h-[500px]">
+          <div className="relative flex flex-col rounded-3xl border border-zinc-800 bg-black overflow-hidden shadow-inner h-[500px]">
 
-            {/* SCROLLING VIDEOS */}
             <div className="flex-1 overflow-hidden pause-scroll">
               <div className="animate-glide p-4 flex flex-col gap-6">
-                {sidebarImages.concat(sidebarImages).map((url, i) => (
+
+                {[...sidebarVideos, ...sidebarVideos].map((video, i) => (
                   <div
                     key={i}
-                    className="relative aspect-video rounded-xl overflow-hidden border border-zinc-800/50 group cursor-pointer"
+                    className="relative aspect-video rounded-xl overflow-hidden border border-zinc-800/50 group"
                   >
-                    <img
-                      src={url}
-                      className="w-full h-full object-cover opacity-60 group-hover:opacity-100 transition-all duration-700"
-                      alt=""
-                    />
+                    {/* ✅ YOUTUBE PLAYER */}
+<div className="relative w-full h-full pointer-events-none">
+  <iframe
+    src={video}
+    title={`sidebar-video-${i}`}
+    allow="autoplay"
+    allowFullScreen
+    className="absolute top-0 left-0 w-full h-full object-cover"
+  />
+</div>
                   </div>
                 ))}
-              </div>
-            </div>
-
-            {/* SOCIAL SECTION */}
-            <div className="flex-none w-full p-6 sm:p-8 bg-white/10 backdrop-blur-2xl border-t border-white/20 flex flex-col items-center justify-center shadow-[0_-15px_40px_rgba(0,0,0,0.6)]">
-
-              <div className="text-center space-y-6 sm:space-y-8">
-
-                <div className="space-y-2">
-                  <p className="text-[10px] font-black uppercase tracking-[0.5em] text-zinc-400">
-                    Join the Community
-                  </p>
-                  <h4 className="text-lg sm:text-xl font-bold text-white tracking-tight">
-                    SSL Events
-                  </h4>
-                </div>
-
-                {/* SOCIAL ICONS */}
-                <div className="flex justify-center gap-6 sm:gap-8 flex-wrap">
-                  <Instagram
-                    size={26}
-                    className="text-[#E4405F] hover:scale-125 transition-transform cursor-pointer"
-                  />
-                  <Facebook
-                    size={26}
-                    className="text-[#1877F2] hover:scale-125 transition-transform cursor-pointer"
-                  />
-                  <Twitter
-                    size={26}
-                    className="text-[#1DA1F2] hover:scale-125 transition-transform cursor-pointer"
-                  />
-                  <Youtube
-                    size={26}
-                    className="text-[#FF0000] hover:scale-125 transition-transform cursor-pointer"
-                  />
-                </div>
-
-                {/* BUTTON */}
-                <div className="pt-4 sm:pt-6">
-                  <button className="bg-white text-black text-[11px] font-black px-6 py-3 rounded-full hover:bg-zinc-200 transition-all tracking-[0.1em] flex items-center gap-2 shadow-lg shadow-white/5">
-                    <Globe size={14} />
-                    VISIT OFFICIAL SITE
-                  </button>
-                </div>
 
               </div>
             </div>
+
+            {/* SOCIAL */}
+            <div className="flex-none w-full p-6 sm:p-8 bg-white/10 backdrop-blur-2xl border-t border-white/20 flex flex-col items-center justify-center">
+              <div className="text-center space-y-6">
+                <p className="text-[10px] font-black uppercase tracking-[0.5em] text-zinc-400">
+                  Join the Community
+                </p>
+
+                <h4 className="text-lg font-bold text-white">
+                  SSL Events
+                </h4>
+
+                <div className="flex justify-center gap-6 flex-wrap">
+                  <Instagram size={26} className="text-[#E4405F]" />
+                  <Facebook size={26} className="text-[#1877F2]" />
+                  <Twitter size={26} className="text-[#1DA1F2]" />
+                  <Youtube size={26} className="text-[#FF0000]" />
+                </div>
+              </div>
+            </div>
+
           </div>
         </div>
+
       </div>
     </div>
   );

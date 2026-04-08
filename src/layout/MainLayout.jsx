@@ -1,6 +1,7 @@
 import { Outlet } from "react-router-dom";
 import Footer from "../Components/Footer";
 import Navbar from "../Components/Navbar";
+import FloatingWhatsApp from "../Components/FloatingWhatsApp";
 
 const MainLayout = () => {
   return (
@@ -16,7 +17,7 @@ const MainLayout = () => {
 
       {/* Footer */}
       <Footer />
-
+      <FloatingWhatsApp />
     </div>
   );
 };
