@@ -5,19 +5,101 @@ import {
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
-// --- Service Data ---
+// --- Updated Service Data ---
 const SERVICES_DATA = [
-  { id: 1, title: "Corporate Events", category: "Professional", icon: <Users size={18}/>, image: "https://images.unsplash.com/photo-1511578314322-379afb476865?q=80&w=2069", shortDesc: "Strategic planning for high-level corporate gatherings.Strategic planning for high-level corporate gatherings.", fullDesc: "We transform standard meetings into immersive brand experiences. Our team handles everything from venue sourcing to agenda planning.", works: ["Annual Meetings", "Leadership Retreats", "Workshops"] },
-  { id: 2, title: "Conferences", category: "Knowledge", icon: <Presentation size={18}/>, image: "https://images.unsplash.com/photo-1540575861501-7ad060e39fe5?q=80&w=2070", shortDesc: "Scalable solutions for industry summits and seminars Strategic planning for high-level corporate gatherings..", fullDesc: "Managing thousands of attendees requires expertise. We provide digital registration and speaker management.", works: ["Tech Summits", "Medical Conventions", "Trade Forums"] },
-  { id: 3, title: "Product Launches", category: "Marketing", icon: <Zap size={18}/>, image: "https://images.unsplash.com/photo-1505373673634-11816f19430c?q=80&w=2073", shortDesc: "Creating viral impact for your brand's newest innovations Strategic planning for high-level corporate gatherings..", fullDesc: "The first impression is everything. We combine high-tech AV and theatrical lighting for a flawless reveal.", works: ["Auto Reveals", "Tech Unboxings", "Fashion Premiers"] },
-  { id: 4, title: "Exhibition AV", category: "Hardware", icon: <Layout size={18}/>, image: "https://images.unsplash.com/photo-1551818255-e6e10975bc17?q=80&w=2036", shortDesc: "High-resolution visual tech for trade show booths Strategic planning for high-level corporate gatherings..", fullDesc: "Stand out in a crowded hall. We supply P2.5 LED walls and interactive touch displays.", works: ["Custom LED Booths", "Kiosks", "Video Walls"] },
-  { id: 5, title: "Wedding Events", category: "Social", icon: <Star size={18}/>, image: "https://images.unsplash.com/photo-1519225421980-715cb0215aed?q=80&w=2070", shortDesc: "Bespoke luxury wedding planning for life's milestonesStrategic planning for high-level corporate gatherings..", fullDesc: "From 'Yes' to 'I Do', we curate every floral petal and light beam for your special day.", works: ["Destination Weddings", "Engagements", "Receptions"] },
-  { id: 6, title: "AV Rentals", category: "Technical", icon: <Mic2 size={18}/>, image: "https://images.unsplash.com/photo-1470225620780-dba8ba36b745?q=80&w=2070", shortDesc: "Professional grade sound and visual gear rentals Strategic planning for high-level corporate gatherings..", fullDesc: "Our inventory includes top-tier brands like L-Acoustics and Christie, maintained to the highest standards.", works: ["Sound Systems", "Lighting Rigs", "Wireless Mics"] },
-  { id: 7, title: "Gala Dinners", category: "Luxury", icon: <Utensils size={18}/>, image: "https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?q=80&w=2069", shortDesc: "Elegant evenings with premium catering and decor Strategic planning for high-level corporate gatherings..", fullDesc: "Where sophistication meets celebration. We manage luxury table styling and red carpet arrivals.", works: ["Charity Balls", "Award Nights", "Banquets"] },
-  { id: 8, title: "Live Performance", category: "Artistic", icon: <Disc size={18}/>, image: "https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?q=80&w=2070", shortDesc: "Theatrical production management for stage shows Strategic planning for high-level corporate gatherings..", fullDesc: "We bring the stage to life. Our team handles backstage logistics and stage management.", works: ["Theatrical Plays", "Comedy Specials", "Dance"] },
-  { id: 9, title: "Concerts", category: "Mass Event", icon: <Music size={18}/>, image: "https://images.unsplash.com/photo-1501281668745-f7f57925c3b4?q=80&w=2070", shortDesc: "Massive scale production for stadium musical events Strategic planning for high-level corporate gatherings..", fullDesc: "The ultimate spectacle. We specialize in touring logistics, massive rigging, and sound engineering.", works: ["Music Festivals", "World Tours", "EDM Events"] }
+  {
+    id: 1,
+    title: "Corporate Events",
+    category: "Professional",
+    icon: <Users size={18}/>,
+    image: "https://images.unsplash.com/photo-1511578314322-379afb476865?q=80&w=2069",
+    shortDesc: "End-to-end management for high-level corporate gatherings, ensuring professionalism and memorable experiences.",
+    fullDesc: "We transform standard meetings into immersive brand experiences. Our team handles everything from venue sourcing to agenda planning, AV setup, catering, and guest engagement to ensure flawless corporate events.",
+    works: ["Annual Meetings", "Leadership Retreats", "Workshops"]
+  },
+  {
+    id: 2,
+    title: "Conferences",
+    category: "Knowledge",
+    icon: <Presentation size={18}/>,
+    image: "https://i.pinimg.com/1200x/f0/7d/06/f07d065c71e5e8a587ab762f681f4241.jpg",
+    shortDesc: "Professional planning for industry summits, seminars, and educational conferences.",
+    fullDesc: "We manage conferences from start to finish — including speaker coordination, registration, and on-site logistics — ensuring seamless and engaging knowledge-sharing events.",
+    works: ["Tech Summits", "Medical Conventions", "Trade Forums"]
+  },
+  {
+    id: 3,
+    title: "Product Launches",
+    category: "Marketing",
+    icon: <Zap size={18}/>,
+    image: "https://i.pinimg.com/1200x/9a/e0/c2/9ae0c24b9faec31ab808a33ac604a58b.jpg",
+    shortDesc: "Creating high-impact product reveals that captivate audiences and generate buzz.",
+    fullDesc: "From stage design to lighting, AV production, and brand storytelling, we ensure every product launch makes a strong, memorable impression.",
+    works: ["Auto Reveals", "Tech Unboxings", "Fashion Premieres"]
+  },
+  {
+    id: 4,
+    title: "Exhibition AV",
+    category: "Hardware",
+    icon: <Layout size={18}/>,
+    image: "https://images.unsplash.com/photo-1551818255-e6e10975bc17?q=80&w=2036",
+    shortDesc: "Cutting-edge audio-visual solutions for trade shows and exhibitions.",
+    fullDesc: "We provide P2.5 LED walls, touch-screen displays, and immersive AV technology to help your exhibition stand out in a crowded hall.",
+    works: ["Custom LED Booths", "Interactive Kiosks", "Video Walls"]
+  },
+  {
+    id: 5,
+    title: "Wedding Events",
+    category: "Social",
+    icon: <Star size={18}/>,
+    image: "https://i.pinimg.com/736x/b5/ca/c7/b5cac76469cf0cf0307e6a54102e95fa.jpg",
+    shortDesc: "Luxury wedding planning and bespoke celebrations for your most memorable day.",
+    fullDesc: "From intimate engagements to extravagant destination weddings, we curate every detail, including floral design, lighting, and on-site coordination to make your dream wedding a reality.",
+    works: ["Destination Weddings", "Engagements", "Receptions"]
+  },
+  {
+    id: 6,
+    title: "AV Rentals",
+    category: "Technical",
+    icon: <Mic2 size={18}/>,
+    image: "https://images.unsplash.com/photo-1470225620780-dba8ba36b745?q=80&w=2070",
+    shortDesc: "Professional-grade sound, lighting, and visual gear for flawless event execution.",
+    fullDesc: "We offer top-tier AV equipment from leading brands, ensuring reliable performance for corporate, social, and entertainment events of any scale.",
+    works: ["Sound Systems", "Lighting Rigs", "Wireless Mics"]
+  },
+  {
+    id: 7,
+    title: "Gala Dinners",
+    category: "Luxury",
+    icon: <Utensils size={18}/>,
+    image: "https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?q=80&w=2069",
+    shortDesc: "Elegant gala dinners with premium catering, decor, and event styling.",
+    fullDesc: "We create unforgettable evenings for charity balls, award nights, and exclusive banquets with meticulous attention to luxury, ambiance, and fine dining.",
+    works: ["Charity Balls", "Award Nights", "Banquets"]
+  },
+  {
+    id: 8,
+    title: "Live Performance",
+    category: "Artistic",
+    icon: <Disc size={18}/>,
+    image: "https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?q=80&w=2070",
+    shortDesc: "Stage management and production for concerts, plays, and live entertainment.",
+    fullDesc: "Our team coordinates live performances with full technical production, stage management, and artist logistics to create seamless and engaging shows.",
+    works: ["Theatrical Plays", "Comedy Specials", "Dance Performances"]
+  },
+  {
+    id: 9,
+    title: "Concerts",
+    category: "Mass Event",
+    icon: <Music size={18}/>,
+    image: "https://images.unsplash.com/photo-1501281668745-f7f57925c3b4?q=80&w=2070",
+    shortDesc: "Massive-scale concerts with full production management and audience engagement.",
+    fullDesc: "We specialize in music festivals, touring productions, and EDM events, handling rigging, sound engineering, lighting, and logistics for unforgettable experiences.",
+    works: ["Music Festivals", "World Tours", "EDM Events"]
+  }
 ];
 
+// --- Service Card Component ---
 const ServiceCard = ({ service, onReadMore }) => (
   <div className="bg-white rounded-[1.5rem] overflow-hidden border border-gray-100 flex flex-col group hover:shadow-xl transition-all duration-500 h-full">
     <div className="relative h-52 overflow-hidden">
@@ -28,7 +110,7 @@ const ServiceCard = ({ service, onReadMore }) => (
     </div>
     
     <div className="p-6 flex flex-col flex-grow">
-      <h3 className="font-black text-gray-900 text-lg mb-2 group-hover:text-teal-600 transition-colors">{service.title}</h3>
+      <h3 className="text-gray-900 text-lg mb-2 group-hover:text-teal-600 transition-colors">{service.title}</h3>
       <p className="text-gray-500 text-xs leading-relaxed mb-6 line-clamp-2">{service.shortDesc}</p>
       
       <button 
@@ -42,6 +124,7 @@ const ServiceCard = ({ service, onReadMore }) => (
   </div>
 );
 
+// --- Floating Popup Component ---
 const FloatingTabPopup = ({ service, isOpen, onClose }) => (
   <AnimatePresence>
     {isOpen && (
@@ -95,29 +178,27 @@ const FloatingTabPopup = ({ service, isOpen, onClose }) => (
   </AnimatePresence>
 );
 
+// --- Main App ---
 const EventApp = () => {
   const [activeService, setActiveService] = useState(null);
 
   return (
     <div className="min-h-screen bg-[#FDFDFD] font-sans pb-20">
-      {/* Container Settings: 
-        max-w-screen-2xl (1536px) or 9xl ensures it fits wide screens.
-        px-4 or px-6 keeps the side gaps minimal as requested.
-      */}
       <div className="max-w-[1400px] mx-auto px-4 lg:px-8 pt-16">
         
+        {/* Header */}
         <header className="mb-16 ml-2">
           <h1 className="text-4xl md:text-6xl font-default text-gray-900 tracking-tighter">
             Our <span className="text-teal-600">Services.</span>
           </h1>
-         <div className="max-w-lg">
-  <p className="text-gray-400 text-sm font-medium mt-2 leading-relaxed">
-    Explore our end-to-end event management solutions Explore our end-to-end event management solutions. Explore our end-to-end event management solutions Explore our end-to-end event management solutions. Explore our end-to-end event management solutions.
-  </p>
-</div>
+          <div className="max-w-lg">
+            <p className="text-gray-400 text-sm font-medium mt-2 leading-relaxed">
+              Explore SSL Events & Productions’ full suite of event management solutions, including corporate events, weddings, product launches, exhibitions, live performances, and luxury gala experiences. We handle every detail to create seamless, memorable, and extraordinary events.
+            </p>
+          </div>
         </header>
 
-        {/* 3-3-3 Grid: Forced 3 columns from 'md' breakpoint and up */}
+        {/* Services Grid */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
           {SERVICES_DATA.map((service) => (
             <ServiceCard 
