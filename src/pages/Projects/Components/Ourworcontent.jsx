@@ -7,16 +7,18 @@ const EventWorksSection = () => {
         
         {/* Left Column: Headline and Featured Image */}
         <div className="flex flex-col">
-          <h1 className="text-5xl md:text-6xl font-default leading-tight mb-12 tracking-tight">
-            An Elegant <br />
-            Portfolio <br />
-           <span className='text-orange-500'> of Memorable <br />
-            Events</span>
-          </h1>
+        <h1 className="leading-tight mb-12 tracking-tight">
+  <span className="block font-serif text-gray-300 text text-3xl md:text-4xl">
+    An Elegant Portfolio
+  </span>
+  <span className="block  font-serif text-5xl md:text-5xl text-orange-400 mt-2">
+    of Memorable Events
+  </span>
+</h1>
           
           <div className="w-full aspect-[4/3] overflow-hidden">
             <img 
-              src="https://images.unsplash.com/photo-1519167758481-83f550bb49b3?auto=format&fit=crop&q=80&w=1000" 
+              src="https://i.pinimg.com/736x/ac/20/17/ac20174fac444246e1d98a298d59499c.jpg" 
               alt="Destination Wedding Setup" 
               className="w-full h-full object-cover grayscale-[20%] hover:grayscale-0 transition-all duration-500"
             />
@@ -26,47 +28,38 @@ const EventWorksSection = () => {
         {/* Right Column: Narrative Content */}
         <div className="flex flex-col pt-4">
           <div className="mb-12">
-            <span className="text-xs font-bold uppercase tracking-[0.2em] block mb-2">
+            <span className="text-xs font-bold uppercase tracking-[0.2em] text-center block mb-2">
               Our Craft & Commitment
             </span>
-            <div className="w-8 h-[2px] bg-black mb-10"></div>
+            <div className="w-50 h-[2px] bg-orange-200 mb-10"></div>
             
             <div className="flex gap-6">
               <span className="text-6xl font-serif text-gray-300 leading-none">E</span>
               <p className="text-lg font-medium leading-relaxed">
-                Every event we curate is a blend of precision and passion. 
-                From intimate destination weddings to high-impact corporate 
-                summits, we specialize in transforming visions into 
-                seamless, immersive experiences.
+Every event we design is guided by creativity, precision, and attention to detail.
+At SSL Events and Productions, we transform ideas into unforgettable experiences.
+From elegant weddings to impactful corporate conferences, we bring every vision to life.
               </p>
             </div>
           </div>
 
           <div className="space-y-6 text-gray-600 leading-relaxed text-sm lg:text-base mt-[40px]">
             <p>
-              We believe that the beauty of event management lies in the details. 
-              Our team meticulously handles every logistical element, allowing 
-              the core narrative of your celebration or brand to shine. 
-              Whether it’s a floral installation in Palakkad or a tech 
-              conference layout, our approach remains rooted in modern 
-              minimalism and functional elegance. Every event we curate is a blend of precision and passion. 
-                From intimate destination weddings to high-impact corporate 
-                summits, we specialize in transforming visions into 
-                seamless, immersive experiences.
+            We believe great events are built on thoughtful planning and flawless execution. 
+Our team carefully manages every element — venue design, stage production, 
+lighting, and guest experience — ensuring that each moment reflects the 
+vision and purpose behind the event.
             </p>
             <p>
-              Over the years, we have redefined what it means to "host." 
-              By integrating cutting-edge UI/UX principles into event 
-              flow and physical space design, we ensure that guests 
-              aren't just attending—they are experiencing.  Every event we curate is a blend of precision and passion. 
-                From intimate destination weddings to high-impact corporate
+          Whether it’s a luxury wedding celebration, a high-profile corporate summit, 
+or a dynamic gala evening, we combine creativity with advanced event 
+technology to deliver experiences that inspire and engage every guest.
             </p>
             <p>
-              Our portfolio spans across diverse landscapes and cultures, 
-              bringing a sophisticated, Pinterest-style aesthetic to 
-              every project we touch. We don't just plan events; we 
-              build environments where memories are made and 
-              disruption happens elegantly.
+         Our portfolio showcases a diverse range of events across industries and 
+cultures. With a commitment to quality, innovation, and elegance, 
+SSL Events and Productions continues to create memorable events 
+that leave lasting impressions.
             </p>
           </div>
         </div>

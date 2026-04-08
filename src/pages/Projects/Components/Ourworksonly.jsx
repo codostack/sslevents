@@ -3,9 +3,9 @@ import { motion } from 'framer-motion';
 
 const EVENTS = [
   { id: 1, title: "Grand Wedding Gala", loc: "Palakkad", img: "https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=600" },
-  { id: 2, title: "Tech Innovation Summit", loc: "Kochi", img: "https://images.unsplash.com/photo-1540575861501-7ad0582373f0?q=80&w=600" },
+  { id: 2, title: "Tech Innovation Summit", loc: "Kochi", img: "https://i.pinimg.com/736x/2a/ad/f2/2aadf2e0fd34bae0d3170c4e3275f16a.jpg" },
   { id: 3, title: "Corporate Excellence", loc: "Bangalore", img: "https://images.unsplash.com/photo-1505373877841-8d25f7d46678?q=80&w=600" },
-  { id: 4, title: "Destination Beach Fest", loc: "Goa", img: "https://images.unsplash.com/photo-1459749411177-042180ce673c?q=80&w=600" },
+  { id: 4, title: "Destination Beach Fest", loc: "Goa", img: "https://i.pinimg.com/1200x/0a/a3/92/0aa39272a4365514432319257d2fc598.jpg" },
   { id: 5, title: "Art & Culture Exhibit", loc: "Mumbai", img: "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?q=80&w=600" },
 ];
 
