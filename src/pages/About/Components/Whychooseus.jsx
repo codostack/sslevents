@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from "react";
-import bannerVideo from "../../../assets/images/banner-video.mp4";
+import bannerVideo from "../../../assets/images/bannervideo.mp4";
 
 const steps = [
   {

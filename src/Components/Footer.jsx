@@ -198,16 +198,19 @@ export default function EventFooter() {
         </div>
 
         {/* ================= COPYRIGHT ================= */}
-        <div className="mt-12 border-t border-zinc-900 pt-6 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-zinc-500">
-          <p>
-            © {new Date().getFullYear()} SSL Events & Productions.
-          </p>
+<div className="mt-12 border-t border-zinc-900 pt-6 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-zinc-500">
+  <p>
+    © SSL Events & Productions. 
+    <span className="ml-2 text-zinc-400">
+      Powered by <span className="text-white font-semibold">Codostack</span>
+    </span>
+  </p>
 
-          <div className="flex gap-6">
-            <a href="/" className="hover:text-white">Privacy Policy</a>
-            <a href="/" className="hover:text-white">Terms</a>
-          </div>
-        </div>
+  <div className="flex gap-6">
+    <a href="/" className="hover:text-white">Privacy Policy</a>
+    <a href="/" className="hover:text-white">Terms</a>
+  </div>
+</div>
 
       </div>
     </footer>

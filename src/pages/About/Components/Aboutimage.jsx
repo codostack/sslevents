@@ -51,7 +51,7 @@ const DarkBlurGallery = () => {
         <div className="flex justify-center lg:justify-start">
           <div className="text-white space-y-6 sm:space-y-8 max-w-xl text-center lg:text-left">
             <div className="inline-block px-3 py-1 rounded-full border border-amber-500/30 bg-amber-500/10 text-amber-500 text-xs font-bold tracking-widest uppercase">
-              Est. 2026
+              Est. 2014
             </div>
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tighter leading-tight sm:leading-none">
               WHO <span className="text-slate-500">WE ARE</span>
