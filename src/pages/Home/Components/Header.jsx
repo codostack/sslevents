@@ -1,6 +1,5 @@
-import React from "react";
 import { MapPin, Calendar, Users, Search } from "lucide-react";
-import bannerVideo from "../../assets/images/bannervideo.mp4";
+import bannerVideo from "../../../assets/images/bannervideo.mp4";
 
 export default function EventHero() {
   return (
