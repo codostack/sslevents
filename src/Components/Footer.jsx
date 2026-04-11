@@ -8,7 +8,6 @@ import {
   Twitter,
   Youtube,
   Globe,
-  Github,
   ChevronRight,
   Calendar,
   Users,
