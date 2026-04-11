@@ -48,7 +48,7 @@ const EventHero = () => {
   const [preference, setPreference] = useState("");
 
   const handleWhatsApp = () => {
-    const phoneNumber = "917592825349";
+    const phoneNumber = "971508536881";
 
     const message = `Hi, I want to enquire about an event.
 

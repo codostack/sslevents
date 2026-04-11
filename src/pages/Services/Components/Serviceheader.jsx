@@ -10,7 +10,7 @@ import { useNavigate } from "react-router-dom";
 export default function ServicesHeader() {
   const navigate = useNavigate(); // ✅ navigation
 
-  const whatsappNumber = "971542910172"; // your number (no +)
+  const whatsappNumber = "971508536881"; // your number (no +)
   const whatsappMessage = "Hello, I would like to get started with your event services.";
 
   const handleWhatsApp = () => {
