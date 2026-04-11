@@ -187,7 +187,7 @@ export default function EventHero() {
           <button
             onClick={handleWhatsAppBooking}
             className="w-full md:w-auto bg-[#008b8b] hover:bg-[#007373] text-white px-10 h-[50px] rounded-md font-default uppercase tracking-wider transition-all duration-300 md:ml-4 mt-4 md:mt-0 shadow-lg hover:-translate-y-0.5 active:scale-95"
-          >
+          > 
             Book Now
           </button>
         </div>
