@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import { MapPin, Calendar, Users, Search } from "lucide-react";
 import bannerVideo from "../../../assets/bannervideo.mp4";
 
@@ -7,10 +7,59 @@ export default function EventHero() {
   const [date, setDate] = useState("");
   const [guests, setGuests] = useState("");
   const [location, setLocation] = useState("");
+  const [videoReady, setVideoReady] = useState(false);
+  const videoRef = useRef(null);
+
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
+
+    // Force load and play — critical for mobile browsers (iOS Safari, Android Chrome)
+    video.load();
+
+    const tryPlay = () => {
+      const playPromise = video.play();
+      if (playPromise !== undefined) {
+        playPromise.catch(() => {
+          // Autoplay blocked — retry on first user interaction
+          const retryPlay = () => {
+            video.play().catch(() => {});
+            document.removeEventListener("touchstart", retryPlay);
+            document.removeEventListener("click", retryPlay);
+          };
+          document.addEventListener("touchstart", retryPlay, { once: true });
+          document.addEventListener("click", retryPlay, { once: true });
+        });
+      }
+    };
+
+    if (video.readyState >= 3) {
+      // Already loaded enough — play immediately
+      tryPlay();
+      setVideoReady(true);
+    } else {
+      video.addEventListener("canplay", () => {
+        tryPlay();
+        setVideoReady(true);
+      }, { once: true });
+    }
+
+    // Visibility API: resume play when tab becomes active again
+    const handleVisibility = () => {
+      if (!document.hidden && video.paused) {
+        video.play().catch(() => {});
+      }
+    };
+    document.addEventListener("visibilitychange", handleVisibility);
+
+    return () => {
+      document.removeEventListener("visibilitychange", handleVisibility);
+    };
+  }, []);
 
   // 👉 WhatsApp handler
   const handleWhatsAppBooking = () => {
-    const phoneNumber = "971508536881"; // ✅ your number
+    const phoneNumber = "971508536881";
 
     const message = `Hi, I want to book an event.
 
@@ -25,15 +74,49 @@ export default function EventHero() {
 
   return (
     <div className="relative w-full h-screen min-h-[650px] overflow-hidden font-['Outfit']">
+
+      {/* Poster/placeholder shown instantly while video loads */}
+      {!videoReady && (
+        <div
+          className="absolute inset-0 z-0 bg-gray-900"
+          style={{
+            backgroundImage: "url('/poster.jpg')",
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+          }}
+        />
+      )}
+
+      {/* VIDEO — key fixes:
+          - ref for programmatic control
+          - fetchpriority="high" so browser loads it first
+          - preload="auto" requests full buffering
+          - width/height prevent reflow
+          - disablePictureInPicture / disableRemotePlayback for mobile perf
+          - style opacity transition: fade in when ready
+      */}
       <video
+        ref={videoRef}
         autoPlay
         loop
         muted
         playsInline
         preload="auto"
+        disablePictureInPicture
+        disableRemotePlayback
+        fetchPriority="high"
         poster="/poster.jpg"
-        className="absolute top-1/2 left-1/2 w-full h-full object-cover -translate-x-1/2 -translate-y-1/2 z-0"
+        width="1920"
+        height="1080"
+        className="absolute top-1/2 left-1/2 w-full h-full object-cover -translate-x-1/2 -translate-y-1/2 z-0 transition-opacity duration-700"
+        style={{ opacity: videoReady ? 1 : 0 }}
       >
+        {/*
+          Serving the same file with explicit type.
+          If you can also export a WebM version, add it ABOVE the mp4 line —
+          WebM is smaller and loads faster in Chrome/Firefox:
+          <source src={bannerVideoWebm} type="video/webm" />
+        */}
         <source src={bannerVideo} type="video/mp4" />
       </video>
 
@@ -64,13 +147,11 @@ export default function EventHero() {
               <Calendar size={20} strokeWidth={2.5} />
             </span>
             <input
-              type="text"
+              type="date"
               value={date}
               onChange={(e) => setDate(e.target.value)}
               className="bg-transparent border-none outline-none text-[15px] text-gray-800 w-full placeholder-gray-500"
               placeholder="Date"
-              onFocus={(e) => (e.target.type = "date")}
-              onBlur={(e) => (e.target.type = "text")}
             />
           </div>
 
