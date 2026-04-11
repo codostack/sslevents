@@ -1,4 +1,3 @@
-import React from 'react';
 import { motion } from 'framer-motion';
 
 const EVENTS = [
@@ -9,40 +8,40 @@ const EVENTS = [
   { id: 5, title: "Art & Culture Exhibit", loc: "Mumbai", img: "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?q=80&w=600" },
 ];
 
-const ScrollingColumn = ({ items, reverse = false }) => {
-  const duplicatedItems = [...items, ...items, ...items];
+const ScrollingColumn = ({ items, reverse = false, cardW, cardH, gap }) => {
+  const totalH = items.length * (cardH + gap);
 
   return (
-    <div className="flex flex-col gap-6 overflow-hidden h-screen">
+    <div
+      style={{ width: cardW, overflow: 'hidden', height: '100%' }}
+    >
       <motion.div
-        initial={{ y: reverse ? "-66.66%" : "0%" }}
-        animate={{ y: reverse ? "0%" : "-66.66%" }}
+        style={{ display: 'flex', flexDirection: 'column', gap }}
+        animate={{ y: reverse ? [0, -totalH] : [-totalH, 0] }}
         transition={{
           repeat: Infinity,
-          ease: "linear",
-          duration: 30, // Smooth slow crawl
+          ease: 'linear',
+          duration: items.length * 4,
         }}
-        className="flex flex-col gap-6"
       >
-        {duplicatedItems.map((item, idx) => (
-          <motion.div
+        {/* Render 4x to ensure no gap at seam on any screen height */}
+        {[...items, ...items, ...items, ...items].map((item, idx) => (
+          <div
             key={`${item.id}-${idx}`}
-            className="w-44 h-28 md:w-72 md:h-48 overflow-hidden border border-white/20 relative group cursor-pointer shadow-xl"
+            style={{ width: cardW, height: cardH, flexShrink: 0 }}
+            className="overflow-hidden border border-white/20 relative group cursor-pointer shadow-xl"
           >
-            {/* High Visibility Image */}
-            <img 
-              src={item.img} 
-              className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" 
-              alt={item.title} 
+            <img
+              src={item.img}
+              className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+              alt={item.title}
             />
-            
-            {/* Small subtle label only visible on hover to keep images clean */}
             <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-               <p className="text-[10px] text-white font-bold uppercase tracking-widest">
-                 {item.loc}
-               </p>
+              <p className="text-[10px] text-white font-bold uppercase tracking-widest">
+                {item.loc}
+              </p>
             </div>
-          </motion.div>
+          </div>
         ))}
       </motion.div>
     </div>
@@ -50,43 +49,75 @@ const ScrollingColumn = ({ items, reverse = false }) => {
 };
 
 const EventArcScroll = () => {
-  return (
-    <div className="relative min-h-[650px] bg-[#0a0a0a] text-white overflow-hidden font-sans flex items-center justify-center">
-      
-      {/* Background Scrolling Columns - With Edge Spacing */}
-      <div className="absolute inset-0 flex justify-between px-12 md:px-24 pointer-events-auto">
-        {/* Left Column (Scrolls Down) */}
-        <div className="flex justify-start">
-            <ScrollingColumn items={EVENTS} reverse={false} />
-        </div>
+  const isMobile = typeof window !== 'undefined' && window.innerWidth < 768;
 
-        {/* Right Column (Scrolls Up) */}
-        <div className="flex justify-end">
-            <ScrollingColumn items={EVENTS} reverse={true} />
-        </div>
+  const cardW  = isMobile ? 90  : 288;
+  const cardH  = isMobile ? 60  : 192;
+  const gap    = isMobile ? 10  : 24;
+  const px     = isMobile ? 12  : 96;
+
+  return (
+    <div
+      className="relative bg-[#0a0a0a] text-white font-sans flex items-center justify-center"
+      style={{ minHeight: '100svh', overflow: 'hidden' }}
+    >
+      {/* Scrolling columns — absolutely fill the container */}
+      <div
+        className="absolute inset-0 flex justify-between"
+        style={{ padding: `0 ${px}px` }}
+      >
+        <ScrollingColumn
+          items={EVENTS}
+          reverse={false}
+          cardW={cardW}
+          cardH={cardH}
+          gap={gap}
+        />
+        <ScrollingColumn
+          items={EVENTS}
+          reverse={true}
+          cardW={cardW}
+          cardH={cardH}
+          gap={gap}
+        />
       </div>
 
-      {/* Center Fixed Content - Updated */}
-      <div className="z-30 text-center flex flex-col items-center pointer-events-none px-4">
-        <h2 className="text-orange-500 font-bold tracking-[0.4em] text-[10px] md:text-xs mb-2 uppercase">
+      {/* Fade masks top & bottom */}
+      <div
+        className="absolute inset-x-0 top-0 z-20 pointer-events-none"
+        style={{ height: 80, background: 'linear-gradient(to bottom, #0a0a0a, transparent)' }}
+      />
+      <div
+        className="absolute inset-x-0 bottom-0 z-20 pointer-events-none"
+        style={{ height: 80, background: 'linear-gradient(to top, #0a0a0a, transparent)' }}
+      />
+
+      {/* Center content */}
+      <div className="relative z-30 text-center flex flex-col items-center pointer-events-none px-4">
+        <h2 className="text-orange-500 font-bold tracking-[0.4em] text-[9px] md:text-xs mb-2 uppercase">
           Curated Experiences
         </h2>
-        <h1 className="text-5xl md:text-7xl font-black tracking-tighter leading-none uppercase">
-          ELEVATING <br /> 
-          <span className="text-transparent stroke-white" style={{ WebkitTextStroke: '1px white' }}>
+
+        <h1 className="font-black tracking-tighter leading-none uppercase"
+          style={{ fontSize: 'clamp(2rem, 8vw, 5rem)' }}
+        >
+          ELEVATING <br />
+          <span
+            className="text-transparent"
+            style={{ WebkitTextStroke: '1px white' }}
+          >
             VISIONS
           </span>
         </h1>
-        <div className="w-12 h-[2px] bg-orange-500 my-6" />
-        <p className="text-zinc-400 text-[9px] md:text-[11px] uppercase tracking-[0.5em] max-w-xs leading-relaxed">
+
+        <div className="w-10 md:w-12 h-[2px] bg-orange-500 my-4 md:my-6" />
+
+        <p className="text-zinc-400 uppercase leading-relaxed"
+          style={{ fontSize: 'clamp(8px, 2vw, 11px)', letterSpacing: '0.4em', maxWidth: 220 }}
+        >
           Crafting moments that <br /> resonate forever
         </p>
       </div>
-
-      {/* Branding Elements */}
-     
-
-      
     </div>
   );
 };
