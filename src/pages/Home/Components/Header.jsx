@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect } from "react";
 import { MapPin, Calendar, Users, Search } from "lucide-react";
-import bannerVideo from "../../../assets/bannervideo.mp4";
+const bannerVideo = "/bannervideo.mp4";  // just a string, file lives in /public/
 
 export default function EventHero() {
   const [eventType, setEventType] = useState("");
