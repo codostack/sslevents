@@ -1,7 +1,6 @@
 import { useState, useRef, useEffect } from "react";
 import { MapPin, Calendar, Users, Search } from "lucide-react";
 
-// ✅ Direct string — file must be in /public/bannervideo.mp4
 const bannerVideo = "/bannervideo.mp4";
 
 export default function EventHero() {
@@ -9,49 +8,27 @@ export default function EventHero() {
   const [date, setDate] = useState("");
   const [guests, setGuests] = useState("");
   const [location, setLocation] = useState("");
-  const [videoReady, setVideoReady] = useState(false);
   const videoRef = useRef(null);
 
   useEffect(() => {
     const video = videoRef.current;
     if (!video) return;
 
+    // Try to play immediately — no waiting
     const tryPlay = () => {
-      const playPromise = video.play();
-      if (playPromise !== undefined) {
-        playPromise.catch(() => {
-          const retryPlay = () => {
-            video.play().catch(() => {});
-          };
-          document.addEventListener("touchstart", retryPlay, { once: true });
-          document.addEventListener("click", retryPlay, { once: true });
-        });
-      }
+      video.play().catch(() => {
+        document.addEventListener("touchstart", () => video.play().catch(() => {}), { once: true });
+        document.addEventListener("click", () => video.play().catch(() => {}), { once: true });
+      });
     };
 
-    // canplaythrough = enough buffered to play without stopping
-    const onReady = () => {
-      setVideoReady(true);
-      tryPlay();
-    };
-
-    if (video.readyState >= 3) {
-      onReady();
-    } else {
-      video.addEventListener("canplaythrough", onReady, { once: true });
-    }
+    tryPlay();
 
     const handleVisibility = () => {
-      if (!document.hidden && video.paused) {
-        video.play().catch(() => {});
-      }
+      if (!document.hidden && video.paused) video.play().catch(() => {});
     };
     document.addEventListener("visibilitychange", handleVisibility);
-
-    return () => {
-      video.removeEventListener("canplaythrough", onReady);
-      document.removeEventListener("visibilitychange", handleVisibility);
-    };
+    return () => document.removeEventListener("visibilitychange", handleVisibility);
   }, []);
 
   const handleWhatsAppBooking = () => {
@@ -63,25 +40,24 @@ export default function EventHero() {
 👥 Guests: ${guests || "Not specified"}
 📍 Location: ${location || "Not specified"}`;
 
-    const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
-    window.open(url, "_blank");
+    window.open(`https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`, "_blank");
   };
 
   return (
     <div className="relative w-full h-screen min-h-[650px] overflow-hidden font-['Outfit']">
 
-      {/* Poster shown instantly while video loads */}
+      {/* POSTER IMAGE — always visible as base layer */}
       <div
         className="absolute inset-0 z-0"
         style={{
           backgroundImage: "url('/poster.jpg')",
           backgroundSize: "cover",
           backgroundPosition: "center",
-          backgroundColor: "#111",
+          backgroundColor: "#1a1a2e",
         }}
       />
 
-      {/* VIDEO */}
+      {/* VIDEO — always visible, no opacity toggle, no waiting */}
       <video
         ref={videoRef}
         autoPlay
@@ -92,17 +68,28 @@ export default function EventHero() {
         disablePictureInPicture
         disableRemotePlayback
         poster="/poster.jpg"
-        className="absolute top-1/2 left-1/2 w-full h-full object-cover -translate-x-1/2 -translate-y-1/2 z-[1] transition-opacity duration-700"
-        style={{ opacity: videoReady ? 1 : 0 }}
+        style={{
+          position: "absolute",
+          top: 0,
+          left: 0,
+          width: "100%",
+          height: "100%",
+          objectFit: "cover",       /* fills entire hero — no black bars */
+          objectPosition: "center",
+          zIndex: 1,
+        }}
       >
         <source src={bannerVideo} type="video/mp4" />
       </video>
 
       {/* OVERLAY */}
-      <div className="absolute inset-0 bg-black/50 z-[2]" />
+      <div className="absolute inset-0 bg-black/50" style={{ zIndex: 2 }} />
 
       {/* SEARCH BAR */}
-      <div className="absolute bottom-10 left-1/2 -translate-x-1/2 w-[90%] max-w-[1100px] z-10">
+      <div
+        className="absolute bottom-10 left-1/2 -translate-x-1/2 w-[90%] max-w-[1100px]"
+        style={{ zIndex: 10 }}
+      >
         <div className="relative flex flex-col md:flex-row items-center rounded-lg bg-white/90 backdrop-blur-md p-3 shadow-2xl overflow-hidden border-b-4 border-[#4dcad1]">
 
           {/* Event Type */}
