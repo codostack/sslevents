@@ -1,6 +1,8 @@
 import { useState, useRef, useEffect } from "react";
 import { MapPin, Calendar, Users, Search } from "lucide-react";
-const bannerVideo = "/bannervideo.mp4";  // just a string, file lives in /public/
+
+// ✅ Direct string — file must be in /public/bannervideo.mp4
+const bannerVideo = "/bannervideo.mp4";
 
 export default function EventHero() {
   const [eventType, setEventType] = useState("");
@@ -14,18 +16,12 @@ export default function EventHero() {
     const video = videoRef.current;
     if (!video) return;
 
-    // Force load and play — critical for mobile browsers (iOS Safari, Android Chrome)
-    video.load();
-
     const tryPlay = () => {
       const playPromise = video.play();
       if (playPromise !== undefined) {
         playPromise.catch(() => {
-          // Autoplay blocked — retry on first user interaction
           const retryPlay = () => {
             video.play().catch(() => {});
-            document.removeEventListener("touchstart", retryPlay);
-            document.removeEventListener("click", retryPlay);
           };
           document.addEventListener("touchstart", retryPlay, { once: true });
           document.addEventListener("click", retryPlay, { once: true });
@@ -33,18 +29,18 @@ export default function EventHero() {
       }
     };
 
-    if (video.readyState >= 3) {
-      // Already loaded enough — play immediately
-      tryPlay();
+    // canplaythrough = enough buffered to play without stopping
+    const onReady = () => {
       setVideoReady(true);
+      tryPlay();
+    };
+
+    if (video.readyState >= 3) {
+      onReady();
     } else {
-      video.addEventListener("canplay", () => {
-        tryPlay();
-        setVideoReady(true);
-      }, { once: true });
+      video.addEventListener("canplaythrough", onReady, { once: true });
     }
 
-    // Visibility API: resume play when tab becomes active again
     const handleVisibility = () => {
       if (!document.hidden && video.paused) {
         video.play().catch(() => {});
@@ -53,14 +49,13 @@ export default function EventHero() {
     document.addEventListener("visibilitychange", handleVisibility);
 
     return () => {
+      video.removeEventListener("canplaythrough", onReady);
       document.removeEventListener("visibilitychange", handleVisibility);
     };
   }, []);
 
-  // 👉 WhatsApp handler
   const handleWhatsAppBooking = () => {
     const phoneNumber = "971508536881";
-
     const message = `Hi, I want to book an event.
 
 📌 Event Type: ${eventType || "Not specified"}
@@ -75,26 +70,18 @@ export default function EventHero() {
   return (
     <div className="relative w-full h-screen min-h-[650px] overflow-hidden font-['Outfit']">
 
-      {/* Poster/placeholder shown instantly while video loads */}
-      {!videoReady && (
-        <div
-          className="absolute inset-0 z-0 bg-gray-900"
-          style={{
-            backgroundImage: "url('/poster.jpg')",
-            backgroundSize: "cover",
-            backgroundPosition: "center",
-          }}
-        />
-      )}
+      {/* Poster shown instantly while video loads */}
+      <div
+        className="absolute inset-0 z-0"
+        style={{
+          backgroundImage: "url('/poster.jpg')",
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          backgroundColor: "#111",
+        }}
+      />
 
-      {/* VIDEO — key fixes:
-          - ref for programmatic control
-          - fetchpriority="high" so browser loads it first
-          - preload="auto" requests full buffering
-          - width/height prevent reflow
-          - disablePictureInPicture / disableRemotePlayback for mobile perf
-          - style opacity transition: fade in when ready
-      */}
+      {/* VIDEO */}
       <video
         ref={videoRef}
         autoPlay
@@ -104,26 +91,17 @@ export default function EventHero() {
         preload="auto"
         disablePictureInPicture
         disableRemotePlayback
-        fetchPriority="high"
         poster="/poster.jpg"
-        width="1920"
-        height="1080"
-        className="absolute top-1/2 left-1/2 w-full h-full object-cover -translate-x-1/2 -translate-y-1/2 z-0 transition-opacity duration-700"
+        className="absolute top-1/2 left-1/2 w-full h-full object-cover -translate-x-1/2 -translate-y-1/2 z-[1] transition-opacity duration-700"
         style={{ opacity: videoReady ? 1 : 0 }}
       >
-        {/*
-          Serving the same file with explicit type.
-          If you can also export a WebM version, add it ABOVE the mp4 line —
-          WebM is smaller and loads faster in Chrome/Firefox:
-          <source src={bannerVideoWebm} type="video/webm" />
-        */}
         <source src={bannerVideo} type="video/mp4" />
       </video>
 
       {/* OVERLAY */}
-      <div className="absolute inset-0 bg-black/50 z-[1]" />
+      <div className="absolute inset-0 bg-black/50 z-[2]" />
 
-      {/* SEARCH BAR CONTAINER */}
+      {/* SEARCH BAR */}
       <div className="absolute bottom-10 left-1/2 -translate-x-1/2 w-[90%] max-w-[1100px] z-10">
         <div className="relative flex flex-col md:flex-row items-center rounded-lg bg-white/90 backdrop-blur-md p-3 shadow-2xl overflow-hidden border-b-4 border-[#4dcad1]">
 
@@ -183,11 +161,11 @@ export default function EventHero() {
             />
           </div>
 
-          {/* Submit Button */}
+          {/* Book Now */}
           <button
             onClick={handleWhatsAppBooking}
             className="w-full md:w-auto bg-[#008b8b] hover:bg-[#007373] text-white px-10 h-[50px] rounded-md font-default uppercase tracking-wider transition-all duration-300 md:ml-4 mt-4 md:mt-0 shadow-lg hover:-translate-y-0.5 active:scale-95"
-          > 
+          >
             Book Now
           </button>
         </div>
