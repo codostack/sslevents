@@ -1,5 +1,6 @@
 import React, { useEffect, useState, useRef, useCallback } from "react";
 import { Briefcase, Wind, MapPin, Music, Camera, Utensils, Flower2, Star, ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 const services = [
   { icon: Briefcase, label: "Corporate Events", tag: "Business", short: "Corporate", desc: "High-impact conferences, executive summits & unforgettable brand activations.", color: "#0a1628", accent: "#2563eb", light: "#dbeafe", grad: "linear-gradient(135deg, #0a1628 60%, #1e3a7b)" },
@@ -154,6 +155,7 @@ export default function EventDesign() {
 
 /* ── Shared card component used in both layouts ── */
 function ServiceCard({ pkg, Icon, active, animClass, prev, nextSlide, goTo, mobile = false }) {
+  const navigate = useNavigate();
   return (
     <div className={`rounded-[20px] overflow-hidden border border-slate-200 shadow-[0_8px_40px_rgba(0,0,0,0.10)] bg-white flex flex-col ${mobile ? "w-full" : "h-full"}`}>
 
@@ -198,12 +200,17 @@ function ServiceCard({ pkg, Icon, active, animClass, prev, nextSlide, goTo, mobi
 
       {/* CTA + nav arrows */}
       <div className="px-5 py-4 flex items-center gap-2">
-        <button
-          className="flex-1 py-[11px] rounded-[10px] text-[12px] font-semibold tracking-wider text-white flex items-center justify-center gap-1.5 transition-all duration-500 active:scale-95 shadow-sm"
-          style={{ background: pkg.accent }}
-        >
-          Learn More <ArrowRight size={13} />
-        </button>
+<button
+  onClick={() =>
+    navigate("/services", {
+      state: { service: pkg.label } // ✅ PASS SELECTED SERVICE
+    })
+  }
+  className="flex-1 py-[11px] rounded-[10px] text-[12px] font-semibold tracking-wider text-white flex items-center justify-center gap-1.5 transition-all duration-500 active:scale-95 shadow-sm"
+  style={{ background: pkg.accent }}
+>
+  Learn More <ArrowRight size={13} />
+</button>
         <button
           onClick={prev}
           className="w-[38px] h-[38px] rounded-[10px] border-[1.5px] border-slate-200 bg-white flex items-center justify-center cursor-pointer flex-shrink-0 hover:bg-slate-50 transition-colors"

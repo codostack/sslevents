@@ -5,8 +5,21 @@ import {
   FaBriefcase,
   FaHeadset,
 } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
 
 export default function ServicesHeader() {
+  const navigate = useNavigate(); // ✅ navigation
+
+  const whatsappNumber = "971542910172"; // your number (no +)
+  const whatsappMessage = "Hello, I would like to get started with your event services.";
+
+  const handleWhatsApp = () => {
+    window.open(
+      `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`,
+      "_blank"
+    );
+  };
+
   return (
     <div className="w-full relative">
       {/* Header Section */}
@@ -35,9 +48,12 @@ export default function ServicesHeader() {
               handled with precision and creativity.
             </p>
 
-            <button className="bg-orange-500 hover:bg-orange-600 px-5 sm:px-6 py-2.5 sm:py-3 text-white font-semibold text-sm sm:text-base">
-              Get Started
-            </button>
+<button
+  onClick={handleWhatsApp}
+  className="bg-orange-500 hover:bg-orange-600 px-5 sm:px-6 py-2.5 sm:py-3 text-white font-semibold text-sm sm:text-base"
+>
+  Get Started
+</button>
           </div>
 
           {/* RIGHT SIDE — hidden on small mobile, visible from sm up */}
@@ -51,10 +67,12 @@ export default function ServicesHeader() {
                 seamless execution, and a touch of creativity for every
                 celebration.
               </p>
-
-              <button className="bg-teal-500 px-5 py-2 font-semibold text-sm sm:text-base">
-                Learn More
-              </button>
+<button
+  onClick={() => navigate("/about")}
+  className="bg-teal-500 px-5 py-2 font-semibold text-sm sm:text-base"
+>
+  Learn More
+</button>
             </div>
           </div>
         </div>

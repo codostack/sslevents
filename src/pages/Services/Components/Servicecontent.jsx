@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { ChevronRight, Building2, Briefcase, Users, Presentation } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 
 const EventServices = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
-
+const navigate = useNavigate();
   const corporateSlides = [
     {
       image: "https://i.pinimg.com/736x/56/e2/f7/56e2f7abb877bccc5f4aed1b2843ee9a.jpg",
@@ -200,11 +201,12 @@ const EventServices = () => {
             <p className="text-base sm:text-lg opacity-80 mb-6 sm:mb-8 leading-relaxed max-w-xl">
               {service.description}
             </p>
-            <button
-              className={`${service.btnColor} text-white px-6 sm:px-8 py-3 rounded text-sm font-bold uppercase tracking-widest hover:brightness-110 transition shadow-lg`}
-            >
-              View All
-            </button>
+<button
+  onClick={() => navigate("/projects")}
+  className={`${service.btnColor} text-white px-6 sm:px-8 py-3 rounded text-sm font-bold uppercase tracking-widest hover:brightness-110 transition shadow-lg`}
+>
+  View All
+</button>
           </div>
         </section>
       ))}

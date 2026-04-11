@@ -15,7 +15,7 @@ const Page = () => {
       <Whoweare/>
       <Whychooseus/>
       <Ourvisonmission/>
-      <Ourprogress/>
+      <Ourprogress/>  
       <Whatwedo/>
     </div>
   )

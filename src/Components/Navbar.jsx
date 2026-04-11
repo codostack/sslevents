@@ -1,11 +1,20 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { FiMenu, FiX } from "react-icons/fi"; // icons
+import { FiMenu, FiX } from "react-icons/fi";
 import logo from "../assets/images/12.png";
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+
+  // 👉 WhatsApp handler
+  const handleWhatsAppClick = () => {
+    const phoneNumber = "971508536881"; // ✅ Your number (no +)
+    const message = "Hi, I want to book an event. Please share details.";
+
+    const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+    window.open(url, "_blank");
+  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -68,8 +77,9 @@ export default function Navbar() {
             <Link to="/contact" style={{ color: scrolled ? "#000" : "#fff" }}>Contact</Link>
           </div>
 
-          {/* Button (Desktop only) */}
+          {/* Desktop Button */}
           <button
+            onClick={handleWhatsAppClick}
             className="desktop-btn"
             style={{
               backgroundColor: "#f97316",
@@ -115,6 +125,7 @@ export default function Navbar() {
             <Link to="/contact" onClick={() => setMenuOpen(false)}>Contact</Link>
 
             <button
+              onClick={handleWhatsAppClick}
               style={{
                 backgroundColor: "#f97316",
                 color: "#fff",

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { ChevronDown, Sparkles, Calendar, ArrowRight } from 'lucide-react';
+import { useNavigate } from "react-router-dom";
 
 const FAQItem = ({ question, answer, bgColor, isOpen, onClick }) => {
   return (
@@ -26,6 +27,7 @@ const FAQItem = ({ question, answer, bgColor, isOpen, onClick }) => {
 
 const EventFAQComponent = () => {
   const [openIndex, setOpenIndex] = useState(0);
+  const navigate = useNavigate(); // ✅ added only
 
   const faqs = [
     { question: "How do we handle venue selection?", answer: "We curate exclusive locations from heritage villas to modern rooftops tailored to your theme.", color: "bg-rose-50" },
@@ -38,15 +40,16 @@ const EventFAQComponent = () => {
   return (
     <div className="min-h-screen bg-white flex items-center justify-center p-4 sm:p-6 font-sans">
 
-      {/* ── DESKTOP layout (md+): pixel-perfect original ── */}
+      {/* ── DESKTOP layout (md+): unchanged ── */}
       <div className="hidden md:flex flex-row w-full max-w-8xl h-[580px] bg-white overflow-hidden shadow-xl border border-gray-100">
 
-        {/* Left: FAQ (70%) */}
+        {/* Left: FAQ */}
         <div className="w-[70%] h-full flex flex-col">
           <div className="p-8 pb-4">
             <span className="text-[10px] font-bold text-rose-500 uppercase tracking-[0.2em] mb-1 block">Support Center</span>
             <h3 className="text-3xl font-black text-gray-900 tracking-tight">FAQs</h3>
           </div>
+
           <div className="flex-grow overflow-y-auto px-8 scrollbar-hide" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
             <style>{`.scrollbar-hide::-webkit-scrollbar { display: none; }`}</style>
             <div className="max-w-2xl">
@@ -62,13 +65,18 @@ const EventFAQComponent = () => {
               ))}
             </div>
           </div>
+
+          {/* ✅ ONLY CHANGE HERE */}
           <div className="p-8 pt-4 mt-auto">
             <div className="bg-gray-50 rounded-2xl p-4 flex items-center justify-between border border-gray-100">
               <div>
                 <p className="text-sm font-bold text-gray-900">Need more help?</p>
                 <p className="text-[10px] text-gray-500 uppercase font-medium">Contact our specialists</p>
               </div>
-              <button className="bg-gray-900 hover:bg-rose-600 text-white px-4 py-2.5 rounded-lg font-bold flex items-center gap-2 transition-all duration-300 text-xs shadow-md">
+              <button
+                onClick={() => navigate("/contact")}
+                className="bg-gray-900 hover:bg-rose-600 text-white px-4 py-2.5 rounded-lg font-bold flex items-center gap-2 transition-all duration-300 text-xs shadow-md"
+              >
                 <Calendar size={14} />
                 Connect
                 <ArrowRight size={14} />
@@ -77,7 +85,7 @@ const EventFAQComponent = () => {
           </div>
         </div>
 
-        {/* Right: Image (30%) */}
+        {/* Right: Image */}
         <div className="relative w-[30%] h-full overflow-hidden">
           <img
             src="https://images.unsplash.com/photo-1519167758481-83f550bb49b3?auto=format&fit=crop&q=80&w=1000"
@@ -95,10 +103,10 @@ const EventFAQComponent = () => {
         </div>
       </div>
 
-      {/* ── MOBILE layout (below md) ── */}
+      {/* ── MOBILE layout ── */}
       <div className="flex md:hidden flex-col w-full bg-white rounded-2xl overflow-hidden shadow-xl border border-gray-100">
 
-        {/* Hero image — compact banner */}
+        {/* Image */}
         <div className="relative w-full h-[180px] sm:h-[220px] overflow-hidden flex-shrink-0">
           <img
             src="https://images.unsplash.com/photo-1519167758481-83f550bb49b3?auto=format&fit=crop&q=80&w=1000"
@@ -115,13 +123,12 @@ const EventFAQComponent = () => {
           </div>
         </div>
 
-        {/* FAQ header */}
+        {/* FAQ */}
         <div className="px-5 pt-5 pb-2">
           <span className="text-[10px] font-bold text-rose-500 uppercase tracking-[0.2em] mb-1 block">Support Center</span>
           <h3 className="text-2xl sm:text-3xl font-black text-gray-900 tracking-tight">FAQs</h3>
         </div>
 
-        {/* FAQ list — no fixed height, expands naturally */}
         <div className="px-5 pb-2">
           {faqs.map((faq, index) => (
             <FAQItem
@@ -135,14 +142,17 @@ const EventFAQComponent = () => {
           ))}
         </div>
 
-        {/* CTA footer */}
+        {/* ✅ ONLY CHANGE HERE */}
         <div className="px-5 py-4">
           <div className="bg-gray-50 rounded-2xl p-4 flex items-center justify-between border border-gray-100">
             <div>
               <p className="text-sm font-bold text-gray-900">Need more help?</p>
               <p className="text-[10px] text-gray-500 uppercase font-medium">Contact our specialists</p>
             </div>
-            <button className="bg-gray-900 hover:bg-rose-600 text-white px-4 py-2.5 rounded-lg font-bold flex items-center gap-2 transition-all duration-300 text-xs shadow-md">
+            <button
+              onClick={() => navigate("/contact")}
+              className="bg-gray-900 hover:bg-rose-600 text-white px-4 py-2.5 rounded-lg font-bold flex items-center gap-2 transition-all duration-300 text-xs shadow-md"
+            >
               <Calendar size={14} />
               Connect
               <ArrowRight size={14} />

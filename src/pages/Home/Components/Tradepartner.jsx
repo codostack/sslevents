@@ -61,6 +61,23 @@ const services = [
 export default function EventServiceShowcase() {
   const [active, setActive] = useState(services[0]);
 
+  const handleWhatsAppBooking = () => {
+  const phoneNumber = "971508536881";
+
+  const message = `Hi, I am interested in your service.
+
+🎯 Service: ${active.title}
+🏷 Category: ${active.tag}
+
+📄 Details:
+${active.popupDetail}
+
+Please share more details and pricing.`;
+
+  const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+  window.open(url, "_blank");
+};
+
   return (
     <div className="min-h-screen bg-white px-6 py-16 flex items-center justify-center font-serif">
       <div className="max-w-[1540px] w-full">
@@ -163,9 +180,12 @@ export default function EventServiceShowcase() {
               </div>
 
               {/* CTA Button */}
-              <button className="w-full bg-gradient-to-r from-[#551A8B] to-[#7c3aed] hover:from-[#FF5B00] hover:to-[#ff8100] text-white py-4 rounded-xl font-bold font-sans text-sm tracking-[2px] uppercase transition-all duration-300 shadow-lg shadow-purple-100 transform active:scale-[0.98]">
-                Reserve Your Date
-              </button>
+<button
+  onClick={handleWhatsAppBooking}
+  className="w-full bg-gradient-to-r from-[#551A8B] to-[#7c3aed] hover:from-[#FF5B00] hover:to-[#ff8100] text-white py-4 rounded-xl font-bold font-sans text-sm tracking-[2px] uppercase transition-all duration-300 shadow-lg shadow-purple-100 transform active:scale-[0.98]"
+>
+  Reserve Your Date
+</button>
             </div>
           </div>
 

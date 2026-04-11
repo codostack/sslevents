@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from "react-router-dom"; // ✅ ONLY ADD
 
 const partySets = [
   {
@@ -20,6 +21,8 @@ const partySets = [
 const DarkBlurGallery = () => {
   const [index, setIndex] = useState(0);
   const [isChanging, setIsChanging] = useState(false);
+
+  const navigate = useNavigate(); // ✅ ONLY ADD
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -53,24 +56,30 @@ const DarkBlurGallery = () => {
             <div className="inline-block px-3 py-1 rounded-full border border-amber-500/30 bg-amber-500/10 text-amber-500 text-xs font-bold tracking-widest uppercase">
               Est. 2014
             </div>
+
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tighter leading-tight sm:leading-none">
               WHO <span className="text-slate-500">WE ARE</span>
             </h1>
+
             <p className="text-base sm:text-lg lg:text-xl text-slate-400 leading-relaxed max-w-full sm:max-w-lg font-light text-justify lg:text-left">
               At SSL Events & Productions, we craft unforgettable experiences through expert planning, innovative production, and flawless execution. Our team transforms visions into extraordinary corporate events, luxury weddings, and large-scale productions with creativity, precision, and personalized service. Founded in 2014, and operating across Dubai and India, SSL has quickly grown into one of the most elite event management and production companies. Every project balances innovation, professionalism, and attention to detail, ensuring seamless and memorable experiences for every client.
             </p>
-            <button className="group relative px-6 sm:px-8 py-3 sm:py-4 bg-white text-black font-bold rounded-sm overflow-hidden transition-all hover:bg-amber-400">
+
+            {/* ✅ ONLY THIS LINE CHANGED */}
+            <button
+              onClick={() => navigate("/services")}
+              className="group relative px-6 sm:px-8 py-3 sm:py-4 bg-white text-black font-bold rounded-sm overflow-hidden transition-all hover:bg-amber-400"
+            >
               <span className="relative z-10">EXPLORE SERVICES</span>
             </button>
           </div>
         </div>
 
-        {/* Right Side Image Grid (Desktop Only) */}
+        {/* Right Side Image Grid */}
         <div 
           className={`hidden lg:grid grid-cols-3 gap-6 h-[560px] transition-all duration-1000 ease-[cubic-bezier(0.23,1,0.32,1)] transform
           ${isChanging ? 'opacity-0 scale-110 blur-xl' : 'opacity-100 scale-100 blur-0'}`}
         >
-          {/* Col 1: Extra Left */}
           <div className="flex items-center">
             <div className="h-3/5 w-full rounded-xl overflow-hidden shadow-2xl border border-white/5 relative group">
               <img src={current.extraLeft} alt="party" className="w-full h-full object-cover grayscale-[0.3] group-hover:grayscale-0 transition-all duration-700" />
@@ -78,7 +87,6 @@ const DarkBlurGallery = () => {
             </div>
           </div>
 
-          {/* Col 2: Hero Center */}
           <div className="h-full w-full rounded-2xl overflow-hidden shadow-[0_0_80px_rgba(0,0,0,0.8)] border border-white/10 relative group">
             <img 
               src={current.hero} 
@@ -88,7 +96,6 @@ const DarkBlurGallery = () => {
             <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent opacity-60" />
           </div>
 
-          {/* Col 3: Stacked */}
           <div className="flex flex-col gap-6 h-full">
             <div className="h-[35%] w-full rounded-xl overflow-hidden border border-white/5 group">
               <img src={current.sideTop} alt="dj" className="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity" />
@@ -98,6 +105,7 @@ const DarkBlurGallery = () => {
             </div>
           </div>
         </div>
+
       </div>
     </section>
   );

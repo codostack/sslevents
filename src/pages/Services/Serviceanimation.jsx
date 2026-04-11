@@ -1,7 +1,10 @@
 import React from 'react';
+import { useNavigate } from "react-router-dom";
 
 const EventManagementSection = () => {
-  // Data for the top white overlapping tab
+  const navigate = useNavigate();
+
+  // Stats Data
   const stats = [
     { 
       value: "1200+", 
@@ -23,7 +26,7 @@ const EventManagementSection = () => {
     },
   ];
 
-  // Data for the purple process section
+  // Steps Data
   const steps = [
     { 
       id: "Step 01", 
@@ -54,7 +57,7 @@ const EventManagementSection = () => {
   return (
     <div className="relative w-full font-sans bg-gray-50">
       
-      {/* 1. TOP SECTION: White Overlay Stats */}
+      {/* TOP STATS */}
       <div className="relative z-30 max-w-6xl mx-auto px-4 pt-16">
         <div className="bg-white rounded-t-2xl border-x border-t border-gray-200 shadow-xl flex flex-col md:flex-row justify-around py-14 px-8">
           {stats.map((item, index) => (
@@ -76,10 +79,9 @@ const EventManagementSection = () => {
         </div>
       </div>
 
-      {/* 2. BOTTOM SECTION: Purple Event Solutions */}
+      {/* PROCESS SECTION */}
       <section className="relative z-10 -mt-8 bg-gray-800 pb-32 pt-40 px-6">
         
-        {/* Subtle Background Pattern/Overlay */}
         <div className="absolute inset-0 opacity-10 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] pointer-events-none"></div>
         
         <div className="relative z-20 max-w-6xl mx-auto text-center">
@@ -93,26 +95,30 @@ const EventManagementSection = () => {
             </h2>
           </div>
 
-          {/* Process Steps Grid */}
+          {/* STEPS GRID */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8">
             {steps.map((step, index) => (
-              <div key={index} className="group flex flex-col items-center">
+              
+              <div
+                key={index}
+                onClick={() => navigate("/projects")}
+                className="group flex flex-col items-center cursor-pointer"
+              >
                 
-                {/* Circle Icon Container */}
+                {/* ICON */}
                 <div className="relative flex items-center justify-center">
                   <div className="w-24 h-24 bg-white rounded-full flex items-center justify-center shadow-[0_10px_40px_rgba(0,0,0,0.3)] transition-all duration-300 group-hover:scale-110 group-hover:bg-purple-50">
                     <span className="text-4xl" role="img" aria-label={step.title}>
                       {step.icon}
                     </span>
                   </div>
-                  
-                  {/* Dotted Connection Line */}
+
                   {index !== steps.length - 1 && (
                     <div className="hidden lg:block absolute top-1/2 left-[calc(100%-10px)] w-[calc(100%-40px)] border-t-2 border-dotted border-purple-400/40 -z-10"></div>
                   )}
                 </div>
 
-                {/* Step Content */}
+                {/* CONTENT */}
                 <div className="mt-8">
                   <p className="text-purple-300 text-[11px] uppercase font-black tracking-widest mb-2">
                     {step.id}

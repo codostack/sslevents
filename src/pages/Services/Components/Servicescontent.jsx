@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
-import { 
-  X, ArrowRight, CheckCircle2, Users, Zap, Star, 
-  Layout, Music, Mic2, Utensils, Presentation, Disc 
+import React, { useEffect, useState } from 'react';
+import {
+  X, ArrowRight, CheckCircle2, Users, Zap, Star,
+  Layout, Music, Mic2, Utensils, Presentation, Disc
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
@@ -11,7 +11,7 @@ const SERVICES_DATA = [
     id: 1,
     title: "Corporate Events",
     category: "Professional",
-    icon: <Users size={18}/>,
+    icon: <Users size={18} />,
     image: "https://images.unsplash.com/photo-1511578314322-379afb476865?q=80&w=2069",
     shortDesc: "End-to-end management for high-level corporate gatherings, ensuring professionalism and memorable experiences.",
     fullDesc: "We transform standard meetings into immersive brand experiences. Our team handles everything from venue sourcing to agenda planning, AV setup, catering, and guest engagement to ensure flawless corporate events.",
@@ -21,7 +21,7 @@ const SERVICES_DATA = [
     id: 2,
     title: "Conferences",
     category: "Knowledge",
-    icon: <Presentation size={18}/>,
+    icon: <Presentation size={18} />,
     image: "https://i.pinimg.com/1200x/f0/7d/06/f07d065c71e5e8a587ab762f681f4241.jpg",
     shortDesc: "Professional planning for industry summits, seminars, and educational conferences.",
     fullDesc: "The ability of all the various components to work for the organization of successful conferences and corporate events. We serve as a communication link between all conference components, giving your speakers, technical personnel, and event management team the tools they need to offer the ideal conference experience.",
@@ -31,7 +31,7 @@ const SERVICES_DATA = [
     id: 3,
     title: "Product Launches",
     category: "Marketing",
-    icon: <Zap size={18}/>,
+    icon: <Zap size={18} />,
     image: "https://i.pinimg.com/1200x/9a/e0/c2/9ae0c24b9faec31ab808a33ac604a58b.jpg",
     shortDesc: "Creating high-impact product reveals that captivate audiences and generate buzz.",
     fullDesc: "From stage design to lighting, AV production, and brand storytelling, we ensure every product launch makes a strong, memorable impression.",
@@ -41,7 +41,7 @@ const SERVICES_DATA = [
     id: 4,
     title: "Exhibition AV",
     category: "Hardware",
-    icon: <Layout size={18}/>,
+    icon: <Layout size={18} />,
     image: "https://images.unsplash.com/photo-1551818255-e6e10975bc17?q=80&w=2036",
     shortDesc: "Cutting-edge audio-visual solutions for trade shows and exhibitions.",
     fullDesc: "We provide you with all of the resources, experience, and knowledge you need to put on a creative and strategic exhibition that meets our clients’ expectations. We are here to take your vision to the next level and make it easy for you to stand out for the right reasons by incorporating skilled consultants and managers in various platforms.",
@@ -51,7 +51,7 @@ const SERVICES_DATA = [
     id: 5,
     title: "Wedding Events",
     category: "Social",
-    icon: <Star size={18}/>,
+    icon: <Star size={18} />,
     image: "https://i.pinimg.com/736x/b5/ca/c7/b5cac76469cf0cf0307e6a54102e95fa.jpg",
     shortDesc: "Luxury wedding planning and bespoke celebrations for your most memorable day.",
     fullDesc: "On your big day, unwind and let us handle the rest; we’ll make sure the entire ceremony meets your standards. Our vivacious wedding event planners offer you services that are current with the newest trends in Dubai’s lovely metropolis We are specialized in: Arabic, Indian and Western Weddings ,Trending Themes , Eye-Catching Decorations , Stunning Centerpieces , World-Class Cuisine , Gorgeous Flower arrangements , Bridal/Groom Shower Parties, Multi-lingual Hostesses, Entertainment by world-class artists.",
@@ -61,7 +61,7 @@ const SERVICES_DATA = [
     id: 6,
     title: "AV Rentals",
     category: "Technical",
-    icon: <Mic2 size={18}/>,
+    icon: <Mic2 size={18} />,
     image: "https://images.unsplash.com/photo-1470225620780-dba8ba36b745?q=80&w=2070",
     shortDesc: "Professional-grade sound, lighting, and visual gear for flawless event execution.",
     fullDesc: "Enhance your events with premium audiovisual equipment from SSL Events & Production. Whether it’s a corporate gathering, a wedding, or a live performance, our state-of-the-art rentals ensure your event is seamless, impactful, and unforgettable.",
@@ -71,7 +71,7 @@ const SERVICES_DATA = [
     id: 7,
     title: "Gala Dinners",
     category: "Luxury",
-    icon: <Utensils size={18}/>,
+    icon: <Utensils size={18} />,
     image: "https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?q=80&w=2069",
     shortDesc: "Elegant gala dinners with premium catering, decor, and event styling.",
     fullDesc: "We provide you with all of the resources, experience, and knowledge you need to put on a creative and strategic exhibition that meets our clients’ expectations. We are here to take your vision to the next level and make it easy for you to stand out for the right reasons by incorporating skilled consultants and managers in various platforms.",
@@ -81,7 +81,7 @@ const SERVICES_DATA = [
     id: 8,
     title: "Live Performance",
     category: "Artistic",
-    icon: <Disc size={18}/>,
+    icon: <Disc size={18} />,
     image: "https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?q=80&w=2070",
     shortDesc: "Stage management and production for concerts, plays, and live entertainment.",
     fullDesc: "Bring your event to life with exceptional live performances and professionally produced stage shows. From renowned artists and musicians to immersive cultural acts, we curate entertainment that captivates audiences and creates unforgettable moments. Every performance is seamlessly integrated with advanced lighting, sound, and stage design to deliver a truly spectacular experience.",
@@ -91,7 +91,7 @@ const SERVICES_DATA = [
     id: 9,
     title: "Concerts",
     category: "Mass Event",
-    icon: <Music size={18}/>,
+    icon: <Music size={18} />,
     image: "https://images.unsplash.com/photo-1501281668745-f7f57925c3b4?q=80&w=2070",
     shortDesc: "Massive-scale concerts with full production management and audience engagement.",
     fullDesc: "We deliver high-energy concert experiences with seamless planning and world-class production. From artist coordination to stage design, sound, and lighting, every element is crafted to create an electrifying atmosphere and an unforgettable audience experience.",
@@ -108,12 +108,12 @@ const ServiceCard = ({ service, onReadMore }) => (
         {service.category}
       </div>
     </div>
-    
+
     <div className="p-6 flex flex-col flex-grow">
       <h3 className="text-gray-900 text-lg mb-2 group-hover:text-teal-600 transition-colors">{service.title}</h3>
       <p className="text-gray-500 text-xs leading-relaxed mb-6 line-clamp-2">{service.shortDesc}</p>
-      
-      <button 
+
+      <button
         onClick={() => onReadMore(service)}
         className="mt-auto py-2 px-4 bg-teal-50/50 hover:bg-teal-600 rounded-xl flex items-center justify-between group/btn transition-all border border-teal-100/30"
       >
@@ -129,15 +129,15 @@ const FloatingTabPopup = ({ service, isOpen, onClose }) => (
   <AnimatePresence>
     {isOpen && (
       <>
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
           onClick={onClose}
           className="fixed inset-0 bg-gray-900/40 backdrop-blur-sm z-[100]"
         />
-        
-        <motion.div 
-          initial={{ x: '100%', opacity: 0 }} 
-          animate={{ x: 0, opacity: 1 }} 
+
+        <motion.div
+          initial={{ x: '100%', opacity: 0 }}
+          animate={{ x: 0, opacity: 1 }}
           exit={{ x: '100%', opacity: 0 }}
           transition={{ type: 'spring', damping: 28, stiffness: 220 }}
           className="fixed right-4 top-4 bottom-4 w-[90%] md:w-[420px] bg-white z-[101] shadow-2xl rounded-[2.5rem] overflow-hidden flex flex-col border border-gray-100"
@@ -148,7 +148,7 @@ const FloatingTabPopup = ({ service, isOpen, onClose }) => (
               <X size={18} />
             </button>
             <div className="absolute -bottom-6 left-8 bg-teal-600 text-white w-14 h-14 rounded-2xl flex items-center justify-center shadow-xl border-4 border-white">
-                {service.icon}
+              {service.icon}
             </div>
           </div>
 
@@ -179,13 +179,23 @@ const FloatingTabPopup = ({ service, isOpen, onClose }) => (
 );
 
 // --- Main App ---
-const EventApp = () => {
+const EventApp = ({selectedService}) => {
   const [activeService, setActiveService] = useState(null);
+  useEffect(() => {
+    if (selectedService) {
+      console.log("Selected Service:", selectedService);
 
+      // 👉 optional: scroll or highlight
+      const element = document.getElementById(selectedService);
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
+      }
+    }
+  }, [selectedService]);
   return (
     <div className="min-h-screen bg-[#FDFDFD] font-sans pb-20">
       <div className="max-w-[1400px] mx-auto px-4 lg:px-8 pt-16">
-        
+
         {/* Header */}
         <header className="mb-16 ml-2">
           <h1 className="text-4xl md:text-6xl font-default text-gray-900 tracking-tighter">
@@ -201,19 +211,19 @@ const EventApp = () => {
         {/* Services Grid */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
           {SERVICES_DATA.map((service) => (
-            <ServiceCard 
-              key={service.id} 
-              service={service} 
-              onReadMore={setActiveService} 
+            <ServiceCard
+              key={service.id}
+              service={service}
+              onReadMore={setActiveService}
             />
           ))}
         </div>
       </div>
 
-      <FloatingTabPopup 
-        service={activeService} 
-        isOpen={!!activeService} 
-        onClose={() => setActiveService(null)} 
+      <FloatingTabPopup
+        service={activeService}
+        isOpen={!!activeService}
+        onClose={() => setActiveService(null)}
       />
     </div>
   );
