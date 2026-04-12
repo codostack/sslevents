@@ -1,6 +1,11 @@
 import React, { useState } from "react";
-import home1 from "../../../assets/images/home1.jpeg";
-import conferenceImg from "../../../assets/images/home4.jpeg";
+import home1 from "../../../assets/home/home1.jpeg";
+import home2 from "../../../assets/home/home1.jpg";
+import home3 from "../../../assets/home/home2.png";
+import home4 from "../../../assets/home/home3.png";
+import home5 from "../../../assets/home/home4.png";
+
+import conferenceImg from "../../../assets/home/home4.jpeg";
 const services = [
   {
     id: "01",
@@ -15,7 +20,7 @@ const services = [
     id: "02",
     title: "Conferences",
     desc: "At SSL Events and Productions, we specialize in organizing professional conferences that inspire, inform, and connect.",
-    img: "https://i.pinimg.com/736x/58/cd/c0/58cdc0f47523bdbf78768f8fa019377a.jpg",
+    img: home2,
     popupDetail:
       "Our conference solutions include venue selection, speaker coordination, stage setup, delegate management, and seamless technical support to ensure engaging and successful professional gatherings.",
     tag: "Premium",
@@ -24,7 +29,7 @@ const services = [
     id: "03",
     title: "Product Launches",
     desc: "At SSL Events and Productions, we know that a successful product launch is more than just an event—it’s a pivotal moment.",
-    img: "https://sslevents.ae/wp-content/uploads/2025/01/sd.png",
+    img: home3,
     popupDetail:
       "We create high-impact product launches with creative staging, media integration, branding experiences, audience engagement strategies, and flawless execution that maximizes brand visibility.",
     tag: "Business",
@@ -42,7 +47,7 @@ const services = [
     id: "05",
     title: "Exhibition AV Equipment",
     desc: "At SSL Events and Productions, we provide state-of-the-art AV equipment to enhance your exhibition experience.",
-    img: "https://sslevents.ae/wp-content/uploads/2025/01/werf.png",
+    img: home4,
     popupDetail:
       "We supply advanced sound systems, LED displays, lighting setups, and technical support to ensure your exhibition booths and presentations deliver maximum impact and clarity.",
     tag: "Exclusive",
@@ -51,7 +56,7 @@ const services = [
     id: "06",
     title: "AV Equipment Rentals",
     desc: "At SSL Events and Productions, we understand the importance of high-quality audio-visual (AV) equipment in.",
-    img: "https://sslevents.ae/wp-content/uploads/2025/01/df.png",
+    img: home5,
     popupDetail:
       "Our AV rental services provide reliable audio, video, and lighting equipment along with setup, testing, and on-site technical assistance for smooth and professional event execution.",
     tag: "Always On",

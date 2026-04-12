@@ -7,6 +7,11 @@ import {
   Speaker,
   ChevronRight,
 } from "lucide-react";
+import home9 from "../../../assets/home/home9.avif";
+import home10 from "../../../assets/home/home10.avif";
+import home12 from "../../../assets/home/home12.avif";
+import home13 from "../../../assets/home/home13.jpg";
+import home14 from "../../../assets/home/home14.jpg";
 
 export default function ContactPage() {
   const [form, setForm] = useState({
@@ -44,24 +49,21 @@ export default function ContactPage() {
       icon: <Heart size={30} />,
       content:
         "Crafting timeless moments with elegant decor and seamless coordination.",
-      image:
-        "https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&q=80&w=800",
+      image:home9,
     },
     {
       name: "Corporate Galas",
       icon: <Building2 size={30} />,
       content:
         "Professional networking events reflecting your brand excellence.",
-      image:
-        "https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&q=80&w=800",
+      image:home10,
     },
     {
       name: "Birthday Bashes",
       icon: <PartyPopper size={30} />,
       content:
         "Fun-filled themed celebrations and unforgettable birthday moments.",
-      image:
-        "https://images.unsplash.com/photo-1464349095431-e9a21285b5f3?auto=format&fit=crop&q=80&w=800",
+      image:home12,
     },
 
     /* ✅ NEW SERVICE */
@@ -70,8 +72,7 @@ export default function ContactPage() {
       icon: <MonitorSpeaker size={30} />,
       content:
         "Advanced audiovisual setups for exhibitions, trade shows, and display booths.",
-      image:
-        "https://i.pinimg.com/1200x/c9/34/07/c9340709bda7d10541744ed01cca3cb5.jpg",
+      image:home13,
     },
 
     /* ✅ NEW SERVICE */
@@ -80,8 +81,7 @@ export default function ContactPage() {
       icon: <Speaker size={30} />,
       content:
         "Flexible rental solutions for speakers, microphones, LED screens, and AV systems.",
-      image:
-        "https://i.pinimg.com/1200x/b0/55/0e/b0550e2a44d610a08cf8cccec00cf2c1.jpg",
+      image:home14,
     },
   ];
 

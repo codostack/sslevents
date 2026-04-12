@@ -7,6 +7,8 @@ import {
   MonitorSpeaker,
   Speaker
 } from "lucide-react";
+import home7 from "../../../assets/home/home7.jpg";
+import home8 from "../../../assets/home/home8.jpg";
 
 /* ─── CSS ─── */
 const CSS = `
@@ -187,8 +189,7 @@ export default function ServicesSection() {
         <div
           className="w-full h-[220px] lg:w-[26%] lg:h-auto bg-cover bg-center"
           style={{
-            backgroundImage:
-              "url('https://i.pinimg.com/736x/a4/7f/2c/a47f2c90522da986832261b61966be71.jpg')"
+           backgroundImage: `url(${home7})`
           }}
         />
 
@@ -229,8 +230,7 @@ export default function ServicesSection() {
         <div
           className="w-full h-[220px] lg:w-[26%] lg:h-auto bg-cover bg-center"
           style={{
-            backgroundImage:
-              "url('https://i.pinimg.com/736x/f1/03/76/f103769dd804f6475d19dc2ed2f4ca0d.jpg')"
+           backgroundImage: `url(${home8})`
           }}
         />
       </section>
