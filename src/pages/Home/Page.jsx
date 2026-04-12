@@ -1,7 +1,7 @@
 import React from 'react'
 import Header from './Components/Header'
 import Tradepartner from './Components/Tradepartner'
-// import Ourworks from './Components/Ourworks'
+import Ourworks from './Components/Ourworks'
 import Ourservices from './Components/Ourservices'
 import Keyfeatures from './Components/Keyfeatures'
 import Register from './Components/Register'
@@ -14,7 +14,7 @@ const Page = () => {
        <Tradepartner/>
        <Ourservices/>
         <Keyfeatures/>
-       {/* <Ourworks/> */}
+       <Ourworks/>
        <Register/>
     </div>
   )
