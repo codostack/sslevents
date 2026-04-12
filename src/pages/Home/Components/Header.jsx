@@ -8,26 +8,28 @@ export default function EventHero() {
   const [location, setLocation] = useState("");
   const videoRef = useRef(null);
 
-  useEffect(() => {
-    const video = videoRef.current;
-    if (!video) return;
+useEffect(() => {
+  const video = videoRef.current;
+  if (!video) return;
 
-    // Try to play immediately — no waiting
-    const tryPlay = () => {
-      video.play().catch(() => {
-        document.addEventListener("touchstart", () => video.play().catch(() => {}), { once: true });
-        document.addEventListener("click", () => video.play().catch(() => {}), { once: true });
-      });
-    };
+  const playVideo = () => {
+    video.play().catch(() => {});
+  };
 
-    tryPlay();
+  // Play once on load
+  playVideo();
 
-    const handleVisibility = () => {
-      if (!document.hidden && video.paused) video.play().catch(() => {});
-    };
-    document.addEventListener("visibilitychange", handleVisibility);
-    return () => document.removeEventListener("visibilitychange", handleVisibility);
-  }, []);
+  // Resume only when visible
+  const handleVisibility = () => {
+    if (!document.hidden) playVideo();
+  };
+
+  document.addEventListener("visibilitychange", handleVisibility);
+
+  return () => {
+    document.removeEventListener("visibilitychange", handleVisibility);
+  };
+}, []);
 
   const handleWhatsAppBooking = () => {
     const phoneNumber = "971508536881";
@@ -62,13 +64,10 @@ export default function EventHero() {
   loop
   muted
   playsInline
-  preload="metadata"
+  preload="none"
   poster="/poster.jpg"
 >
-  {/* Mobile Video */}
   <source src="/bannervideo-mobile.mp4" media="(max-width: 767px)" type="video/mp4" />
-
-  {/* Desktop Video */}
   <source src="/bannervideo.mp4" media="(min-width: 768px)" type="video/mp4" />
 </video>
       {/* OVERLAY */}
