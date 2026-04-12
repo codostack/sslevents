@@ -1,20 +1,28 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from "react-router-dom"; // ✅ ONLY ADD
+import about5 from "../../../assets/about/about5.jpg";
+import about6 from "../../../assets/about/about6.jpg";
+import about7 from "../../../assets/about/about7.jpg";
+import about8 from "../../../assets/about/about8.jpg";
+import about9 from "../../../assets/about/about9.jpg";
+import about10 from "../../../assets/about/about10.jpg";
+import about11 from "../../../assets/about/about11.jpg";
+import about12 from "../../../assets/about/about12.jpg";
 
 const partySets = [
   {
     id: 1,
-    hero: "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=800&q=80",
-    sideTop: "https://images.unsplash.com/photo-1516280440614-37939bbacd81?w=500&q=80",
-    sideBottom: "https://i.pinimg.com/736x/aa/43/cc/aa43cc567f75a75ea25163053b6a5481.jpg",
-    extraLeft: "https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?w=500&q=80",
+    hero: about5,
+    sideTop: about6,
+    sideBottom: about7,
+    extraLeft: about8,
   },
   {
     id: 2,
-    hero: "https://images.unsplash.com/photo-1504196606672-aef5c9cefc92?w=800&q=80",
-    sideTop: "https://images.unsplash.com/photo-1470225620780-dba8ba36b745?w=500&q=80",
-    sideBottom: "https://images.unsplash.com/photo-1516939884455-1445c8652f83?w=500&q=80",
-    extraLeft: "https://i.pinimg.com/736x/33/f3/35/33f335787fe0922b577fbc20768780db.jpg",
+    hero: about9,
+    sideTop: about10,
+    sideBottom: about11,
+    extraLeft: about12,
   }
 ];
 
@@ -43,7 +51,6 @@ const DarkBlurGallery = () => {
       {/* Background */}
       <div 
         className="absolute inset-0 bg-cover bg-center transition-transform duration-[2000ms] scale-110"
-        style={{ backgroundImage: `url('https://images.unsplash.com/photo-1514525253361-bee8a1874aa9?w=1600&q=80')` }}
       />
       <div className="absolute inset-0 bg-gradient-to-b from-slate-950/95 via-slate-900/90 to-black z-10 backdrop-blur-[2px]" />
 

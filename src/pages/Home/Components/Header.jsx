@@ -8,28 +8,28 @@ export default function EventHero() {
   const [location, setLocation] = useState("");
   const videoRef = useRef(null);
 
-useEffect(() => {
-  const video = videoRef.current;
-  if (!video) return;
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
 
-  const playVideo = () => {
-    video.play().catch(() => {});
-  };
+    const playVideo = () => {
+      video.play().catch(() => { });
+    };
 
-  // Play once on load
-  playVideo();
+    // Play once on load
+    playVideo();
 
-  // Resume only when visible
-  const handleVisibility = () => {
-    if (!document.hidden) playVideo();
-  };
+    // Resume only when visible
+    const handleVisibility = () => {
+      if (!document.hidden) playVideo();
+    };
 
-  document.addEventListener("visibilitychange", handleVisibility);
+    document.addEventListener("visibilitychange", handleVisibility);
 
-  return () => {
-    document.removeEventListener("visibilitychange", handleVisibility);
-  };
-}, []);
+    return () => {
+      document.removeEventListener("visibilitychange", handleVisibility);
+    };
+  }, []);
 
   const handleWhatsAppBooking = () => {
     const phoneNumber = "971508536881";
@@ -57,19 +57,19 @@ useEffect(() => {
         }}
       />
 
-<video
-  ref={videoRef}
-  className="absolute top-0 left-0 w-full h-full object-cover"
-  autoPlay
-  loop
-  muted
-  playsInline
-  preload="none"
-  poster="/poster.jpg"
->
-  <source src="/bannervideo.mp4" media="(max-width: 767px)" type="video/mp4" />
-  <source src="/bannervideo.mp4" media="(min-width: 768px)" type="video/mp4" />
-</video>
+      <video
+        ref={videoRef}
+        className="absolute top-0 left-0 w-full h-full object-cover"
+        autoPlay
+        loop
+        muted
+        playsInline
+        preload="none"
+        poster="/poster.jpg"
+      >
+        <source src="/bannervideo.mp4" media="(max-width: 767px)" type="video/mp4" />
+        <source src="/bannervideo.mp4" media="(min-width: 768px)" type="video/mp4" />
+      </video>
       {/* OVERLAY */}
       <div className="absolute inset-0 bg-black/50" style={{ zIndex: 2 }} />
 

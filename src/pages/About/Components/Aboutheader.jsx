@@ -2,6 +2,11 @@ import React, { useState } from 'react';
 import { MapPin, Calendar, Users, Star, ArrowRight } from 'lucide-react';
 import { useNavigate } from "react-router-dom";
 
+import about1 from "../../../assets/about/about1.jpg";
+import about2 from "../../../assets/about/about2.jpg";
+import about3 from "../../../assets/about/about3.jpg";
+import about4 from "../../../assets/about/about4.jpg";
+
 const FeatureCard = ({ image, title, rating }) => (
   <div
     className="
@@ -70,7 +75,7 @@ Please share details.`;
       <div className="relative min-h-[80vh] w-full flex flex-col items-center justify-center text-center px-4 py-16 md:py-0 md:h-[80vh]">
         <div
           className="absolute inset-0 bg-cover bg-center z-0"
-          style={{ backgroundImage: `url('https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?q=80&w=2070')` }}
+          style={{ backgroundImage: `url(${about1})` }}
         >
           <div className="absolute inset-0 bg-black/30" />
         </div>
@@ -195,17 +200,17 @@ Please share details.`;
           </div>
 
           <FeatureCard
-            image="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?q=80&w=2069"
+            image={about2}
             title="Luxury Wedding Planning"
             rating={4}
           />
           <FeatureCard
-            image="https://i.pinimg.com/1200x/68/6d/d3/686dd3962532a6e0185f6bab99d9dc2d.jpg"
+            image={about3}
             title="Corporate Events"
             rating={5}
           />
           <FeatureCard
-            image="https://i.pinimg.com/1200x/db/3c/d6/db3cd61994f42191c310691b84959057.jpg"
+            image={about4}
             title="AV Rentals"
             rating={5}
           />

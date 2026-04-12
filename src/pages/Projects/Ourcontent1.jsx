@@ -1,5 +1,6 @@
 import React from 'react';
 import { Calendar, Users, MapPin, ShieldCheck } from 'lucide-react';
+import project from "../../assets/home/home9.avif";
 
 const EventFeatureSection = () => {
   const features = [
@@ -72,7 +73,7 @@ const EventFeatureSection = () => {
         <div className="w-full lg:w-5/12 relative">
           <div className="relative z-10">
             <img 
-              src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&q=80&w=800" 
+              src={project} 
               alt="Event Planning" 
               className="w-full h-[300px] sm:h-[380px] md:h-[450px] object-cover shadow-2xl"
             />

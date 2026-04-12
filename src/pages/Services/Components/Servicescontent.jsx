@@ -18,6 +18,12 @@ import productLaunch3 from '../../../assets/images/ProductLaunche3.JPG';
 import home1 from '../../../assets/home/home1.jpeg';
 import home4 from '../../../assets/home/home4.jpeg';
 import img12 from '../../../assets/images/12.png';
+import services10 from "../../../assets/services/services10.jpg";
+import services11 from "../../../assets/services/services11.jpg";
+import services12 from "../../../assets/services/services12.jpg";
+import services13 from "../../../assets/services/services13.jpg";
+import services14 from "../../../assets/services/services14.jpg";
+import services15 from "../../../assets/services/services15.jpg";
 
 const SERVICES_DATA = [
   {
@@ -58,7 +64,7 @@ const SERVICES_DATA = [
     title: "Exhibition AV",
     category: "Hardware",
     icon: <Layout size={18}/>,
-    thumbnail: "https://images.unsplash.com/photo-1551818255-e6e10975bc17?q=80&w=2036",
+    thumbnail: services10,
     images: [home4, home1, img12],
     shortDesc: "Cutting-edge audio-visual solutions for trade shows and exhibitions.",
     fullDesc: "We provide you with all of the resources, experience, and knowledge you need to put on a creative and strategic exhibition that meets our clients' expectations. We are here to take your vision to the next level and make it easy for you to stand out for the right reasons by incorporating skilled consultants and managers in various platforms.",
@@ -69,7 +75,7 @@ const SERVICES_DATA = [
     title: "Wedding Events",
     category: "Social",
     icon: <Star size={18}/>,
-    thumbnail: "https://i.pinimg.com/736x/b5/ca/c7/b5cac76469cf0cf0307e6a54102e95fa.jpg",
+    thumbnail: services11,
     images: [home1, home4, img12],
     shortDesc: "Luxury wedding planning and bespoke celebrations for your most memorable day.",
     fullDesc: "On your big day, unwind and let us handle the rest; we'll make sure the entire ceremony meets your standards. Our vivacious wedding event planners offer you services that are current with the newest trends in Dubai's lovely metropolis. We are specialized in: Arabic, Indian and Western Weddings, Trending Themes, Eye-Catching Decorations, Stunning Centerpieces, World-Class Cuisine, Gorgeous Flower arrangements, Bridal/Groom Shower Parties, Multi-lingual Hostesses, Entertainment by world-class artists.",
@@ -80,7 +86,7 @@ const SERVICES_DATA = [
     title: "AV Rentals",
     category: "Technical",
     icon: <Mic2 size={18}/>,
-    thumbnail: "https://images.unsplash.com/photo-1470225620780-dba8ba36b745?q=80&w=2070",
+    thumbnail: services12,
     images: [img12, home1, home4],
     shortDesc: "Professional-grade sound, lighting, and visual gear for flawless event execution.",
     fullDesc: "Enhance your events with premium audiovisual equipment from SSL Events & Production. Whether it's a corporate gathering, a wedding, or a live performance, our state-of-the-art rentals ensure your event is seamless, impactful, and unforgettable.",
@@ -91,7 +97,7 @@ const SERVICES_DATA = [
     title: "Gala Dinners",
     category: "Luxury",
     icon: <Utensils size={18}/>,
-    thumbnail: "https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?q=80&w=2069",
+    thumbnail: services13,
     images: [home4, img12, home1],
     shortDesc: "Elegant gala dinners with premium catering, decor, and event styling.",
     fullDesc: "We provide you with all of the resources, experience, and knowledge you need to put on a creative and strategic exhibition that meets our clients' expectations. We are here to take your vision to the next level and make it easy for you to stand out for the right reasons by incorporating skilled consultants and managers in various platforms.",
@@ -102,7 +108,7 @@ const SERVICES_DATA = [
     title: "Live Performance",
     category: "Artistic",
     icon: <Disc size={18}/>,
-    thumbnail: "https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?q=80&w=2070",
+    thumbnail: services14,
     images: [home1, img12, home4],
     shortDesc: "Stage management and production for concerts, plays, and live entertainment.",
     fullDesc: "Bring your event to life with exceptional live performances and professionally produced stage shows. From renowned artists and musicians to immersive cultural acts, we curate entertainment that captivates audiences and creates unforgettable moments. Every performance is seamlessly integrated with advanced lighting, sound, and stage design to deliver a truly spectacular experience.",
@@ -113,7 +119,7 @@ const SERVICES_DATA = [
     title: "Concerts",
     category: "Mass Event",
     icon: <Music size={18}/>,
-    thumbnail: "https://images.unsplash.com/photo-1501281668745-f7f57925c3b4?q=80&w=2070",
+    thumbnail: services15,
     images: [img12, home4, home1],
     shortDesc: "Massive-scale concerts with full production management and audience engagement.",
     fullDesc: "We deliver high-energy concert experiences with seamless planning and world-class production. From artist coordination to stage design, sound, and lighting, every element is crafted to create an electrifying atmosphere and an unforgettable audience experience.",

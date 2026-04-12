@@ -6,6 +6,7 @@ import {
   FaHeadset,
 } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
+import services1 from "../../../assets/services/services1.jpg";
 
 export default function ServicesHeader() {
   const navigate = useNavigate(); // ✅ navigation
@@ -26,8 +27,7 @@ export default function ServicesHeader() {
       <div
         className="w-full h-[400px] sm:h-[480px] md:h-[550px] bg-cover bg-center relative flex items-center"
         style={{
-          backgroundImage:
-            "url('https://images.unsplash.com/photo-1514525253161-7a46d19cd819')",
+          backgroundImage:`url(${services1})`,
         }}
       >
         {/* Light Overlay */}

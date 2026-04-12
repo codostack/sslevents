@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useRef, useCallback } from "react";
 import { Briefcase, Wind, MapPin, Music, Camera, Utensils, Flower2, Star, ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
 import { useNavigate } from "react-router-dom";
+import about13 from "../../../assets/about/about13.avif";
 
 const services = [
   { icon: Briefcase, label: "Corporate Events", tag: "Business", short: "Corporate", desc: "High-impact conferences, executive summits & unforgettable brand activations.", color: "#0a1628", accent: "#2563eb", light: "#dbeafe", grad: "linear-gradient(135deg, #0a1628 60%, #1e3a7b)" },
@@ -80,7 +81,7 @@ export default function EventDesign() {
           {/* Left Column: Main Image */}
           <div className="h-full">
             <img
-              src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?q=80&w=2069&auto=format&fit=crop"
+              src={about13}
               alt="Main Event"
               className="w-full h-full object-cover rounded-[10px] min-h-[90vh] block"
             />
@@ -117,7 +118,7 @@ export default function EventDesign() {
         {/* Hero image — full width, fixed height */}
         <div className="relative w-full h-[52vw] min-h-[220px] max-h-[360px] overflow-hidden">
           <img
-            src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?q=80&w=2069&auto=format&fit=crop"
+            src={about13}
             alt="Main Event"
             className="w-full h-full object-cover block"
           />

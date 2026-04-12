@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { ChevronDown, Sparkles, Calendar, ArrowRight } from 'lucide-react';
 import { useNavigate } from "react-router-dom";
+import project8 from "../../../assets/project/project8.avif";
 
 const FAQItem = ({ question, answer, bgColor, isOpen, onClick }) => {
   return (
@@ -88,7 +89,7 @@ const EventFAQComponent = () => {
         {/* Right: Image */}
         <div className="relative w-[30%] h-full overflow-hidden">
           <img
-            src="https://images.unsplash.com/photo-1519167758481-83f550bb49b3?auto=format&fit=crop&q=80&w=1000"
+            src={project8}
             alt="Event"
             className="h-full w-full object-cover"
           />
@@ -109,7 +110,7 @@ const EventFAQComponent = () => {
         {/* Image */}
         <div className="relative w-full h-[180px] sm:h-[220px] overflow-hidden flex-shrink-0">
           <img
-            src="https://images.unsplash.com/photo-1519167758481-83f550bb49b3?auto=format&fit=crop&q=80&w=1000"
+            src={project8}
             alt="Event"
             className="h-full w-full object-cover"
           />

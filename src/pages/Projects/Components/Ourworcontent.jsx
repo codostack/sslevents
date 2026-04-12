@@ -1,4 +1,4 @@
-import React from 'react';
+import project2 from "../../../assets/project/project2.jpg";
 
 const EventWorksSection = () => {
   return (
@@ -18,7 +18,7 @@ const EventWorksSection = () => {
           
           <div className="w-full aspect-[4/3] overflow-hidden">
             <img 
-              src="https://i.pinimg.com/736x/ac/20/17/ac20174fac444246e1d98a298d59499c.jpg" 
+              src={project2}
               alt="Destination Wedding Setup" 
               className="w-full h-full object-cover grayscale-[20%] hover:grayscale-0 transition-all duration-500"
             />

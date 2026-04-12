@@ -1,4 +1,5 @@
 import React from "react";
+import contact1 from "../../../assets/contact/contact1.jpg";
 
 export default function ContactHeader() {
   return (
@@ -7,7 +8,7 @@ export default function ContactHeader() {
       <div className="relative w-full h-[380px] md:h-[420px] lg:h-[460px]">
         {/* Background Image */}
         <img
-          src="https://images.openai.com/static-rsc-4/aonlTImHCctwQGvLTQkulY5BKvbHY8AGWx9EZ7lr3tXMMRp7Ue_tCFze20chPXPh7yNPIu27iamQQYLv6wZFO3KNMo44GDMjXPU3erNcHg-5475lpxHpvz94PEfJA0cTCVK14L3NpxJp4QSIE2DSdlMBZ5M3wB2iHmlRDUafCKtuPk44PJ9D3bxuW49wVzw0?purpose=fullsize"
+          src={contact1}
           alt="night party"
           className="w-full h-full object-cover"
         />

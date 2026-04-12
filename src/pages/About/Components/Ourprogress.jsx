@@ -6,7 +6,6 @@ const EventManagementProcess = () => {
       {/* Background Image: Elegant Event Setup */}
       <div 
         className="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat"
-        style={{ backgroundImage: `url('https://images.unsplash.com/photo-1519167758481-83f550bb49b3?auto=format&fit=crop&q=80&w=2000')` }}
       >
         {/* Deep navy overlay to match your screenshot style */}
         <div className="absolute inset-0 bg-[#0f111a]/95 backdrop-blur-[2px]"></div>

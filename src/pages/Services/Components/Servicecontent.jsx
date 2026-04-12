@@ -2,30 +2,39 @@ import React, { useState, useEffect } from 'react';
 import { ChevronRight, Building2, Briefcase, Users, Presentation } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 
+import services2 from "../../../assets/services/services2.jpg";
+import services3 from "../../../assets/services/services3.jpg";
+import services4 from "../../../assets/services/services4.jpg";
+import services5 from "../../../assets/services/services5.jpg";
+import services6 from "../../../assets/services/services6.jpg";
+import services7 from "../../../assets/services/services7.jpg";
+import services8 from "../../../assets/services/services8.jpg";
+import services9 from "../../../assets/services/services9.jpg";
+
 const EventServices = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
 const navigate = useNavigate();
   const corporateSlides = [
     {
-      image: "https://i.pinimg.com/736x/56/e2/f7/56e2f7abb877bccc5f4aed1b2843ee9a.jpg",
+      image: services2,
       title: "AV Rentals",
       desc: "We provide high-quality audio-visual equipment and technical support to ensure every corporate and social event runs flawlessly.",
       icon: <Building2 size={24} />
     },
     {
-      image: "https://i.pinimg.com/736x/21/2d/28/212d28d9c30ff7dfb3eada8e12a71318.jpg",
+      image: services3,
       title: "Conferences",
       desc: "We organize professional conferences with seamless logistics, venue management, and innovative setups that engage and inspire attendees.",
       icon: <Briefcase size={24} />
     },
     {
-      image: "https://i.pinimg.com/1200x/7b/65/b2/7b65b2f2524a8abb7af815a94b7ef1e8.jpg",
+      image: services4,
       title: "Corporate Events",
       desc: "Our team designs and delivers corporate events, from gala dinners to executive retreats, creating memorable experiences that reflect your brand.",
       icon: <Presentation size={24} />
     },
     {
-      image: "https://i.pinimg.com/736x/1c/09/c2/1c09c20f41e1c39bc310ba771a96295d.jpg",
+      image: services5,
       title: "Wedding Events",
       desc: "We curate bespoke wedding experiences, handling every detail from venue selection to décor and on-site coordination for a flawless celebration.",
       icon: <Users size={24} />
@@ -53,7 +62,7 @@ const navigate = useNavigate();
       title: "Social Celebrations",
       subtitle: "Memorable & Intimate",
       description: "Whether it is a milestone birthday or a private gala, we bring your vision to life with creative decor and bespoke catering.",
-      image: "https://i.pinimg.com/736x/10/76/e3/1076e3f2d40c35afb835079897655653.jpg",
+      image: services6,
       bgColor: "bg-gray-900",
       textColor: "text-white",
       btnColor: "bg-teal-400",
@@ -63,7 +72,7 @@ const navigate = useNavigate();
       title: "Destination Weddings",
       subtitle: "Breathtaking & Romantic",
       description: "Celebrate your love against the world's most stunning backdrops with SSL Events & Productions. We meticulously manage every detail — from travel arrangements and exclusive venue selection to bespoke décor, floral design, lighting, entertainment, and on-site coordination across the globe. Whether it's an intimate beach ceremony, a grand villa celebration, or a luxury resort wedding, our expert planners ensure a seamless and unforgettable experience. We curate every moment to reflect your unique love story, offering personalized touches, world-class vendors, and flawless execution so you can immerse yourself in joy, romance, and celebration. With SSL, your destination wedding becomes an extraordinary, once-in-a-lifetime experience that leaves lasting memories for you and your guests.",
-      image: "https://i.pinimg.com/736x/5e/08/46/5e08463acf5c64cc2e15e8ffbb3bcf55.jpg",
+      image: services7,
       bgColor: "bg-stone-50",
       textColor: "text-gray-800",
       btnColor: "bg-teal-600",
@@ -154,13 +163,13 @@ const navigate = useNavigate();
                 {/* Desktop: original stacked layout — unchanged */}
                 <div className="hidden md:block relative w-[650px] h-[400px] scale-75 lg:scale-100">
                   <div className="absolute top-[-150px] left-[180px] w-[360px] h-[540px] z-10 border-4 border-white shadow-2xl">
-                    <img src="https://i.pinimg.com/1200x/6d/e1/11/6de1117e42da47e2905b02554c6d6386.jpg" alt="" className="w-full h-full object-cover" />
+                    <img src={services8} alt="" className="w-full h-full object-cover" />
                   </div>
                   <div className="absolute top-[60px] left-[-80px] w-[420px] h-[260px] z-20 border-4 border-white shadow-2xl">
                     <img src={service.image} alt="" className="w-full h-full object-cover" />
                   </div>
                   <div className="absolute top-[120px] left-[320px] w-[300px] h-[350px] z-30 border-4 border-white shadow-2xl">
-                    <img src="https://i.pinimg.com/1200x/a0/7d/f3/a07df3f049289e39f6be128ada9a73c0.jpg" alt="" className="w-full h-full object-cover" />
+                    <img src={services9} alt="" className="w-full h-full object-cover" />
                   </div>
                 </div>
               </>

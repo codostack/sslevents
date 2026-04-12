@@ -1,11 +1,16 @@
 import { motion } from 'framer-motion';
+import project3 from "../../../assets/project/project3.jpg";
+import project4 from "../../../assets/project/project4.jpg";
+import project5 from "../../../assets/project/project5.jpg";
+import project6 from "../../../assets/project/project6.jpg";
+import project7 from "../../../assets/project/project7.jpg";
 
 const EVENTS = [
-  { id: 1, title: "Grand Wedding Gala", loc: "Palakkad", img: "https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=600" },
-  { id: 2, title: "Tech Innovation Summit", loc: "Kochi", img: "https://i.pinimg.com/736x/2a/ad/f2/2aadf2e0fd34bae0d3170c4e3275f16a.jpg" },
-  { id: 3, title: "Corporate Excellence", loc: "Bangalore", img: "https://images.unsplash.com/photo-1505373877841-8d25f7d46678?q=80&w=600" },
-  { id: 4, title: "Destination Beach Fest", loc: "Goa", img: "https://i.pinimg.com/1200x/0a/a3/92/0aa39272a4365514432319257d2fc598.jpg" },
-  { id: 5, title: "Art & Culture Exhibit", loc: "Mumbai", img: "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?q=80&w=600" },
+  { id: 1, title: "Grand Wedding Gala", loc: "Palakkad", img: project3 },
+  { id: 2, title: "Tech Innovation Summit", loc: "Kochi", img: project4 },
+  { id: 3, title: "Corporate Excellence", loc: "Bangalore", img: project5 },
+  { id: 4, title: "Destination Beach Fest", loc: "Goa", img: project6 },
+  { id: 5, title: "Art & Culture Exhibit", loc: "Mumbai", img: project7 },
 ];
 
 const ScrollingColumn = ({ items, reverse = false, cardW, cardH, gap }) => {
