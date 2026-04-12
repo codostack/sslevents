@@ -10,7 +10,7 @@ import Ourprogress from './Components/Ourprogress'
 const Page = () => {
   return (
     <div>
-      <Aboutheader/>
+      <Aboutheader/> 
       <Aboutimage/>
       <Whoweare/>
       <Whychooseus/>
