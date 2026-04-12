@@ -1,5 +1,4 @@
 import React, { useEffect, useRef } from "react";
-import bannerVideo from "../../../assets/images/bannervideo.mp4";
 
 const steps = [
   {
@@ -109,7 +108,7 @@ export default function HowWeWork() {
           playsInline
           className="absolute inset-0 w-full h-full object-cover opacity-70 scale-105 animate-slow-zoom"
         >
-          <source src={bannerVideo} type="video/mp4" />
+          <source src='/bannervideo.mp4' type="video/mp4" />
         </video>
 
         <div className="absolute inset-0 bg-gradient-to-r from-black via-black/20 to-transparent z-10" />

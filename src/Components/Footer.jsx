@@ -200,7 +200,7 @@ const socials = [
                   className="w-full h-[190px] object-cover group-hover:scale-105 transition duration-500"
                 />
                 <a
-                  href="https://www.youtube.com/watch?v=3fumBcKC6RE"
+                  href="https://youtu.be/gm4AYNYtlXY?si=166AQiE58wh5we33"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="absolute inset-0 flex items-center justify-center"

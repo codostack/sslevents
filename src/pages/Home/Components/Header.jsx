@@ -1,9 +1,6 @@
 import { useState, useRef, useEffect } from "react";
 import { MapPin, Calendar, Users, Search } from "lucide-react";
 
-const bannerVideo = "/final.mp4";
-// import bannerVideo from "../../../assets/images/final.mp4";
-
 export default function EventHero() {
   const [eventType, setEventType] = useState("");
   const [date, setDate] = useState("");
@@ -58,31 +55,22 @@ export default function EventHero() {
         }}
       />
 
-      {/* VIDEO — always visible, no opacity toggle, no waiting */}
-      <video
-        ref={videoRef}
-        autoPlay
-        loop
-        muted
-        playsInline
-        preload="auto"
-        disablePictureInPicture
-        disableRemotePlayback
-        poster="/poster.jpg"
-        style={{
-          position: "absolute",
-          top: 0,
-          left: 0,
-          width: "100%",
-          height: "100%",
-          objectFit: "cover",       /* fills entire hero — no black bars */
-          objectPosition: "center",
-          zIndex: 1,
-        }}
-      >
-        <source src={bannerVideo} type="video/mp4" />
-      </video>
+<video
+  ref={videoRef}
+  className="absolute top-0 left-0 w-full h-full object-cover"
+  autoPlay
+  loop
+  muted
+  playsInline
+  preload="metadata"
+  poster="/poster.jpg"
+>
+  {/* Mobile Video */}
+  <source src="/bannervideo-mobile.mp4" media="(max-width: 767px)" type="video/mp4" />
 
+  {/* Desktop Video */}
+  <source src="/bannervideo.mp4" media="(min-width: 768px)" type="video/mp4" />
+</video>
       {/* OVERLAY */}
       <div className="absolute inset-0 bg-black/50" style={{ zIndex: 2 }} />
 
