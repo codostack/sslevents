@@ -15,8 +15,8 @@ import conference3 from '../../../assets/images/2onference3.JPG';
 import productLaunch1 from '../../../assets/images/ProductLaunche1.JPG';
 import productLaunch2 from '../../../assets/images/ProductLaunche2.JPG';
 import productLaunch3 from '../../../assets/images/ProductLaunche3.JPG';
-import home1 from '../../../assets/images/home1.jpeg';
-import home4 from '../../../assets/images/home4.jpeg';
+import home1 from '../../../assets/home/home1.jpeg';
+import home4 from '../../../assets/home/home4.jpeg';
 import img12 from '../../../assets/images/12.png';
 
 const SERVICES_DATA = [
