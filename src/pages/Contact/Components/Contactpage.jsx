@@ -1,5 +1,14 @@
 import { useState, useRef, useEffect } from "react";
 import { Heart, Building2, PartyPopper, Star, Trophy, Music, Camera, Utensils, MapPin, ChevronRight } from "lucide-react";
+import contact from "../../../assets/home/home9.avif";
+import contact1 from "../../../assets/home/home10.avif";
+import contact2 from "../../../assets/home/home12.avif";
+import contact3 from "../../../assets/project/project5.jpg";
+import contact4 from "../../../assets/services/services14.jpg";
+import contact5 from "../../../assets/contact/contact3.avif";
+import contact6 from "../../../assets/contact/contact4.avif";
+import contact7 from "../../../assets/services/services6.jpg";
+import contact8 from "../../../assets/services/services12.jpg";
 
 export default function ContactPage() {
   const [form, setForm] = useState({
@@ -34,55 +43,55 @@ export default function ContactPage() {
       name: "Luxury Weddings", 
       icon: <Heart size={32} />, 
       content: "Crafting timeless moments with elegant decor, seamless coordination, and cinematic flair.",
-      image: "https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&q=80&w=800",
+      image: contact,
     },
     { 
       name: "Corporate Galas", 
       icon: <Building2 size={32} />, 
       content: "Professional networking events and galas that reflect your brand's excellence and prestige.",
-      image: "https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&q=80&w=800",
+      image: contact1,
     },
     { 
       name: "Birthday Bashes", 
       icon: <PartyPopper size={32} />, 
       content: "From themed kids' parties to milestone adult celebrations, we bring the fun and the cake.",
-      image: "https://images.unsplash.com/photo-1464349095431-e9a21285b5f3?auto=format&fit=crop&q=80&w=800",
+      image: contact2,
     },
     { 
       name: "Product Launches", 
       icon: <Star size={32} />, 
       content: "High-impact launches designed to grab media attention and leave a lasting market impression.",
-      image: "https://images.unsplash.com/photo-1505373877841-8d25f7d46678?auto=format&fit=crop&q=80&w=800",
+      image: contact3,
     },
     { 
       name: "Award Ceremonies", 
       icon: <Trophy size={32} />, 
       content: "Honoring achievement with grand stages, professional lighting, and flawless trophy sequences.",
-      image: "https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?auto=format&fit=crop&q=80&w=800",
+      image: contact4,
     },
     { 
       name: "Live Concerts", 
       icon: <Music size={32} />, 
       content: "Full-scale technical production, sound engineering, and artist management for live music.",
-      image: "https://images.unsplash.com/photo-1459749411177-042180ce673c?auto=format&fit=crop&q=80&w=800",
+      image: contact7,
     },
     { 
       name: "Fashion Shows", 
       icon: <Camera size={32} />, 
       content: "Runway design and backstage management for the ultimate high-fashion experience.",
-      image: "https://images.unsplash.com/photo-1537832816519-689ad163238b?auto=format&fit=crop&q=80&w=800",
+      image: contact5,
     },
     { 
       name: "Private Catering", 
       icon: <Utensils size={32} />, 
       content: "Gourmet menus tailored to your taste, served by professional staff at your chosen venue.",
-      image: "https://images.unsplash.com/photo-1555244162-803834f70033?auto=format&fit=crop&q=80&w=800",
+      image: contact6,
     },
     { 
       name: "Exhibitions", 
       icon: <MapPin size={32} />, 
       content: "Custom stall designs and visitor flow management for trade fairs and exhibitions.",
-      image: "https://images.unsplash.com/photo-1496024840928-4c417adb2d1d?auto=format&fit=crop&q=80&w=800",
+      image: contact8,
     },
   ];
 
