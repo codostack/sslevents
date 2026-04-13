@@ -5,11 +5,9 @@ import {
   FaBriefcase,
   FaHeadset,
 } from "react-icons/fa";
-import { useNavigate } from "react-router-dom";
 import services1 from "../../../assets/services/services1.jpg";
 
 export default function ServicesHeader() {
-  const navigate = useNavigate(); // ✅ navigation
 
   const whatsappNumber = "971508536881"; // your number (no +)
   const whatsappMessage = "Hello, I would like to get started with your event services.";
@@ -67,12 +65,6 @@ export default function ServicesHeader() {
                 seamless execution, and a touch of creativity for every
                 celebration.
               </p>
-<button
-  onClick={() => navigate("/about")}
-  className="bg-teal-500 px-5 py-2 text-sm sm:text-base"
->
-  Learn More
-</button>
             </div>
           </div>
         </div>

@@ -9,15 +9,7 @@ import about4 from "../../../assets/about/about4.jpg";
 
 const FeatureCard = ({ image, title, rating }) => (
   <div
-    className="
-      bg-white
-      overflow-hidden
-      border-white
-      shadow-sm
-      hover:shadow-xl
-      hover:-translate-y-1
-      transition-all duration-300
-    "
+    className="bg-white overflow-hidden border-white shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
     style={{ borderWidth: "6px", borderStyle: "solid" }}
   >
     <div className="h-48 overflow-hidden">
@@ -51,22 +43,59 @@ const EventHero = () => {
   const [date, setDate] = useState("");
   const [guests, setGuests] = useState("");
   const [preference, setPreference] = useState("");
+  const [errors, setErrors] = useState({});
 
-  const handleWhatsApp = () => {
-    const phoneNumber = "971508536881";
+  // ✅ VALIDATION FUNCTION (no UI change)
+  const validate = () => {
+    const newErrors = {};
 
-    const message = `Hi, I want to enquire about an event.
+    if (!eventType.trim()) {
+      newErrors.eventType = "Event type is required";
+    }
 
-📌 Event Type: ${eventType || "Not specified"}
-📅 Date: ${date || "Not specified"}
-👥 Guests: ${guests || "Not specified"}
-🎯 Preference: ${preference || "Not specified"}
+    if (!date.trim()) {
+      newErrors.date = "Date is required";
+    }
+
+    if (!guests) {
+      newErrors.guests = "Guest count is required";
+    } else if (isNaN(guests) || Number(guests) <= 0) {
+      newErrors.guests = "Enter valid guest count";
+    }
+
+    if (!preference.trim()) {
+      newErrors.preference = "Preference is required";
+    }
+
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
+
+const handleWhatsApp = () => {
+  if (!validate()) return;
+
+  const phoneNumber = "971508536881";
+
+  const message = `Hi, I want to enquire about an event.
+
+📌 Event Type: ${eventType}
+📅 Date: ${date}
+👥 Guests: ${guests}
+🎯 Preference: ${preference}
 
 Please share details.`;
 
-    const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
-    window.open(url, "_blank");
-  };
+  const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+  
+  window.open(url, "_blank");
+
+  // ✅ CLEAR FORM AFTER SUBMIT
+  setEventType("");
+  setDate("");
+  setGuests("");
+  setPreference("");
+  setErrors({});
+};
 
   return (
     <div className="relative w-full bg-white font-sans overflow-x-hidden">
@@ -93,54 +122,86 @@ Please share details.`;
           <div className="bg-white/95 backdrop-blur-sm p-2 rounded-md shadow-2xl flex flex-col md:flex-row items-stretch md:items-center gap-0 md:gap-2 mx-2 sm:mx-4 md:mx-auto border-b-4 border-[#39CABB]">
 
             {/* Event Type */}
-            <div className="flex items-center gap-2 px-4 py-3 md:py-2 border-b md:border-b-0 md:border-r border-gray-200 flex-1">
-              <MapPin size={18} className="text-[#39CABB] shrink-0" />
-              <input
-                type="text"
-                value={eventType}
-                onChange={(e) => setEventType(e.target.value)}
-                placeholder="Event Type"
-                className="bg-transparent text-gray-700 outline-none w-full text-sm"
-              />
+            <div className="flex-1 flex flex-col">
+              <div className="flex items-center gap-2 px-4 py-3 md:py-2 border-b md:border-b-0 md:border-r border-gray-200">
+                <MapPin size={18} className="text-[#39CABB] shrink-0" />
+                <input
+                  type="text"
+                  value={eventType}
+                  onChange={(e) => setEventType(e.target.value)}
+                  placeholder="Event Type"
+                  className="bg-transparent text-gray-700 outline-none w-full text-sm"
+                />
+              </div>
+              {errors.eventType && (
+                <span className="text-red-500 text-xs px-4 mt-1">
+                  {errors.eventType}
+                </span>
+              )}
             </div>
 
             {/* Date */}
-            <div className="flex items-center gap-2 px-4 py-3 md:py-2 border-b md:border-b-0 md:border-r border-gray-200 flex-1">
-              <Calendar size={18} className="text-[#39CABB] shrink-0" />
-              <input
-                type="text"
-                value={date}
-                onChange={(e) => setDate(e.target.value)}
-                placeholder="Date"
-                className="bg-transparent text-gray-700 outline-none w-full text-sm"
-              />
+            <div className="flex-1 flex flex-col">
+              <div className="flex items-center gap-2 px-4 py-3 md:py-2 border-b md:border-b-0 md:border-r border-gray-200">
+                <Calendar size={18} className="text-[#39CABB] shrink-0" />
+                <input
+                  type="text"
+                  value={date}
+                  onFocus={(e) => (e.target.type = "date")}
+                  onBlur={(e) => {
+                    if (!e.target.value) e.target.type = "text";
+                  }}
+                  onChange={(e) => setDate(e.target.value)}
+                  placeholder="Date"
+                  className="bg-transparent text-gray-700 outline-none w-full text-sm"
+                />
+              </div>
+              {errors.date && (
+                <span className="text-red-500 text-xs px-4 mt-1">
+                  {errors.date}
+                </span>
+              )}
             </div>
 
             {/* Guest Count */}
-            <div className="flex items-center gap-2 px-4 py-3 md:py-2 border-b md:border-b-0 md:border-r border-gray-200 flex-1">
-              <Calendar size={18} className="text-[#39CABB] shrink-0" />
-              <input
-                type="text"
-                value={guests}
-                onChange={(e) => setGuests(e.target.value)}
-                placeholder="Guest Count"
-                className="bg-transparent text-gray-700 outline-none w-full text-sm"
-              />
+            <div className="flex-1 flex flex-col">
+              <div className="flex items-center gap-2 px-4 py-3 md:py-2 border-b md:border-b-0 md:border-r border-gray-200">
+                <Calendar size={18} className="text-[#39CABB] shrink-0" />
+                <input
+                  type="text"
+                  value={guests}
+                  onChange={(e) => setGuests(e.target.value)}
+                  placeholder="Guest Count"
+                  className="bg-transparent text-gray-700 outline-none w-full text-sm"
+                />
+              </div>
+              {errors.guests && (
+                <span className="text-red-500 text-xs px-4 mt-1">
+                  {errors.guests}
+                </span>
+              )}
             </div>
 
             {/* Preference */}
-            <div className="flex items-center gap-2 px-4 py-3 md:py-2 border-b md:border-b-0 flex-1">
-              <Users size={18} className="text-[#39CABB] shrink-0" />
-              <input
-                type="text"
-                value={preference}
-                onChange={(e) => setPreference(e.target.value)}
-                placeholder="Preference"
-                className="bg-transparent text-gray-700 outline-none w-full text-sm"
-              />
+            <div className="flex-1 flex flex-col">
+              <div className="flex items-center gap-2 px-4 py-3 md:py-2 border-b md:border-b-0 flex-1">
+                <Users size={18} className="text-[#39CABB] shrink-0" />
+                <input
+                  type="text"
+                  value={preference}
+                  onChange={(e) => setPreference(e.target.value)}
+                  placeholder="Preference"
+                  className="bg-transparent text-gray-700 outline-none w-full text-sm"
+                />
+              </div>
+              {errors.preference && (
+                <span className="text-red-500 text-xs px-4 mt-1">
+                  {errors.preference}
+                </span>
+              )}
             </div>
 
-            {/* Search Button */}
+            {/* Button */}
             <button
               onClick={handleWhatsApp}
               className="bg-[#39CABB] hover:bg-[#2da99d] text-white px-8 py-3 rounded uppercase font-bold text-sm transition-all w-full md:w-auto mt-1 md:mt-0"
@@ -203,8 +264,7 @@ Please share details.`;
             rating={5}
           />
         </div>
-      </div>
-    </div>
+      </div>    </div>
   );
 };
 

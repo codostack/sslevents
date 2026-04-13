@@ -4,8 +4,8 @@ import home2 from "../../../assets/home/home1.jpg";
 import home3 from "../../../assets/home/home2.jpg";
 import home4 from "../../../assets/home/home3.jpg";
 import home5 from "../../../assets/home/home4.jpg";
-
 import conferenceImg from "../../../assets/home/home4.jpeg";
+
 const services = [
   {
     id: "01",
@@ -66,33 +66,22 @@ const services = [
 export default function EventServiceShowcase() {
   const [active, setActive] = useState(services[0]);
 
-  const handleWhatsAppBooking = () => {
-  const phoneNumber = "971508536881";
-
-  const message = `Hi, I am interested in your service.
-
-🎯 Service: ${active.title}
-🏷 Category: ${active.tag}
-
-📄 Details:
-${active.popupDetail}
-
-Please share more details and pricing.`;
-
-  const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
-  window.open(url, "_blank");
-};
-
+  const handleScrollToRegister = () => {
+    const section = document.getElementById("register");
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth" });
+    }
+  };
   return (
     <div className="min-h-screen bg-white px-6 py-16 flex items-center justify-center font-serif">
       <div className="max-w-[1540px] w-full">
-        
+
         {/* HEADER SECTION - Now centered at the top */}
         <div className="text-center mb-16 px-4">
-<h1 className="text-4xl md:text-5xl mb-6 tracking-tight bg-gray-600 bg-clip-text text-transparent font-normal">
-  About our  
-  <span className="text-orange-400"> Company & Services </span>
-</h1>
+          <h1 className="text-4xl md:text-5xl mb-6 tracking-tight bg-gray-600 bg-clip-text text-transparent font-normal">
+            About our
+            <span className="text-orange-400"> Company & Services </span>
+          </h1>
           <div className="max-w-3xl mx-auto">
             <p className="text-slate-500 text-lg md:text-xl leading-relaxed italic">
               "Welcome to SSL Events Dubai, where every celebration becomes a masterpiece! We are your trusted partner in creating unforgettable moments, whether it's a dazzling wedding, a corporate gala, or a private celebration."
@@ -102,18 +91,17 @@ Please share more details and pricing.`;
 
         {/* MAIN CONTENT GRID */}
         <div className="grid grid-cols-1 lg:grid-cols-[1fr_450px] gap-10 items-start">
-          
+
           {/* LEFT SIDE: Service Grid */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
             {services.map((s) => (
               <div
                 key={s.id}
                 onClick={() => setActive(s)}
-                className={`group relative bg-white squared-2xl border-2 overflow-hidden shadow-sm transition-all duration-300 cursor-pointer flex flex-col h-[300px] ${
-                  active.id === s.id 
-                  ? "border-[#551A8B] shadow-purple-200 shadow-lg scale-[1.02] z-10" 
-                  : "border-[#ede8f5] hover:border-purple-300"
-                }`}
+                className={`group relative bg-white squared-2xl border-2 overflow-hidden shadow-sm transition-all duration-300 cursor-pointer flex flex-col h-[300px] ${active.id === s.id
+                    ? "border-[#551A8B] shadow-purple-200 shadow-lg scale-[1.02] z-10"
+                    : "border-[#ede8f5] hover:border-purple-300"
+                  }`}
               >
                 {/* Image Section */}
                 <div className="w-full h-36 shrink-0 overflow-hidden relative">
@@ -151,7 +139,7 @@ Please share more details and pricing.`;
                 className="w-full h-full object-cover animate-in fade-in zoom-in-95 duration-500"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#1a0033] via-[#1a0033]/20 to-transparent" />
-              
+
               <div className="absolute top-6 left-6">
                 <span className="bg-white/20 backdrop-blur-md border border-white/30 px-3 py-1 rounded-full text-[10px] font-bold text-white font-sans uppercase tracking-widest">
                   {active.tag}
@@ -185,12 +173,12 @@ Please share more details and pricing.`;
               </div>
 
               {/* CTA Button */}
-<button
-  onClick={handleWhatsAppBooking}
-  className="w-full bg-gradient-to-r from-[#551A8B] to-[#7c3aed] hover:from-[#FF5B00] hover:to-[#ff8100] text-white py-4 rounded-xl font-bold font-sans text-sm tracking-[2px] uppercase transition-all duration-300 shadow-lg shadow-purple-100 transform active:scale-[0.98]"
->
-  Reserve Your Date
-</button>
+              <button
+                onClick={handleScrollToRegister}
+                className="w-full bg-gradient-to-r from-[#551A8B] to-[#7c3aed] hover:from-[#FF5B00] hover:to-[#ff8100] text-white py-4 rounded-xl font-bold font-sans text-sm tracking-[2px] uppercase transition-all duration-300 shadow-lg shadow-purple-100 transform active:scale-[0.98]"
+              >
+                Reserve Your Date
+              </button>
             </div>
           </div>
 

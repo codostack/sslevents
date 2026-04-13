@@ -6,6 +6,8 @@ export default function EventHero() {
   const [date, setDate] = useState("");
   const [guests, setGuests] = useState("");
   const [location, setLocation] = useState("");
+  const [errors, setErrors] = useState({});
+
   const videoRef = useRef(null);
 
   useEffect(() => {
@@ -13,13 +15,11 @@ export default function EventHero() {
     if (!video) return;
 
     const playVideo = () => {
-      video.play().catch(() => { });
+      video.play().catch(() => {});
     };
 
-    // Play once on load
     playVideo();
 
-    // Resume only when visible
     const handleVisibility = () => {
       if (!document.hidden) playVideo();
     };
@@ -31,26 +31,64 @@ export default function EventHero() {
     };
   }, []);
 
+  // ✅ VALIDATION FUNCTION
+  const validate = () => {
+    const newErrors = {};
+    const today = new Date().toISOString().split("T")[0];
+
+    if (!eventType.trim()) {
+      newErrors.eventType = "Event type is required";
+    }
+
+    if (!date) {
+      newErrors.date = "Date is required";
+    } else if (date < today) {
+      newErrors.date = "Date cannot be in the past";
+    }
+
+    if (!guests) {
+      newErrors.guests = "Guest count is required";
+    } else if (guests <= 0) {
+      newErrors.guests = "Guest must be greater than 0";
+    }
+
+    if (!location.trim()) {
+      newErrors.location = "Location is required";
+    }
+
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
+
 const handleWhatsAppBooking = () => {
+  if (!validate()) return;
+
   const phoneNumber = "917592825349";
 
   const message = `Hi, I want to book an event.
 
-📌 Event Type: ${eventType || "Not specified"}
-📅 Date: ${date || "Not specified"}
-👥 Guests: ${guests || "Not specified"}
-📍 Location: ${location || "Not specified"}`;
+📌 Event Type: ${eventType}
+📅 Date: ${date}
+👥 Guests: ${guests}
+📍 Location: ${location}`;
 
   window.open(
     `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`,
     "_blank"
   );
+
+  // ✅ CLEAR FORM AFTER SUBMIT
+  setEventType("");
+  setDate("");
+  setGuests("");
+  setLocation("");
+  setErrors({});
 };
 
   return (
     <div className="relative w-full h-screen min-h-[650px] overflow-hidden font-['Outfit']">
 
-      {/* POSTER IMAGE — always visible as base layer */}
+      {/* Background */}
       <div
         className="absolute inset-0 z-0"
         style={{
@@ -71,84 +109,86 @@ const handleWhatsAppBooking = () => {
         preload="none"
         poster="/poster.jpg"
       >
-        <source src="/bannervideo.mp4" media="(max-width: 767px)" type="video/mp4" />
-        <source src="/bannervideo.mp4" media="(min-width: 768px)" type="video/mp4" />
+        <source src="/bannervideo.mp4" type="video/mp4" />
       </video>
-      {/* OVERLAY */}
-      <div className="absolute inset-0 bg-black/50" style={{ zIndex: 2 }} />
 
-      {/* SEARCH BAR */}
-      <div
-        className="absolute bottom-10 left-1/2 -translate-x-1/2 w-[90%] max-w-[1100px]"
-        style={{ zIndex: 10 }}
-      >
+      <div className="absolute inset-0 bg-black/50 z-[2]" />
+
+      {/* FORM */}
+      <div className="absolute bottom-10 left-1/2 -translate-x-1/2 w-[90%] max-w-[1100px] z-10">
         <div className="relative flex flex-col md:flex-row items-center rounded-lg bg-white/90 backdrop-blur-md p-3 shadow-2xl overflow-hidden border-b-4 border-[#4dcad1]">
 
           {/* Event Type */}
-          <div className="flex-1 flex items-center px-5 h-10 w-full md:border-r border-gray-200">
-            <span className="text-[#4dcad1] mr-3">
-              <Search size={20} strokeWidth={2.5} />
-            </span>
-            <input
-              type="text"
-              value={eventType}
-              onChange={(e) => setEventType(e.target.value)}
-              className="bg-transparent border-none outline-none text-[15px] text-gray-800 w-full placeholder-gray-500"
-              placeholder="Event Type"
-            />
+          <div className="flex-1 w-full">
+            <div className="flex items-center px-5 h-10 md:border-r border-gray-200">
+              <Search className="text-[#4dcad1] mr-3" size={20} />
+              <input
+                type="text"
+                value={eventType}
+                onChange={(e) => setEventType(e.target.value)}
+                className="bg-transparent outline-none w-full"
+                placeholder="Event Type"
+              />
+            </div>
+            {errors.eventType && (
+              <p className="text-red-500 text-xs px-5">{errors.eventType}</p>
+            )}
           </div>
 
           {/* Date */}
-<div className="flex-1 flex items-center px-5 h-10 w-full md:border-r border-gray-200 mt-4 md:mt-0">
-  <span className="text-[#4dcad1] mr-3">
-    <Calendar size={20} strokeWidth={2.5} />
-  </span>
+          <div className="flex-1 w-full mt-4 md:mt-0">
+            <div className="flex items-center px-5 h-10 md:border-r border-gray-200">
+              <Calendar className="text-[#4dcad1] mr-3" size={20} />
+              <input
+                type="date"
+                value={date}
+                onChange={(e) => setDate(e.target.value)}
+                className="bg-transparent outline-none w-full"
+              />
+            </div>
+            {errors.date && (
+              <p className="text-red-500 text-xs px-5">{errors.date}</p>
+            )}
+          </div>
 
-  <input
-    type="text"
-    value={date}
-    onFocus={(e) => (e.target.type = "date")}
-    onBlur={(e) => {
-      if (!e.target.value) e.target.type = "text";
-    }}
-    onChange={(e) => setDate(e.target.value)}
-    className="bg-transparent border-none outline-none text-[15px] text-gray-800 w-full placeholder-gray-500"
-    placeholder="Select Date"
-  />
-</div>
-
-          {/* Guest Count */}
-          <div className="flex-1 flex items-center px-5 h-10 w-full md:border-r border-gray-200 mt-4 md:mt-0">
-            <span className="text-[#4dcad1] mr-3">
-              <Users size={20} strokeWidth={2.5} />
-            </span>
-            <input
-              type="number"
-              value={guests}
-              onChange={(e) => setGuests(e.target.value)}
-              className="bg-transparent border-none outline-none text-[15px] text-gray-800 w-full placeholder-gray-500"
-              placeholder="Guest Count"
-            />
+          {/* Guests */}
+          <div className="flex-1 w-full mt-4 md:mt-0">
+            <div className="flex items-center px-5 h-10 md:border-r border-gray-200">
+              <Users className="text-[#4dcad1] mr-3" size={20} />
+              <input
+                type="number"
+                value={guests}
+                onChange={(e) => setGuests(e.target.value)}
+                className="bg-transparent outline-none w-full"
+                placeholder="Guest Count"
+              />
+            </div>
+            {errors.guests && (
+              <p className="text-red-500 text-xs px-5">{errors.guests}</p>
+            )}
           </div>
 
           {/* Location */}
-          <div className="flex-1 flex items-center px-5 h-10 w-full mt-4 md:mt-0">
-            <span className="text-[#4dcad1] mr-3">
-              <MapPin size={20} strokeWidth={2.5} />
-            </span>
-            <input
-              type="text"
-              value={location}
-              onChange={(e) => setLocation(e.target.value)}
-              className="bg-transparent border-none outline-none text-[15px] text-gray-800 w-full placeholder-gray-500"
-              placeholder="Preferred Location"
-            />
+          <div className="flex-1 w-full mt-4 md:mt-0">
+            <div className="flex items-center px-5 h-10">
+              <MapPin className="text-[#4dcad1] mr-3" size={20} />
+              <input
+                type="text"
+                value={location}
+                onChange={(e) => setLocation(e.target.value)}
+                className="bg-transparent outline-none w-full"
+                placeholder="Preferred Location"
+              />
+            </div>
+            {errors.location && (
+              <p className="text-red-500 text-xs px-5">{errors.location}</p>
+            )}
           </div>
 
-          {/* Book Now */}
+          {/* Button */}
           <button
             onClick={handleWhatsAppBooking}
-            className="w-full md:w-auto bg-[#008b8b] hover:bg-[#007373] text-white px-10 h-[50px] rounded-md font-default uppercase tracking-wider transition-all duration-300 md:ml-4 mt-4 md:mt-0 shadow-lg hover:-translate-y-0.5 active:scale-95"
+            className="w-full md:w-auto bg-[#008b8b] hover:bg-[#007373] text-white px-10 h-[50px] rounded-md uppercase tracking-wider transition-all duration-300 md:ml-4 mt-4 md:mt-0"
           >
             Book Now
           </button>
