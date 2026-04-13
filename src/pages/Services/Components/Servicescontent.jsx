@@ -7,14 +7,14 @@ import {
 import { motion, AnimatePresence } from 'framer-motion';
 
 // --- Local Image Imports ---
-import corporate1 from '../../../assets/images/corporate1.JPG';
-import corporate2 from '../../../assets/images/corporate2.JPG';
+import corporate1 from '../../../assets/images/corporate1.jpg';
+import corporate2 from '../../../assets/images/corporate2.jpg';
 import conference1 from '../../../assets/images/2onference1.JPG';
 import conference2 from '../../../assets/images/2onference2.JPG';
 import conference3 from '../../../assets/images/2onference3.JPG';
-import productLaunch1 from '../../../assets/images/ProductLaunche1.JPG';
-import productLaunch2 from '../../../assets/images/ProductLaunche2.JPG';
-import productLaunch3 from '../../../assets/images/ProductLaunche3.JPG';
+import productLaunch1 from '../../../assets/images/ProductLaunche1.jpg';
+import productLaunch2 from '../../../assets/images/ProductLaunche2.jpg';
+import productLaunch3 from '../../../assets/images/ProductLaunche3.jpg';
 import home1 from '../../../assets/home/home1.jpeg';
 import home4 from '../../../assets/home/home4.jpeg';
 import img12 from '../../../assets/images/12.png';

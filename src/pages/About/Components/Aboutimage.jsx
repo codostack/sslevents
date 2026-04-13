@@ -6,12 +6,14 @@ import about8 from "../../../assets/about/about1.jpg";
 import about9 from "../../../assets/home/home14.jpg";
 import about10 from "../../../assets/about/about10.jpg";
 import about12 from "../../../assets/about/about12.jpg";
+import about14 from "../../../assets/about/about8.jpg";
+import about13 from "../../../assets/about/about21.jpg";
 
 const partySets = [
   {
     id: 1,
     hero: about5,
-    sideTop: "https://images.pexels.com/photos/2747449/pexels-photo-2747449.jpeg?cs=srgb&dl=pexels-wolfgang-1002140-2747449.jpg&fm=jpg",
+    sideTop: about14,
     sideBottom: about7,
     extraLeft: about8,
   },
@@ -19,7 +21,7 @@ const partySets = [
     id: 2,
     hero: about9,
     sideTop: about10,
-    sideBottom: "https://visionphoto.ca/wp-content/uploads/2025/04/2025_JUNOS_Vancouver_VCC_InnovationLighting_006_Web.jpg",
+    sideBottom: about13,
     extraLeft: about12,
   }
 ];

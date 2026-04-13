@@ -3,6 +3,13 @@ import { Briefcase, Wind, MapPin, Music, Camera, Utensils, Flower2, Star, ArrowR
 import { useNavigate } from "react-router-dom";
 import about13 from "../../../assets/about/about13.avif";
 import about from "../../../assets/home/home10.avif";
+import about15 from "../../../assets/about/about15.jpg";
+import about16 from "../../../assets/about/about16.jpg";
+import about17 from "../../../assets/about/about17.jpg";
+import about18 from "../../../assets/about/about18.avif";
+import about19 from "../../../assets/about/about19.jpg";
+import about20 from "../../../assets/about/about20.jpg";
+import about21 from "../../../assets/about/about21.jpg";
 
 const services = [
   {
@@ -15,43 +22,43 @@ const services = [
     icon: Wind, label: "Dream Weddings", tag: "Romance", short: "Weddings",
     desc: "Breathtaking ceremonies, floral elegance & memories that last forever.",
     color: "#1e0533", accent: "#a21caf", light: "#fae8ff",
-    image: "https://images.unsplash.com/photo-1519741497674-611481863552?w=800&q=80",
+    image: about15,
   },
   {
     icon: MapPin, label: "Destination", tag: "Travel", short: "Destination",
     desc: "Exotic venues, seamless logistics & world-class global event execution.",
     color: "#052e16", accent: "#16a34a", light: "#dcfce7",
-    image: "https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?w=800&q=80",
+    image: about16,
   },
   {
     icon: Music, label: "Live Concerts", tag: "Music", short: "Live Music",
     desc: "World-class artists, electrifying DJs & live experiences your guests will rave about.",
     color: "#2d1000", accent: "#ea580c", light: "#ffedd5",
-    image: "https://images.unsplash.com/photo-1459749411175-04bf5292ceea?w=800&q=80",
+    image: about17,
   },
   {
     icon: Camera, label: "Photography", tag: "Visuals", short: "Photo & Film",
     desc: "Cinematic storytelling, aerial drone footage & award-winning post-production.",
     color: "#0c0c2e", accent: "#7c3aed", light: "#ede9fe",
-    image: "https://img.freepik.com/free-photo/professional-equipment-camera-tripod-stand-field-front-prepared-table-evening-time_146671-14420.jpg?semt=ais_hybrid&w=740&q=80",
+    image: about18,
   },
   {
     icon: Utensils, label: "Fine Catering", tag: "Gourmet", short: "Catering",
     desc: "Michelin-inspired menus, live cooking stations & world-class bar service.",
     color: "#3d0808", accent: "#dc2626", light: "#fee2e2",
-    image: "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=800&q=80",
+    image: about19,
   },
   {
     icon: Flower2, label: "Floral Design", tag: "Décor", short: "Florals",
     desc: "Bespoke installations, archways & centrepieces that define the space.",
     color: "#2d0a24", accent: "#db2777", light: "#fce7f3",
-    image: "https://www.bhg.com/thmb/X-fiFcZvQMn5RkW482EjBsJjDRw=/1080x0/filters:no_upscale():strip_icc()/arranging-cala-lilly-with-floral-arrangement-889361ea-35648aff84214c6192cb3a5692a5a2ee.jpg",
+    image: about20,
   },
   {
     icon: Star, label: "VIP Experience", tag: "Exclusive", short: "VIP",
     desc: "Priority access, private lounges, concierge & red-carpet treatment.",
     color: "#0f1f05", accent: "#65a30d", light: "#ecfccb",
-    image: "https://images.unsplash.com/photo-1531058020387-3be344556be6?w=800&q=80",
+    image: about21,
   },
 ];
 

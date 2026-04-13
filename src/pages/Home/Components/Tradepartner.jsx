@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import home1 from "../../../assets/home/home1.jpeg";
 import home2 from "../../../assets/home/home1.jpg";
-import home3 from "../../../assets/home/home2.png";
-import home4 from "../../../assets/home/home3.png";
-import home5 from "../../../assets/home/home4.png";
+import home3 from "../../../assets/home/home2.jpg";
+import home4 from "../../../assets/home/home3.jpg";
+import home5 from "../../../assets/home/home4.jpg";
 
 import conferenceImg from "../../../assets/home/home4.jpeg";
 const services = [
