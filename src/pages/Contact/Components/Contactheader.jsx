@@ -34,15 +34,15 @@ export default function ContactHeader() {
           <div className="max-w-5xl mx-auto grid grid-cols-4 gap-4">
             <div className="bg-white border border-orange-400 rounded-lg p-4 text-center">
               <p className="text-orange-500 text-xs uppercase mb-1">Call Us</p>
-              <p className="text-gray-800 font-semibold text-sm">(+876) 765 665</p>
+              <p className="text-gray-800 font-semibold text-sm">+971 54 291 0172</p>
             </div>
             <div className="bg-white border border-orange-400 rounded-lg p-4 text-center">
               <p className="text-orange-500 text-xs uppercase mb-1">Email</p>
-              <p className="text-gray-800 font-semibold text-sm">mail@company.com</p>
+              <p className="text-gray-800 font-semibold text-sm">info@sslevents.ae</p>
             </div>
             <div className="bg-white border border-orange-400 rounded-lg p-4 text-center">
               <p className="text-orange-500 text-xs uppercase mb-1">Location</p>
-              <p className="text-gray-800 font-semibold text-sm">London Eye, London</p>
+              <p className="text-gray-800 font-semibold text-sm">Dubai - United Arab Emirates</p>
             </div>
             <div className="bg-white border border-orange-400 rounded-lg p-4 text-center">
               <p className="text-orange-500 text-xs uppercase mb-1">Working</p>

@@ -4,20 +4,20 @@ import { Phone, Mail, MapPin } from 'lucide-react';
 const ContactSection = () => {
   const [location, setLocation] = useState('india');
 
-  const data = {
-    india: {
-      phone: "+91 98765 43210",
-      email: "contact@company.in",
-      address: "Palakkad, Kerala, India",
-      mapUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d125406.108253685!2d76.56543168641974!3d10.773322108620713!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba86dfa087d31ad%3A0xfc245128e017ce!2sPalakkad%2C%20Kerala!5e0!3m2!1sen!2sin!4v1711985000000!5m2!1sen!2sin"
-    },
-    dubai: {
-      phone: "+971 4 123 4567",
-      email: "info@company.ae",
-      address: "Business Bay, Dubai, UAE",
-      mapUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d57745.36703554903!2d55.24278486953124!3d25.18231010000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f683492759971%3A0x6739607147b38d38!2sBusiness%20Bay%20-%20Dubai%20-%20United%20Arab%20Emirates!5e0!3m2!1sen!2sin!4v1711985100000!5m2!1sen!2sin"
-    }
-  };
+const data = {
+  india: {
+    phone: "+91 8029905586",
+    email: "info@sslevents.ae",
+    address: "Bangalore, India",
+    mapUrl: "https://www.google.com/maps?q=Bangalore,India&output=embed"
+  },
+  dubai: {
+    phone: "+971 55 964 3050",
+    email: "info@sslevents.ae",
+    address: "Dubai, United Arab Emirates",
+    mapUrl: "https://www.google.com/maps?q=Dubai,United+Arab+Emirates&output=embed"
+  }
+};
 
   const current = data[location];
 

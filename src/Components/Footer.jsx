@@ -98,12 +98,12 @@ const socials = [
             <div className="space-y-3">
               {[
                 { icon: Mail, text: "info@sslevents.ae" },
-                { icon: Phone, text: "+971 54 291 0172" },
+{ icon: Phone, text: "+971 54 291 0172 / +91 9902658178" },
                 { icon: MapPin, text: "Dubai, United Arab Emirates" },
               ].map((c, i) => (
                 <div key={i} className="flex items-center gap-3 p-3 rounded-xl bg-[#0f0f11] border border-zinc-800 hover:border-orange-500/40 transition">
                   <c.icon size={16} className="text-orange-400" />
-                  <span className="text-sm">{c.text}</span>
+                  <span className="text-sm whitespace-pre-line">{c.text}</span>
                 </div>
               ))}
             </div>

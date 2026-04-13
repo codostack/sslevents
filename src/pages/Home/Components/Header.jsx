@@ -99,18 +99,23 @@ const handleWhatsAppBooking = () => {
           </div>
 
           {/* Date */}
-          <div className="flex-1 flex items-center px-5 h-10 w-full md:border-r border-gray-200 mt-4 md:mt-0">
-            <span className="text-[#4dcad1] mr-3">
-              <Calendar size={20} strokeWidth={2.5} />
-            </span>
-            <input
-              type="date"
-              value={date}
-              onChange={(e) => setDate(e.target.value)}
-              className="bg-transparent border-none outline-none text-[15px] text-gray-800 w-full placeholder-gray-500"
-              placeholder="Date"
-            />
-          </div>
+<div className="flex-1 flex items-center px-5 h-10 w-full md:border-r border-gray-200 mt-4 md:mt-0">
+  <span className="text-[#4dcad1] mr-3">
+    <Calendar size={20} strokeWidth={2.5} />
+  </span>
+
+  <input
+    type="text"
+    value={date}
+    onFocus={(e) => (e.target.type = "date")}
+    onBlur={(e) => {
+      if (!e.target.value) e.target.type = "text";
+    }}
+    onChange={(e) => setDate(e.target.value)}
+    className="bg-transparent border-none outline-none text-[15px] text-gray-800 w-full placeholder-gray-500"
+    placeholder="Select Date"
+  />
+</div>
 
           {/* Guest Count */}
           <div className="flex-1 flex items-center px-5 h-10 w-full md:border-r border-gray-200 mt-4 md:mt-0">

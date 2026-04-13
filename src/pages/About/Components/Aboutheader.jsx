@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { MapPin, Calendar, Users, Star, ArrowRight } from 'lucide-react';
+import { useState } from 'react';
+import { MapPin, Calendar, Users, Star } from 'lucide-react';
 import { useNavigate } from "react-router-dom";
 
 import about1 from "../../../assets/about/about1.jpg";
@@ -202,16 +202,6 @@ Please share details.`;
             title="AV Rentals"
             rating={5}
           />
-        </div>
-      </div>
-
-      {/* ARROWS — hidden on small screens */}
-      <div className="hidden md:flex absolute right-10 bottom-40 flex-col gap-2">
-        <div className="w-8 h-8 rounded-full bg-[#39CABB] text-white flex items-center justify-center cursor-pointer shadow-lg">
-          <ArrowRight size={14} />
-        </div>
-        <div className="w-8 h-8 rounded-full bg-gray-100 text-gray-400 flex items-center justify-center cursor-pointer border">
-          <ArrowRight size={14} className="rotate-180" />
         </div>
       </div>
     </div>
