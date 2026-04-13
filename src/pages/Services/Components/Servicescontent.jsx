@@ -7,7 +7,7 @@ import {
 import { motion, AnimatePresence } from 'framer-motion';
 
 // --- Local Image Imports ---
-import corporate1 from '../../../assets/images/corporate1.jpg';
+import corporate1 from '../../../assets/images/corporate1.jpg'; 
 import corporate2 from '../../../assets/images/corporate2.jpg';
 import conference1 from '../../../assets/images/2onference1.JPG';
 import conference2 from '../../../assets/images/2onference2.JPG';
