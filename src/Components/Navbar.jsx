@@ -51,16 +51,17 @@ export default function Navbar() {
           }}
         >
           {/* Logo */}
-          <img
-            src={logo}
-            alt="Logo"
-            style={{
-              height: "45px",
-              objectFit: "contain",
-              filter: scrolled ? "invert(0)" : "invert(1)",
-              transition: "0.4s ease",
-            }}
-          />
+<img
+  src={logo}
+  alt="Logo"
+  style={{
+    height: "50px",
+    width: "auto",
+    objectFit: "contain",
+    filter: scrolled ? "none" : "brightness(0) invert(1)", // ✅ makes it white
+    transition: "0.4s ease",
+  }}
+/>
 
           {/* Desktop Menu */}
           <div

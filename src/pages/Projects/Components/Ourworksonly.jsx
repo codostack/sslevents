@@ -13,7 +13,21 @@ const EVENTS = [
   { id: 10, title: "Event 10", videoId: "k0j7u47WDVA" },
 ];
 
-const SPEED = 0.3; // px per frame — lower = slower scroll
+const SPEED = 0.3;
+
+const useIsMobile = () => {
+  const [isMobile, setIsMobile] = useState(
+    typeof window !== 'undefined' ? window.innerWidth < 768 : false
+  );
+
+  useEffect(() => {
+    const handleResize = () => setIsMobile(window.innerWidth < 768);
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  return isMobile;
+};
 
 const VideoCard = ({ item, cardW, cardH }) => {
   const [hovered, setHovered] = useState(false);
@@ -39,7 +53,6 @@ const VideoCard = ({ item, cardW, cardH }) => {
       style={{ width: cardW, height: cardH, flexShrink: 0 }}
       className="overflow-hidden border border-white/20 relative cursor-pointer shadow-xl"
     >
-      {/* YouTube thumbnail as poster */}
       <img
         src={`https://img.youtube.com/vi/${item.videoId}/hqdefault.jpg`}
         className="w-full h-full object-cover"
@@ -50,7 +63,6 @@ const VideoCard = ({ item, cardW, cardH }) => {
         alt={item.title}
       />
 
-      {/* Iframe only injected on first hover — no load impact on mount */}
       {iframeReady && (
         <iframe
           className="absolute inset-0 w-full h-full"
@@ -123,12 +135,14 @@ const ScrollingColumn = ({ items, reverse = false, cardW, cardH, gap, pauseSigna
 };
 
 const EventArcScroll = () => {
-  const isMobile = typeof window !== 'undefined' && window.innerWidth < 768;
+  const isMobile = useIsMobile();
 
-  const cardW = isMobile ? 90  : 288;
-  const cardH = isMobile ? 60  : 192;
-  const gap   = isMobile ? 10  : 24;
-  const px    = isMobile ? 12  : 96;
+  // Mobile: narrower cards, tighter spacing, smaller padding
+  // Desktop: original values unchanged
+  const cardW = isMobile ? 120 : 288;
+  const cardH = isMobile ? 80 : 192;
+  const gap   = isMobile ? 12 : 24;
+  const px    = isMobile ? 16 : 96;
 
   const [col1Paused, setCol1Paused] = useState(false);
   const [col2Paused, setCol2Paused] = useState(false);
