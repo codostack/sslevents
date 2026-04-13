@@ -85,7 +85,7 @@ Please share details.`;
             World Best Event Management Agency
           </p>
 
-          <h1 className="text-2xl sm:text-3xl md:text-5xl font-bold uppercase tracking-wider mb-6 md:mb-8 px-2">
+          <h1 className="text-2xl sm:text-3xl md:text-5xl uppercase tracking-wider mb-6 md:mb-8 px-2">
             Plan Your Upcoming <span className="text-[#39CABB]">Dream Celebration</span>
           </h1>
 
@@ -169,14 +169,8 @@ Please share details.`;
             Feature Event
           </h2>
           <p className="text-gray-400 text-xs leading-relaxed mb-4">
-            Delivering exceptional events with innovative planning.
+    Delivering exceptional events with innovative planning, creative design, and seamless execution that ensures unforgettable experiences for every client and guest.
           </p>
-          <button
-            onClick={() => navigate("/services")}
-            className="bg-[#39CABB] text-white px-6 py-2 rounded text-xs font-bold uppercase shadow-lg shadow-[#39CABB]/30 hover:scale-105 transition-transform"
-          >
-            View All
-          </button>
         </div>
 
         {/* Cards grid */}
@@ -189,14 +183,8 @@ Please share details.`;
               Feature Event
             </h2>
             <p className="text-gray-400 text-xs leading-relaxed">
-              Delivering exceptional events with innovative planning.
+    Delivering exceptional events with innovative planning, creative design, and seamless execution that ensures unforgettable experiences for every client and guest.
             </p>
-            <button
-              onClick={() => navigate("/services")}
-              className="bg-[#39CABB] text-white px-6 py-2 rounded text-xs font-bold uppercase shadow-lg shadow-[#39CABB]/30 hover:scale-105 transition-transform"
-            >
-              View All
-            </button>
           </div>
 
           <FeatureCard

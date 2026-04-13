@@ -1,19 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from "react-router-dom"; // ✅ ONLY ADD
 import about5 from "../../../assets/about/about5.jpg";
-import about6 from "../../../assets/about/about6.jpg";
 import about7 from "../../../assets/about/about7.jpg";
-import about8 from "../../../assets/about/about8.jpg";
-import about9 from "../../../assets/about/about9.jpg";
+import about8 from "../../../assets/about/about1.jpg";
+import about9 from "../../../assets/home/home14.jpg";
 import about10 from "../../../assets/about/about10.jpg";
-import about11 from "../../../assets/about/about11.jpg";
 import about12 from "../../../assets/about/about12.jpg";
 
 const partySets = [
   {
     id: 1,
     hero: about5,
-    sideTop: about6,
+    sideTop: "https://images.pexels.com/photos/2747449/pexels-photo-2747449.jpeg?cs=srgb&dl=pexels-wolfgang-1002140-2747449.jpg&fm=jpg",
     sideBottom: about7,
     extraLeft: about8,
   },
@@ -21,7 +19,7 @@ const partySets = [
     id: 2,
     hero: about9,
     sideTop: about10,
-    sideBottom: about11,
+    sideBottom: "https://visionphoto.ca/wp-content/uploads/2025/04/2025_JUNOS_Vancouver_VCC_InnovationLighting_006_Web.jpg",
     extraLeft: about12,
   }
 ];

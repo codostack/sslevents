@@ -78,19 +78,19 @@ export default function Navbar() {
           </div>
 
           {/* Desktop Button */}
-          <button
-            onClick={handleWhatsAppClick}
-            className="desktop-btn"
-            style={{
-              backgroundColor: "#f97316",
-              color: "#fff",
-              padding: "8px 18px",
-              border: "none",
-              cursor: "pointer",
-            }}
-          >
-            Book Event
-          </button>
+<button
+  onClick={handleWhatsAppClick}
+  className="desktop-btn rounded-md"
+  style={{
+    backgroundColor: "#f97316",
+    color: "#fff",
+    padding: "8px 18px",
+    border: "none",
+    cursor: "pointer",
+  }}
+>
+  Book Event
+</button>
 
           {/* Mobile Menu Icon */}
           <div

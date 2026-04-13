@@ -21,6 +21,12 @@ const EventVideoWatchPage = () => {
     "KGEc2A5yDTU",
     "bEycJ5r0W0g",
     "GOi4jFy-01o",
+    "QIT0SRQ-3wE",
+    "BLVzI50SEZ0",
+    "gm4AYNYtlXY",
+    "Qj1b1FFTHqE",
+    "SG4BnysW6_Q",
+    "TzKwklD2Bko",
   ];
 
   // Triplicate for seamless infinite loop — always has content above & below

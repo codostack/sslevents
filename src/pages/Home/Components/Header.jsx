@@ -31,17 +31,21 @@ export default function EventHero() {
     };
   }, []);
 
-  const handleWhatsAppBooking = () => {
-    const phoneNumber = "971508536881";
-    const message = `Hi, I want to book an event.
+const handleWhatsAppBooking = () => {
+  const phoneNumber = "917592825349";
+
+  const message = `Hi, I want to book an event.
 
 📌 Event Type: ${eventType || "Not specified"}
 📅 Date: ${date || "Not specified"}
 👥 Guests: ${guests || "Not specified"}
 📍 Location: ${location || "Not specified"}`;
 
-    window.open(`https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`, "_blank");
-  };
+  window.open(
+    `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`,
+    "_blank"
+  );
+};
 
   return (
     <div className="relative w-full h-screen min-h-[650px] overflow-hidden font-['Outfit']">

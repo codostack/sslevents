@@ -89,10 +89,10 @@ Please share more details and pricing.`;
         
         {/* HEADER SECTION - Now centered at the top */}
         <div className="text-center mb-16 px-4">
-          <h1 className="text-4xl md:text-5xl mb-6 tracking-tight bg-gray-600 bg-clip-text text-transparent">
-            About our  
-            <span className="text-orange-400"> Company & Services </span>
-          </h1>
+<h1 className="text-4xl md:text-5xl mb-6 tracking-tight bg-gray-600 bg-clip-text text-transparent font-normal">
+  About our  
+  <span className="text-orange-400"> Company & Services </span>
+</h1>
           <div className="max-w-3xl mx-auto">
             <p className="text-slate-500 text-lg md:text-xl leading-relaxed italic">
               "Welcome to SSL Events Dubai, where every celebration becomes a masterpiece! We are your trusted partner in creating unforgettable moments, whether it's a dazzling wedding, a corporate gala, or a private celebration."
@@ -159,7 +159,7 @@ Please share more details and pricing.`;
               </div>
 
               <div className="absolute bottom-6 left-8 right-8 text-left">
-                <h2 className="text-3xl font-bold text-white mb-2 leading-tight">
+                <h2 className="text-3xl text-white mb-2 leading-tight">
                   {active.title}
                 </h2>
                 <div className="w-12 h-1 bg-[#FF5B00] rounded-full" />

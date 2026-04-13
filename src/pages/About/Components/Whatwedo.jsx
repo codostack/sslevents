@@ -181,7 +181,7 @@ function ServiceCard({ pkg, Icon, active, animClass, prev, nextSlide, goTo, mobi
           <div className="inline-block text-[9px] font-bold tracking-[0.15em] uppercase px-3 py-1 rounded-full mb-2 w-fit" style={{ background: `${pkg.accent}30`, color: pkg.light }}>
             {pkg.tag}
           </div>
-          <div className="font-['Playfair_Display'] text-2xl font-bold text-white leading-[1.15] tracking-tight">
+          <div className="font-['Playfair_Display'] text-2xl text-white leading-[1.15] tracking-tight">
             {pkg.label}
           </div>
         </div>
