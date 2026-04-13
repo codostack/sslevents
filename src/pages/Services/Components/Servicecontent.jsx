@@ -120,7 +120,7 @@ const navigate = useNavigate();
                   </div>
 
                   <div className="mb-4">
-                    <h3 className="text-2xl sm:text-3xl font-bold mb-3 transition-all duration-500">
+                    <h3 className="text-2xl sm:text-3xl mb-3 transition-all duration-500">
                       {corporateSlides[currentSlide].title}
                     </h3>
                     <p className="text-gray-200 text-sm leading-relaxed max-w-[260px] opacity-90">
@@ -139,7 +139,7 @@ const navigate = useNavigate();
                         />
                       ))}
                     </div>
-                    <button className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider group/btn">
+                    <button className="flex items-center gap-2 text-xs uppercase tracking-wider group/btn">
                       Explore Packages
                       <ChevronRight size={16} className="text-orange-500 transition-transform group-hover/btn:translate-x-1" />
                     </button>
@@ -204,9 +204,9 @@ const navigate = useNavigate();
             <span className="text-teal-500 font-serif italic text-lg sm:text-xl mb-2 block">
               {service.subtitle}
             </span>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 sm:mb-6 leading-tight">
-              {service.title}
-            </h2>
+<h2 className="text-3xl sm:text-4xl md:text-5xl mb-4 sm:mb-6 leading-tight text-gray-500">
+  {service.title}
+</h2>
             <p className="text-base sm:text-lg opacity-80 mb-6 sm:mb-8 leading-relaxed max-w-xl">
               {service.description}
             </p>

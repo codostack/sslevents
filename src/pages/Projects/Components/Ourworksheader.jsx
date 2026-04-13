@@ -46,7 +46,7 @@ const ConstructionLanding = () => {
           <span className="uppercase tracking-[0.3em] text-xs font-bold text-white/80 mb-4 block">
             Let&apos;s Build Your Dream Event
           </span>
-          <h1 className="text-4xl lg:text-5xl font-bold leading-tight mb-6">
+          <h1 className="text-4xl lg:text-5xl leading-tight mb-6">
             Every Event is a Journey
           </h1>
           <p className="max-w-md text-white/80 leading-relaxed mb-8">

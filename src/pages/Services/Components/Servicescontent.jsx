@@ -292,7 +292,7 @@ const EventApp = () => {
       <div className="max-w-[1400px] mx-auto px-4 lg:px-8 pt-16">
 
         <header className="mb-16 ml-2">
-          <h1 className="text-4xl md:text-6xl font-default text-gray-900 tracking-tighter">
+          <h1 className="text-4xl md:text-6xl font-default text-gray-500 tracking-tighter">
             Our <span className="text-teal-600">Services.</span>
           </h1>
           <div className="max-w-lg">

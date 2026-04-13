@@ -38,7 +38,7 @@ export default function ServicesHeader() {
 
           {/* LEFT SIDE */}
           <div className="text-white">
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 sm:mb-4">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl mb-3 sm:mb-4">
               About Our Services
             </h2>
             <p className="text-gray-200 mb-5 sm:mb-6 leading-relaxed text-sm sm:text-base">
@@ -50,7 +50,7 @@ export default function ServicesHeader() {
 
 <button
   onClick={handleWhatsApp}
-  className="bg-orange-500 hover:bg-orange-600 px-5 sm:px-6 py-2.5 sm:py-3 text-white font-semibold text-sm sm:text-base"
+  className="bg-orange-500 hover:bg-orange-600 px-5 sm:px-6 py-2.5 sm:py-3 text-white text-sm sm:text-base"
 >
   Get Started
 </button>
@@ -59,7 +59,7 @@ export default function ServicesHeader() {
           {/* RIGHT SIDE — hidden on small mobile, visible from sm up */}
           <div className="hidden sm:flex justify-center md:justify-end">
             <div className="bg-gray-800/60 backdrop-blur-md text-white p-6 sm:p-8 max-w-md w-full">
-              <h1 className="text-xl sm:text-2xl md:text-3xl font-bold mb-3 sm:mb-4">
+              <h1 className="text-xl sm:text-2xl md:text-3xl mb-3 sm:mb-4">
                 Design Your Event Experience
               </h1>
               <p className="text-xs sm:text-sm text-gray-200 mb-5 sm:mb-6">
@@ -69,7 +69,7 @@ export default function ServicesHeader() {
               </p>
 <button
   onClick={() => navigate("/about")}
-  className="bg-teal-500 px-5 py-2 font-semibold text-sm sm:text-base"
+  className="bg-teal-500 px-5 py-2 text-sm sm:text-base"
 >
   Learn More
 </button>

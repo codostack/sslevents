@@ -1,54 +1,123 @@
-import { motion } from 'framer-motion';
-import project3 from "../../../assets/project/project3.jpg";
-import project4 from "../../../assets/project/project4.jpg";
-import project5 from "../../../assets/project/project5.jpg";
-import project6 from "../../../assets/project/project6.jpg";
-import project7 from "../../../assets/project/project7.jpg";
+import { useEffect, useRef, useState } from 'react';
 
 const EVENTS = [
-  { id: 1, title: "Grand Wedding Gala", loc: "Palakkad", img: project3 },
-  { id: 2, title: "Tech Innovation Summit", loc: "Kochi", img: project4 },
-  { id: 3, title: "Corporate Excellence", loc: "Bangalore", img: project5 },
-  { id: 4, title: "Destination Beach Fest", loc: "Goa", img: project6 },
-  { id: 5, title: "Art & Culture Exhibit", loc: "Mumbai", img: project7 },
+  { id: 1, title: "Event 1", videoId: "NbUffwlaz2E" },
+  { id: 2, title: "Event 2", videoId: "27UdXYvpn5g" },
+  { id: 3, title: "Event 3", videoId: "0_LWl0_7NjI" },
+  { id: 4, title: "Event 4", videoId: "27UdXYvpn5g" },
+  { id: 5, title: "Event 5", videoId: "LoP0IZ4j3lc" },
+  { id: 6, title: "Event 6", videoId: "zXssl9IJ1Ao" },
+  { id: 7, title: "Event 7", videoId: "an3VPANZjFs" },
+  { id: 8, title: "Event 8", videoId: "Q_y-s8OkoOw" },
+  { id: 9, title: "Event 9", videoId: "I2GpNw6VoYY" },
+  { id: 10, title: "Event 10", videoId: "k0j7u47WDVA" },
 ];
 
-const ScrollingColumn = ({ items, reverse = false, cardW, cardH, gap }) => {
-  const totalH = items.length * (cardH + gap);
+const SPEED = 0.3; // px per frame — lower = slower scroll
+
+const VideoCard = ({ item, cardW, cardH }) => {
+  const [hovered, setHovered] = useState(false);
+  const [iframeReady, setIframeReady] = useState(false);
+  const timerRef = useRef(null);
+
+  const handleMouseEnter = () => {
+    timerRef.current = setTimeout(() => {
+      setHovered(true);
+      setIframeReady(true);
+    }, 150);
+  };
+
+  const handleMouseLeave = () => {
+    clearTimeout(timerRef.current);
+    setHovered(false);
+  };
 
   return (
     <div
-      style={{ width: cardW, overflow: 'hidden', height: '100%' }}
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+      style={{ width: cardW, height: cardH, flexShrink: 0 }}
+      className="overflow-hidden border border-white/20 relative cursor-pointer shadow-xl"
     >
-      <motion.div
-        style={{ display: 'flex', flexDirection: 'column', gap }}
-        animate={{ y: reverse ? [0, -totalH] : [-totalH, 0] }}
-        transition={{
-          repeat: Infinity,
-          ease: 'linear',
-          duration: items.length * 4,
+      {/* YouTube thumbnail as poster */}
+      <img
+        src={`https://img.youtube.com/vi/${item.videoId}/hqdefault.jpg`}
+        className="w-full h-full object-cover"
+        style={{
+          transform: hovered ? 'scale(1.08)' : 'scale(1)',
+          transition: 'transform 0.7s ease',
         }}
+        alt={item.title}
+      />
+
+      {/* Iframe only injected on first hover — no load impact on mount */}
+      {iframeReady && (
+        <iframe
+          className="absolute inset-0 w-full h-full"
+          style={{
+            opacity: hovered ? 1 : 0,
+            transition: 'opacity 0.4s ease',
+            pointerEvents: hovered ? 'auto' : 'none',
+            border: 'none',
+          }}
+          src={
+            hovered
+              ? `https://www.youtube.com/embed/${item.videoId}?autoplay=1&mute=1&controls=0&loop=1&playlist=${item.videoId}&modestbranding=1&rel=0`
+              : undefined
+          }
+          title={item.title}
+          allow="autoplay; encrypted-media"
+          loading="lazy"
+        />
+      )}
+    </div>
+  );
+};
+
+const ScrollingColumn = ({ items, reverse = false, cardW, cardH, gap, pauseSignal }) => {
+  const innerRef = useRef(null);
+  const posRef = useRef(reverse ? 0 : -(items.length * (cardH + gap)));
+  const pausedRef = useRef(false);
+  const rafRef = useRef(null);
+  const totalH = items.length * (cardH + gap);
+
+  useEffect(() => {
+    pausedRef.current = pauseSignal;
+  }, [pauseSignal]);
+
+  useEffect(() => {
+    const tick = () => {
+      if (!pausedRef.current) {
+        posRef.current += reverse ? -SPEED : SPEED;
+        if (reverse && posRef.current <= -totalH) posRef.current = 0;
+        if (!reverse && posRef.current >= 0) posRef.current = -totalH;
+        if (innerRef.current) {
+          innerRef.current.style.transform = `translateY(${posRef.current}px)`;
+        }
+      }
+      rafRef.current = requestAnimationFrame(tick);
+    };
+    rafRef.current = requestAnimationFrame(tick);
+    return () => cancelAnimationFrame(rafRef.current);
+  }, [reverse, totalH]);
+
+  const allItems = [...items, ...items, ...items, ...items];
+
+  return (
+    <div style={{ width: cardW, overflow: 'hidden', height: '100%' }}>
+      <div
+        ref={innerRef}
+        style={{ display: 'flex', flexDirection: 'column', gap }}
       >
-        {/* Render 4x to ensure no gap at seam on any screen height */}
-        {[...items, ...items, ...items, ...items].map((item, idx) => (
-          <div
+        {allItems.map((item, idx) => (
+          <VideoCard
             key={`${item.id}-${idx}`}
-            style={{ width: cardW, height: cardH, flexShrink: 0 }}
-            className="overflow-hidden border border-white/20 relative group cursor-pointer shadow-xl"
-          >
-            <img
-              src={item.img}
-              className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-              alt={item.title}
-            />
-            <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-              <p className="text-[10px] text-white font-bold uppercase tracking-widest">
-                {item.loc}
-              </p>
-            </div>
-          </div>
+            item={item}
+            cardW={cardW}
+            cardH={cardH}
+          />
         ))}
-      </motion.div>
+      </div>
     </div>
   );
 };
@@ -56,38 +125,56 @@ const ScrollingColumn = ({ items, reverse = false, cardW, cardH, gap }) => {
 const EventArcScroll = () => {
   const isMobile = typeof window !== 'undefined' && window.innerWidth < 768;
 
-  const cardW  = isMobile ? 90  : 288;
-  const cardH  = isMobile ? 60  : 192;
-  const gap    = isMobile ? 10  : 24;
-  const px     = isMobile ? 12  : 96;
+  const cardW = isMobile ? 90  : 288;
+  const cardH = isMobile ? 60  : 192;
+  const gap   = isMobile ? 10  : 24;
+  const px    = isMobile ? 12  : 96;
+
+  const [col1Paused, setCol1Paused] = useState(false);
+  const [col2Paused, setCol2Paused] = useState(false);
 
   return (
     <div
       className="relative bg-[#0a0a0a] text-white font-sans flex items-center justify-center"
       style={{ minHeight: '100svh', overflow: 'hidden' }}
     >
-      {/* Scrolling columns — absolutely fill the container */}
+      {/* Scrolling columns */}
       <div
         className="absolute inset-0 flex justify-between"
         style={{ padding: `0 ${px}px` }}
       >
-        <ScrollingColumn
-          items={EVENTS}
-          reverse={false}
-          cardW={cardW}
-          cardH={cardH}
-          gap={gap}
-        />
-        <ScrollingColumn
-          items={EVENTS}
-          reverse={true}
-          cardW={cardW}
-          cardH={cardH}
-          gap={gap}
-        />
+        <div
+          style={{ height: '100%' }}
+          onMouseEnter={() => setCol1Paused(true)}
+          onMouseLeave={() => setCol1Paused(false)}
+        >
+          <ScrollingColumn
+            items={EVENTS}
+            reverse={false}
+            cardW={cardW}
+            cardH={cardH}
+            gap={gap}
+            pauseSignal={col1Paused}
+          />
+        </div>
+
+        <div
+          style={{ height: '100%' }}
+          onMouseEnter={() => setCol2Paused(true)}
+          onMouseLeave={() => setCol2Paused(false)}
+        >
+          <ScrollingColumn
+            items={EVENTS}
+            reverse={true}
+            cardW={cardW}
+            cardH={cardH}
+            gap={gap}
+            pauseSignal={col2Paused}
+          />
+        </div>
       </div>
 
-      {/* Fade masks top & bottom */}
+      {/* Fade masks */}
       <div
         className="absolute inset-x-0 top-0 z-20 pointer-events-none"
         style={{ height: 80, background: 'linear-gradient(to bottom, #0a0a0a, transparent)' }}
@@ -102,8 +189,8 @@ const EventArcScroll = () => {
         <h2 className="text-orange-500 font-bold tracking-[0.4em] text-[9px] md:text-xs mb-2 uppercase">
           Curated Experiences
         </h2>
-
-        <h1 className="font-black tracking-tighter leading-none uppercase"
+        <h1
+          className="font-black tracking-tighter leading-none uppercase"
           style={{ fontSize: 'clamp(2rem, 8vw, 5rem)' }}
         >
           ELEVATING <br />
@@ -114,10 +201,9 @@ const EventArcScroll = () => {
             VISIONS
           </span>
         </h1>
-
         <div className="w-10 md:w-12 h-[2px] bg-orange-500 my-4 md:my-6" />
-
-        <p className="text-zinc-400 uppercase leading-relaxed"
+        <p
+          className="text-zinc-400 uppercase leading-relaxed"
           style={{ fontSize: 'clamp(8px, 2vw, 11px)', letterSpacing: '0.4em', maxWidth: 220 }}
         >
           Crafting moments that <br /> resonate forever

@@ -2,16 +2,57 @@ import React, { useEffect, useState, useRef, useCallback } from "react";
 import { Briefcase, Wind, MapPin, Music, Camera, Utensils, Flower2, Star, ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import about13 from "../../../assets/about/about13.avif";
+import about from "../../../assets/home/home10.avif";
 
 const services = [
-  { icon: Briefcase, label: "Corporate Events", tag: "Business", short: "Corporate", desc: "High-impact conferences, executive summits & unforgettable brand activations.", color: "#0a1628", accent: "#2563eb", light: "#dbeafe", grad: "linear-gradient(135deg, #0a1628 60%, #1e3a7b)" },
-  { icon: Wind, label: "Dream Weddings", tag: "Romance", short: "Weddings", desc: "Breathtaking ceremonies, floral elegance & memories that last forever.", color: "#1e0533", accent: "#a21caf", light: "#fae8ff", grad: "linear-gradient(135deg, #1e0533 60%, #5b21b6)" },
-  { icon: MapPin, label: "Destination", tag: "Travel", short: "Destination", desc: "Exotic venues, seamless logistics & world-class global event execution.", color: "#052e16", accent: "#16a34a", light: "#dcfce7", grad: "linear-gradient(135deg, #052e16 60%, #14532d)" },
-  { icon: Music, label: "Live Concerts", tag: "Music", short: "Live Music", desc: "World-class artists, electrifying DJs & live experiences your guests will rave about.", color: "#2d1000", accent: "#ea580c", light: "#ffedd5", grad: "linear-gradient(135deg, #2d1000 60%, #7c2d12)" },
-  { icon: Camera, label: "Photography", tag: "Visuals", short: "Photo & Film", desc: "Cinematic storytelling, aerial drone footage & award-winning post-production.", color: "#0c0c2e", accent: "#7c3aed", light: "#ede9fe", grad: "linear-gradient(135deg, #0c0c2e 60%, #1e1b4b)" },
-  { icon: Utensils, label: "Fine Catering", tag: "Gourmet", short: "Catering", desc: "Michelin-inspired menus, live cooking stations & world-class bar service.", color: "#3d0808", accent: "#dc2626", light: "#fee2e2", grad: "linear-gradient(135deg, #3d0808 60%, #7f1d1d)" },
-  { icon: Flower2, label: "Floral Design", tag: "Décor", short: "Florals", desc: "Bespoke installations, archways & centrepieces that define the space.", color: "#2d0a24", accent: "#db2777", light: "#fce7f3", grad: "linear-gradient(135deg, #2d0a24 60%, #831843)" },
-  { icon: Star, label: "VIP Experience", tag: "Exclusive", short: "VIP", desc: "Priority access, private lounges, concierge & red-carpet treatment.", color: "#0f1f05", accent: "#65a30d", light: "#ecfccb", grad: "linear-gradient(135deg, #0f1f05 60%, #1a3a0a)" },
+  {
+    icon: Briefcase, label: "Corporate Events", tag: "Business", short: "Corporate",
+    desc: "High-impact conferences, executive summits & unforgettable brand activations.",
+    color: "#0a1628", accent: "#2563eb", light: "#dbeafe",
+    image: about,
+  },
+  {
+    icon: Wind, label: "Dream Weddings", tag: "Romance", short: "Weddings",
+    desc: "Breathtaking ceremonies, floral elegance & memories that last forever.",
+    color: "#1e0533", accent: "#a21caf", light: "#fae8ff",
+    image: "https://images.unsplash.com/photo-1519741497674-611481863552?w=800&q=80",
+  },
+  {
+    icon: MapPin, label: "Destination", tag: "Travel", short: "Destination",
+    desc: "Exotic venues, seamless logistics & world-class global event execution.",
+    color: "#052e16", accent: "#16a34a", light: "#dcfce7",
+    image: "https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?w=800&q=80",
+  },
+  {
+    icon: Music, label: "Live Concerts", tag: "Music", short: "Live Music",
+    desc: "World-class artists, electrifying DJs & live experiences your guests will rave about.",
+    color: "#2d1000", accent: "#ea580c", light: "#ffedd5",
+    image: "https://images.unsplash.com/photo-1459749411175-04bf5292ceea?w=800&q=80",
+  },
+  {
+    icon: Camera, label: "Photography", tag: "Visuals", short: "Photo & Film",
+    desc: "Cinematic storytelling, aerial drone footage & award-winning post-production.",
+    color: "#0c0c2e", accent: "#7c3aed", light: "#ede9fe",
+    image: "https://img.freepik.com/free-photo/professional-equipment-camera-tripod-stand-field-front-prepared-table-evening-time_146671-14420.jpg?semt=ais_hybrid&w=740&q=80",
+  },
+  {
+    icon: Utensils, label: "Fine Catering", tag: "Gourmet", short: "Catering",
+    desc: "Michelin-inspired menus, live cooking stations & world-class bar service.",
+    color: "#3d0808", accent: "#dc2626", light: "#fee2e2",
+    image: "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=800&q=80",
+  },
+  {
+    icon: Flower2, label: "Floral Design", tag: "Décor", short: "Florals",
+    desc: "Bespoke installations, archways & centrepieces that define the space.",
+    color: "#2d0a24", accent: "#db2777", light: "#fce7f3",
+    image: "https://www.bhg.com/thmb/X-fiFcZvQMn5RkW482EjBsJjDRw=/1080x0/filters:no_upscale():strip_icc()/arranging-cala-lilly-with-floral-arrangement-889361ea-35648aff84214c6192cb3a5692a5a2ee.jpg",
+  },
+  {
+    icon: Star, label: "VIP Experience", tag: "Exclusive", short: "VIP",
+    desc: "Priority access, private lounges, concierge & red-carpet treatment.",
+    color: "#0f1f05", accent: "#65a30d", light: "#ecfccb",
+    image: "https://images.unsplash.com/photo-1531058020387-3be344556be6?w=800&q=80",
+  },
 ];
 
 export default function EventDesign() {
@@ -74,7 +115,7 @@ export default function EventDesign() {
         @keyframes progfill { from { width: 0% } to { width: 100% } }
       `}</style>
 
-      {/* ── DESKTOP layout (lg+): unchanged ── */}
+      {/* ── DESKTOP layout (lg+) ── */}
       <div className="hidden lg:flex p-10 lg:p-16 min-h-screen">
         <div className="grid grid-cols-[4fr_5fr_3fr] gap-10 items-stretch w-full min-h-[90vh]">
 
@@ -115,14 +156,13 @@ export default function EventDesign() {
       {/* ── MOBILE / TABLET layout (below lg) ── */}
       <div className="lg:hidden flex flex-col">
 
-        {/* Hero image — full width, fixed height */}
+        {/* Hero image */}
         <div className="relative w-full h-[52vw] min-h-[220px] max-h-[360px] overflow-hidden">
           <img
             src={about13}
             alt="Main Event"
             className="w-full h-full object-cover block"
           />
-          {/* Gradient overlay for heading legibility */}
           <div className="absolute inset-0 bg-gradient-to-b from-black/10 via-transparent to-black/40" />
         </div>
 
@@ -136,7 +176,7 @@ export default function EventDesign() {
           </p>
         </div>
 
-        {/* Service card — full width with horizontal padding */}
+        {/* Service card */}
         <div className="px-5 sm:px-8 pb-10">
           <ServiceCard
             pkg={pkg}
@@ -154,30 +194,48 @@ export default function EventDesign() {
   );
 }
 
-/* ── Shared card component used in both layouts ── */
+/* ── Shared card component ── */
 function ServiceCard({ pkg, Icon, active, animClass, prev, nextSlide, goTo, mobile = false }) {
   const navigate = useNavigate();
   return (
     <div className={`rounded-[20px] overflow-hidden border border-slate-200 shadow-[0_8px_40px_rgba(0,0,0,0.10)] bg-white flex flex-col ${mobile ? "w-full" : "h-full"}`}>
 
-      {/* Hero section */}
+      {/* Hero section — IMAGE instead of gradient */}
       <div
-        className={`relative overflow-hidden flex flex-col justify-end p-5 pb-6 transition-all duration-500 ${mobile ? "min-h-[220px] sm:min-h-[260px]" : "flex-1 min-h-[280px]"}`}
-        style={{ background: pkg.grad }}
+        className={`relative overflow-hidden flex flex-col justify-end p-5 pb-6 ${mobile ? "min-h-[220px] sm:min-h-[260px]" : "flex-1 min-h-[280px]"}`}
       >
+        {/* Background image with crossfade on change */}
+        <img
+          key={`img-${active}`}
+          src={pkg.image}
+          alt={pkg.label}
+          className={`absolute inset-0 w-full h-full object-cover ${animClass}`}
+        />
+
+        {/* Dark overlay so text stays legible */}
+        <div
+          className="absolute inset-0"
+          style={{ background: `linear-gradient(to top, ${pkg.color}ee 0%, ${pkg.color}99 45%, transparent 100%)` }}
+        />
+
+        {/* Subtle dot grid texture */}
         <div className="absolute inset-0 bg-[radial-gradient(circle,rgba(255,255,255,0.07)_1px,transparent_1px)] bg-[length:20px_20px]" />
-        <div className="absolute inset-0 bg-[repeating-linear-gradient(-45deg,transparent,transparent_28px,rgba(255,255,255,0.025)_28px,rgba(255,255,255,0.025)_29px)]" />
+
+        {/* Accent glow */}
         <div className="absolute w-[200px] h-[200px] rounded-full -top-14 -right-14 opacity-15 blur-[40px] transition-colors duration-500" style={{ background: pkg.accent }} />
 
-        <div className="absolute top-5 left-5 font-['Playfair_Display'] text-[54px] font-black text-white/5 leading-none select-none">
+        {/* Big number watermark */}
+        <div className="absolute top-5 left-5 font-['Playfair_Display'] text-[54px] font-black text-white/10 leading-none select-none">
           {String(active + 1).padStart(2, "0")}
         </div>
 
-        <div className="absolute top-5 right-5 w-[52px] h-[52px] rounded-2xl flex items-center justify-center transition-all duration-500" style={{ background: `${pkg.accent}2a` }}>
+        {/* Icon badge */}
+        <div className="absolute top-5 right-5 w-[52px] h-[52px] rounded-2xl flex items-center justify-center transition-all duration-500" style={{ background: `${pkg.accent}2a`, backdropFilter: "blur(6px)" }}>
           <Icon size={24} color={pkg.accent} />
         </div>
 
-        <div key={active} className={animClass}>
+        {/* Tag + Label (animated) */}
+        <div key={active} className={animClass} style={{ position: "relative", zIndex: 1 }}>
           <div className="inline-block text-[9px] font-bold tracking-[0.15em] uppercase px-3 py-1 rounded-full mb-2 w-fit" style={{ background: `${pkg.accent}30`, color: pkg.light }}>
             {pkg.tag}
           </div>
@@ -201,17 +259,17 @@ function ServiceCard({ pkg, Icon, active, animClass, prev, nextSlide, goTo, mobi
 
       {/* CTA + nav arrows */}
       <div className="px-5 py-4 flex items-center gap-2">
-<button
-  onClick={() =>
-    navigate("/services", {
-      state: { service: pkg.label } // ✅ PASS SELECTED SERVICE
-    })
-  }
-  className="flex-1 py-[11px] rounded-[10px] text-[12px] font-semibold tracking-wider text-white flex items-center justify-center gap-1.5 transition-all duration-500 active:scale-95 shadow-sm"
-  style={{ background: pkg.accent }}
->
-  Learn More <ArrowRight size={13} />
-</button>
+        <button
+          onClick={() =>
+            navigate("/services", {
+              state: { service: pkg.label },
+            })
+          }
+          className="flex-1 py-[11px] rounded-[10px] text-[12px] font-semibold tracking-wider text-white flex items-center justify-center gap-1.5 transition-all duration-500 active:scale-95 shadow-sm"
+          style={{ background: pkg.accent }}
+        >
+          Learn More <ArrowRight size={13} />
+        </button>
         <button
           onClick={prev}
           className="w-[38px] h-[38px] rounded-[10px] border-[1.5px] border-slate-200 bg-white flex items-center justify-center cursor-pointer flex-shrink-0 hover:bg-slate-50 transition-colors"
