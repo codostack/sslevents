@@ -63,7 +63,7 @@ export default function EventHero() {
 const handleWhatsAppBooking = () => {
   if (!validate()) return;
 
-  const phoneNumber = "917592825349";
+  const phoneNumber = "971508536881";
 
   const message = `Hi, I want to book an event.
 

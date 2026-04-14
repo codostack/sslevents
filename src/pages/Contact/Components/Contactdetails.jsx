@@ -12,7 +12,7 @@ const data = {
     mapUrl: "https://www.google.com/maps?q=Bangalore,India&output=embed"
   },
   dubai: {
-    phone: "+971 55 964 3050",
+    phone: "+971 50 853 6881",
     email: "info@sslevents.ae",
     address: "Dubai, United Arab Emirates",
     mapUrl: "https://www.google.com/maps?q=Dubai,United+Arab+Emirates&output=embed"

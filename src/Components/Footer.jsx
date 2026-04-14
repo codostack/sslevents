@@ -98,7 +98,7 @@ const socials = [
             <div className="space-y-3">
               {[
                 { icon: Mail, text: "info@sslevents.ae" },
-{ icon: Phone, text: "+971 54 291 0172 / +91 9902658178" },
+{ icon: Phone, text: "+971 50 853 6881 / +91 9902658178" },
                 { icon: MapPin, text: "Dubai, United Arab Emirates" },
               ].map((c, i) => (
                 <div key={i} className="flex items-center gap-3 p-3 rounded-xl bg-[#0f0f11] border border-zinc-800 hover:border-orange-500/40 transition">
