@@ -15,7 +15,7 @@ import conference3 from '../../../assets/images/conference3.jpg';
 import productLaunch1 from '../../../assets/images/ProductLaunche1.jpg';
 import productLaunch2 from '../../../assets/images/ProductLaunche2.jpg';
 import productLaunch3 from '../../../assets/images/ProductLaunche3.jpg';
-import home1 from '../../../assets/home/home1.jpeg';
+import home1 from '../../../assets/home/home1.jpeg'; 
 import home4 from '../../../assets/home/home4.jpeg';
 import img12 from '../../../assets/images/12.png';
 import services10 from "../../../assets/services/services10.jpg";
