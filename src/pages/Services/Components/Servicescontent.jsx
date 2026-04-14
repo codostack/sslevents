@@ -8,13 +8,13 @@ import { motion, AnimatePresence } from 'framer-motion';
  
 // --- Local Image Imports ---
 // import corporate1 from '../../../assets/images/corporate1.jpg';
-// import corporate2 from '../../../assets/images/corporate2.jpg';
-// import conference1 from '../../../assets/images/conference1.jpg'; 
-// import conference2 from '../../../assets/images/conference2.jpg';
-// import conference3 from '../../../assets/images/conference3.jpg';
-// import productLaunch1 from '../../../assets/images/ProductLaunche1.jpg';
-// import productLaunch2 from '../../../assets/images/ProductLaunche2.jpg';
-// import productLaunch3 from '../../../assets/images/ProductLaunche3.jpg';
+import corporate2 from '../../../assets/images/corporate2.jpg';
+import conference1 from '../../../assets/images/conference1.jpg'; 
+import conference2 from '../../../assets/images/conference2.jpg';
+import conference3 from '../../../assets/images/conference3.jpg';
+import productLaunch1 from '../../../assets/images/ProductLaunche1.jpg';
+import productLaunch2 from '../../../assets/images/ProductLaunche2.jpg';
+import productLaunch3 from '../../../assets/images/ProductLaunche3.jpg';
 import home1 from '../../../assets/home/home1.jpeg';
 import home4 from '../../../assets/home/home4.jpeg';
 import img12 from '../../../assets/images/12.png';
@@ -42,8 +42,8 @@ const SERVICES_DATA = [
     title: "Conferences",
     category: "Knowledge",
     icon: <Presentation size={18} />,
-    // thumbnail: conference1,
-    // images: [conference1, conference2, conference3],
+    thumbnail: conference1,
+    images: [conference1, conference2, conference3],
     shortDesc: "Professional planning for industry summits, seminars, and educational conferences.",
     fullDesc: "The ability of all the various components to work for the organization of successful conferences and corporate events. We serve as a communication link between all conference components, giving your speakers, technical personnel, and event management team the tools they need to offer the ideal conference experience.",
     works: ["Proven expertise in managing conferences of all sizes and scopes.", "Cutting-edge technology for a professional and memorable experience.", "A dedicated team committed to excellence and precision."]
@@ -53,8 +53,8 @@ const SERVICES_DATA = [
     title: "Product Launches",
     category: "Marketing",
     icon: <Zap size={18} />,
-    // thumbnail: productLaunch1,
-    // images: [productLaunch1, productLaunch2, productLaunch3],
+    thumbnail: productLaunch1,
+    images: [productLaunch1, productLaunch2, productLaunch3],
     shortDesc: "Creating high-impact product reveals that captivate audiences and generate buzz.",
     fullDesc: "From stage design to lighting, AV production, and brand storytelling, we ensure every product launch makes a strong, memorable impression.",
     works: ["Venue selection and design", "Innovative stage setups and branding", "Interactive product presentations"]
