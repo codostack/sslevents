@@ -7,8 +7,8 @@ import {
 import { motion, AnimatePresence } from 'framer-motion';
  
 // --- Local Image Imports ---
-// import corporate1 from '../../../assets/images/corporate1.jpg';
-// import corporate2 from '../../../assets/images/corporate2.jpg';
+import corporate1 from '../../../assets/images/corporate1.jpg';
+import corporate2 from '../../../assets/images/corporate2.jpg';
 import conference1 from '../../../assets/images/conference1.jpg'; 
 import conference2 from '../../../assets/images/conference2.jpg';
 import conference3 from '../../../assets/images/conference3.jpg';
@@ -31,8 +31,8 @@ const SERVICES_DATA = [
     title: "Corporate Events",
     category: "Professional",
     icon: <Users size={18} />,
-    // thumbnail: corporate1,
-    // images: [corporate1, corporate2, home1],
+    thumbnail: corporate1,
+    images: [corporate1, corporate2, home1],
     shortDesc: "End-to-end management for high-level corporate gatherings, ensuring professionalism and memorable experiences.",
     fullDesc: "We transform standard meetings into immersive brand experiences. Our team handles everything from venue sourcing to agenda planning, AV setup, catering, and guest engagement to ensure flawless corporate events.",
     works: ["Expertise in delivering professional and memorable events.", "Tailored solutions to align with your business objectives.", "Flawless execution, ensuring every detail is covered."]
