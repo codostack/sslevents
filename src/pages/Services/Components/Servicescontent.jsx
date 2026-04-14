@@ -1,13 +1,13 @@
 import React, { useState, useEffect, useCallback, memo } from 'react';
-import { 
-  X, ArrowRight, CheckCircle2, Users, Zap, Star, 
+import {
+  X, ArrowRight, CheckCircle2, Users, Zap, Star,
   Layout, Music, Mic2, Utensils, Presentation, Disc,
   ChevronLeft, ChevronRight
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
-
+ 
 // --- Local Image Imports ---
-import corporate1 from '../../../assets/images/corporate1.jpg'; 
+import corporate1 from '../../../assets/images/corporate1.jpg';
 import corporate2 from '../../../assets/images/corporate2.jpg';
 import conference1 from '../../../assets/images/conference1.jpg';
 import conference2 from '../../../assets/images/conference2.jpg';
@@ -30,7 +30,7 @@ const SERVICES_DATA = [
     id: 1,
     title: "Corporate Events",
     category: "Professional",
-    icon: <Users size={18}/>,
+    icon: <Users size={18} />,
     thumbnail: corporate1,
     images: [corporate1, corporate2, home1],
     shortDesc: "End-to-end management for high-level corporate gatherings, ensuring professionalism and memorable experiences.",
@@ -41,7 +41,7 @@ const SERVICES_DATA = [
     id: 2,
     title: "Conferences",
     category: "Knowledge",
-    icon: <Presentation size={18}/>,
+    icon: <Presentation size={18} />,
     thumbnail: conference1,
     images: [conference1, conference2, conference3],
     shortDesc: "Professional planning for industry summits, seminars, and educational conferences.",
@@ -52,7 +52,7 @@ const SERVICES_DATA = [
     id: 3,
     title: "Product Launches",
     category: "Marketing",
-    icon: <Zap size={18}/>,
+    icon: <Zap size={18} />,
     thumbnail: productLaunch1,
     images: [productLaunch1, productLaunch2, productLaunch3],
     shortDesc: "Creating high-impact product reveals that captivate audiences and generate buzz.",
@@ -63,7 +63,7 @@ const SERVICES_DATA = [
     id: 4,
     title: "Exhibition AV",
     category: "Hardware",
-    icon: <Layout size={18}/>,
+    icon: <Layout size={18} />,
     thumbnail: services10,
     images: [home4, home1, img12],
     shortDesc: "Cutting-edge audio-visual solutions for trade shows and exhibitions.",
@@ -74,7 +74,7 @@ const SERVICES_DATA = [
     id: 5,
     title: "Wedding Events",
     category: "Social",
-    icon: <Star size={18}/>,
+    icon: <Star size={18} />,
     thumbnail: services11,
     images: [home1, home4, img12],
     shortDesc: "Luxury wedding planning and bespoke celebrations for your most memorable day.",
@@ -85,7 +85,7 @@ const SERVICES_DATA = [
     id: 6,
     title: "AV Rentals",
     category: "Technical",
-    icon: <Mic2 size={18}/>,
+    icon: <Mic2 size={18} />,
     thumbnail: services12,
     images: [img12, home1, home4],
     shortDesc: "Professional-grade sound, lighting, and visual gear for flawless event execution.",
@@ -96,7 +96,7 @@ const SERVICES_DATA = [
     id: 7,
     title: "Gala Dinners",
     category: "Luxury",
-    icon: <Utensils size={18}/>,
+    icon: <Utensils size={18} />,
     thumbnail: services13,
     images: [home4, img12, home1],
     shortDesc: "Elegant gala dinners with premium catering, decor, and event styling.",
@@ -107,7 +107,7 @@ const SERVICES_DATA = [
     id: 8,
     title: "Live Performance",
     category: "Artistic",
-    icon: <Disc size={18}/>,
+    icon: <Disc size={18} />,
     thumbnail: services14,
     images: [home1, img12, home4],
     shortDesc: "Stage management and production for concerts, plays, and live entertainment.",
@@ -118,7 +118,7 @@ const SERVICES_DATA = [
     id: 9,
     title: "Concerts",
     category: "Mass Event",
-    icon: <Music size={18}/>,
+    icon: <Music size={18} />,
     thumbnail: services15,
     images: [img12, home4, home1],
     shortDesc: "Massive-scale concerts with full production management and audience engagement.",
@@ -179,9 +179,8 @@ const ImageSlider = ({ images, title }) => {
           <button
             key={idx}
             onClick={(e) => { e.stopPropagation(); setCurrent(idx); }}
-            className={`rounded-full transition-all duration-300 ${
-              idx === current ? 'bg-white w-5 h-1.5' : 'bg-white/50 w-1.5 h-1.5'
-            }`}
+            className={`rounded-full transition-all duration-300 ${idx === current ? 'bg-white w-5 h-1.5' : 'bg-white/50 w-1.5 h-1.5'
+              }`}
           />
         ))}
       </div>
