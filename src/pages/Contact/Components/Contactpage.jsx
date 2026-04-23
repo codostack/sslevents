@@ -154,26 +154,65 @@ export default function ContactPage() {
     setErrors((prev) => ({ ...prev, [field]: validateField(field, form[field]) }));
   };
 
-  const handleForm = (e) => {
-    e.preventDefault();
+const handleForm = (e) => {
+  e.preventDefault();
 
-    const fields = ["name", "phone", "email", "eventType", "location", "eventDate", "peopleCount", "message"];
-    const newTouched = {};
-    const newErrors = {};
-    fields.forEach((f) => {
-      newTouched[f] = true;
-      const err = validateField(f, form[f]);
-      if (err) newErrors[f] = err;
-    });
+  const fields = ["name", "phone", "email", "eventType", "location", "eventDate", "peopleCount", "message"];
+  const newTouched = {};
+  const newErrors = {};
 
-    setTouched(newTouched);
-    setErrors(newErrors);
+  fields.forEach((f) => {
+    newTouched[f] = true;
+    const err = validateField(f, form[f]);
+    if (err) newErrors[f] = err;
+  });
 
-    if (Object.keys(newErrors).length > 0) return;
+  setTouched(newTouched);
+  setErrors(newErrors);
 
-    setSubmitted(true);
-    setTimeout(() => setSubmitted(false), 3000);
-  };
+  if (Object.keys(newErrors).length > 0) return;
+
+  const whatsappNumber = "+971508536881";
+
+  const message = `*Event Enquiry*
+
+*Name:* ${form.name}
+*Phone:* ${form.phone}
+*Email:* ${form.email}
+*Event:* ${form.eventType}
+*Location:* ${form.location}
+*Date:* ${form.eventDate}
+*Guests:* ${form.peopleCount}
+
+*Message:*
+${form.message}`;
+
+  const url = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
+
+  window.open(url, "_blank");
+
+  // ✅ Show success
+  setSubmitted(true);
+
+  // ✅ Clear form AFTER success
+  setForm({
+    name: "",
+    phone: "",
+    email: "",
+    eventType: "",
+    location: "",
+    eventDate: "",
+    peopleCount: "",
+    message: "",
+  });
+
+  // ✅ Reset validation states
+  setTouched({});
+  setErrors({});
+  setIsOpen(false);
+
+  setTimeout(() => setSubmitted(false), 3000);
+};
 
   /* ── Auto-scroll services ── */
   useEffect(() => {

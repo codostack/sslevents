@@ -5,35 +5,57 @@ import { ChevronLeft, ChevronRight, Quote, Star } from 'lucide-react';
 const testimonials = [
   {
     id: 1,
-    name: "Arlene McCoy",
-    location: "Germany",
-    image: "https://i.pravatar.cc/150?u=1",
+    name: "Aishwarya Menon",
+    location: "Kochi, India",
+    image: "https://i.pravatar.cc/150?img=32",
     rating: 5,
     reviews: [
-      "The corporate gala was flawless. From lighting to coordination, everything was handled with extreme professionalism. They truly made our brand vision come to life in ways we didn't think possible.",
-      "The follow-up after the event was equally impressive. They provided a detailed breakdown and ensured every KPI was met beyond expectations."
+      "SSLEvents handled our wedding in Kochi so beautifully. Every detail—from stage design to lighting—was beyond expectations.",
+      "Their team was extremely professional and made sure everything ran smoothly without any stress for us."
     ]
   },
   {
     id: 2,
-    name: "Marcus Finn",
-    location: "USA",
-    image: "https://i.pravatar.cc/150?u=2",
+    name: "Rahul Nair",
+    location: "Bangalore, India",
+    image: "https://i.pravatar.cc/150?img=12",
     rating: 5,
     reviews: [
-      "Planning a destination wedding seemed impossible until we met this team. They managed vendors across three time zones and ensured our special day was stress-free.",
-      "Our guests are still talking about the welcome dinner. The atmosphere was intimate yet grand—exactly what we dreamed of."
+      "We organized a corporate annual day with SSLEvents. The stage, sound, and coordination were world-class.",
+      "Our management team was highly impressed with the execution and timely delivery of the entire event."
     ]
   },
   {
     id: 3,
-    name: "Sarah Chen",
-    location: "Singapore",
-    image: "https://i.pravatar.cc/150?u=3",
-    rating: 4,
+    name: "Fatima Shirin",
+    location: "Calicut, India",
+    image: "https://i.pravatar.cc/150?img=47",
+    rating: 5,
     reviews: [
-      "The tech conference was a huge success. The stage design was futuristic, and the live-streaming integration was seamless.",
-      "The networking lounge was the highlight! The interactive displays kept everyone engaged throughout the three-day event."
+      "The birthday event they organized for my daughter was magical. Kids loved every moment of it!",
+      "Decoration and entertainment were perfectly planned. Highly recommended team!"
+    ]
+  },
+  {
+    id: 4,
+    name: "John Mathew",
+    location: "Dubai, UAE",
+    image: "https://i.pravatar.cc/150?img=8",
+    rating: 5,
+    reviews: [
+      "We hosted a product launch in Dubai, and SSLEvents delivered international-level production quality.",
+      "The LED setup, lighting, and media coordination were flawless."
+    ]
+  },
+  {
+    id: 5,
+    name: "Sneha Varma",
+    location: "Trivandrum, India",
+    image: "https://i.pravatar.cc/150?img=20",
+    rating: 5,
+    reviews: [
+      "Our engagement ceremony was beautifully managed. The ambience created was romantic and elegant.",
+      "Everything was organized with great attention to detail."
     ]
   }
 ];

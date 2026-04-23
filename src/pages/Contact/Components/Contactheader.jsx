@@ -60,15 +60,15 @@ export default function ContactHeader() {
         <div className="grid grid-cols-2 gap-3">
           <div className="bg-white border border-orange-400 rounded-lg p-3 text-center">
             <p className="text-orange-500 text-[10px] uppercase mb-1">Call Us</p>
-            <p className="text-gray-800 font-semibold text-xs">(+876) 765 665</p>
+            <p className="text-gray-800 font-semibold text-xs">+971 55 964 3050</p>
           </div>
           <div className="bg-white border border-orange-400 rounded-lg p-3 text-center">
             <p className="text-orange-500 text-[10px] uppercase mb-1">Email</p>
-            <p className="text-gray-800 font-semibold text-xs">mail@company.com</p>
+            <p className="text-gray-800 font-semibold text-xs">info@sslevents.ae</p>
           </div>
           <div className="bg-white border border-orange-400 rounded-lg p-3 text-center">
             <p className="text-orange-500 text-[10px] uppercase mb-1">Location</p>
-            <p className="text-gray-800 font-semibold text-xs">London Eye, London</p>
+            <p className="text-gray-800 font-semibold text-xs">Dubai - United Arab Emirates</p>
           </div>
           <div className="bg-white border border-orange-400 rounded-lg p-3 text-center">
             <p className="text-orange-500 text-[10px] uppercase mb-1">Working</p>

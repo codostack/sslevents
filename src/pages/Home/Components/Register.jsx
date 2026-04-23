@@ -197,30 +197,67 @@ export default function ContactPage() {
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
-  const handleForm = (e) => {
-    e.preventDefault();
+const handleForm = (e) => {
+  e.preventDefault();
 
-    /* Touch all fields to trigger visible errors */
-    const allFields = {
-      name: true, phone: true, email: true, eventType: true,
-      location: true, eventDate: true, peopleCount: true, message: true,
-    };
-    setTouched(allFields);
-
-    const allValues = {
-      name: form.name, phone: form.phone, email: form.email,
-      eventType: form.eventType, location: form.location,
-      eventDate: form.eventDate, peopleCount: form.peopleCount,
-      message: form.message,
-    };
-    const errs = validate(allValues);
-    setErrors(errs);
-
-    if (Object.keys(errs).length > 0) return;
-
-    setSubmitted(true);
-    setTimeout(() => setSubmitted(false), 3000);
+  const allFields = {
+    name: true,
+    phone: true,
+    email: true,
+    eventType: true,
+    location: true,
+    eventDate: true,
+    peopleCount: true,
+    message: true,
   };
+
+  setTouched(allFields);
+
+  const errs = validate(form);
+  setErrors(errs);
+
+  if (Object.keys(errs).length > 0) return;
+
+  // ❗ Correct WhatsApp format
+  const whatsappNumber = "971508536881";
+
+  const text = `Hello, I want to plan an event:
+
+Name: ${form.name}
+Phone: ${form.phone}
+Email: ${form.email}
+Event Type: ${form.eventType}
+Location: ${form.location}
+Date: ${form.eventDate}
+People: ${form.peopleCount}
+
+Message:
+${form.message}`;
+
+  const url = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(text)}`;
+
+  window.open(url, "_blank");
+
+  setSubmitted(true);
+
+  // ✅ CLEAR FORM
+  setForm({
+    name: "",
+    phone: "",
+    email: "",
+    eventType: "",
+    location: "",
+    eventDate: "",
+    peopleCount: "",
+    message: "",
+  });
+
+  setTouched({});
+  setErrors({});
+  setIsOpen(false);
+
+  setTimeout(() => setSubmitted(false), 3000);
+};
 
   const dropdownStyle = {
     backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%23d1d5db'%3E%3Cpath stroke-width='2' d='M19 9l-7 7-7-7'/%3E%3C/svg%3E")`,

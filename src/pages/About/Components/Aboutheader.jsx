@@ -78,10 +78,10 @@ const handleWhatsApp = () => {
 
   const message = `Hi, I want to enquire about an event.
 
-📌 Event Type: ${eventType}
-📅 Date: ${date}
-👥 Guests: ${guests}
-🎯 Preference: ${preference}
+ Event Type: ${eventType}
+ Date: ${date}
+ Guests: ${guests}
+ Preference: ${preference}
 
 Please share details.`;
 

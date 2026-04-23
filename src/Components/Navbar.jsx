@@ -58,7 +58,6 @@ export default function Navbar() {
     height: "50px",
     width: "auto",
     objectFit: "contain",
-    filter: scrolled ? "none" : "brightness(0) invert(1)", // ✅ makes it white
     transition: "0.4s ease",
   }}
 />

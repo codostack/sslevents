@@ -67,10 +67,10 @@ const handleWhatsAppBooking = () => {
 
   const message = `Hi, I want to book an event.
 
-📌 Event Type: ${eventType}
-📅 Date: ${date}
-👥 Guests: ${guests}
-📍 Location: ${location}`;
+ Event Type: ${eventType}
+ Date: ${date}
+ Guests: ${guests}
+ Location: ${location}`;
 
   window.open(
     `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`,
@@ -136,21 +136,27 @@ const handleWhatsAppBooking = () => {
           </div>
 
           {/* Date */}
-          <div className="flex-1 w-full mt-4 md:mt-0">
-            <div className="flex items-center px-5 h-10 md:border-r border-gray-200">
-              <Calendar className="text-[#4dcad1] mr-3" size={20} />
-              <input
-                type="date"
-                value={date}
-                onChange={(e) => setDate(e.target.value)}
-                className="bg-transparent outline-none w-full"
-              />
+            <div className="flex-1 flex flex-col">
+              <div className="flex items-center gap-2 px-4 py-3 md:py-2 border-b md:border-b-0 md:border-r border-gray-200">
+                <Calendar size={18} className="text-[#39CABB] shrink-0" />
+                <input
+                  type="text"
+                  value={date}
+                  onFocus={(e) => (e.target.type = "date")}
+                  onBlur={(e) => {
+                    if (!e.target.value) e.target.type = "text";
+                  }}
+                  onChange={(e) => setDate(e.target.value)}
+                  placeholder="Date"
+                  className="bg-transparent text-gray-700 outline-none w-full text-sm"
+                />
+              </div>
+              {errors.date && (
+                <span className="text-red-500 text-xs px-4 mt-1">
+                  {errors.date}
+                </span>
+              )}
             </div>
-            {errors.date && (
-              <p className="text-red-500 text-xs px-5">{errors.date}</p>
-            )}
-          </div>
-
           {/* Guests */}
           <div className="flex-1 w-full mt-4 md:mt-0">
             <div className="flex items-center px-5 h-10 md:border-r border-gray-200">
